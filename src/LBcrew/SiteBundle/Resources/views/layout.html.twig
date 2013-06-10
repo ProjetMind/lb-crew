@@ -1,0 +1,16 @@
+{# empty Twig template #}
+
+{# Héritage du layout général #}
+{% extends "::layout.html.twig" %}
+
+{% block body %}
+
+    {% include "LBcrewSiteBundle:Site:MenuGauche.html.twig" %}
+
+    {% include "LBcrewSiteBundle:Site:MenuDroit.html.twig" %}
+
+    {% include "LBcrewSiteBundle:Site:index.html.twig" %}
+
+{% endblock body %}
+
+

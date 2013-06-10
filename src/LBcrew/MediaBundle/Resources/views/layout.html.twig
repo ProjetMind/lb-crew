@@ -1,0 +1,18 @@
+{# empty Twig template #}
+
+{# Héritage du layout général #}
+{% extends "::layout.html.twig" %}
+
+{% block title %} Lb crew - Ajouter une vidéo {% endblock %}
+
+{% block body %}
+
+    {% include "LBcrewMediaBundle:Media:MenuGauche.html.twig" %}
+
+    {% include "LBcrewMediaBundle:Media:MenuDroit.html.twig" %}
+
+    {% include "LBcrewMediaBundle:media:index.html.twig" %}
+
+{% endblock body %}
+
+

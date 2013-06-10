@@ -1,0 +1,33 @@
+
+Met à jour les dépendances :
+                                php ../composer.phar update
+
+Génération d'un nouveau bundle : 
+                                generate:bundle
+
+Génération d'une nouvelle entité :
+                                generate:doctrine:entity
+
+Création d'une base de données :
+                                doctrine:database:create
+
+Mets à jour les entités :
+                                doctrine:generate:entities LBcrewUserBundle:le nom de l'entité
+
+Création des tables de la base de données :
+                                doctrine:schema:update --dump-sql
+
+Mis à jour des tables de la base de données :
+                                doctrine:schema:update --force
+
+Génération d'un formulaire type
+                                doctrine:generate:form SdzBlogBundle:Categorie (exemple)
+
+Permet de tester une requete DQL avant de l'implémenter
+                                doctrine:query:dql "SELECT a FROM SdzBlogBundle:Article a"
+
+Permet de checker Assetic pour voir si il existe des éventuels bug
+                                php app/console assetic:dump
+
+Publlie les assetics
+                                php app/console assets:install --symlink web

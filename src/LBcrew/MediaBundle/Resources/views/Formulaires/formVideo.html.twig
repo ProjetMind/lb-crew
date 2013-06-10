@@ -1,0 +1,39 @@
+{# empty Twig template #}
+        
+<div class="input titre_video control-group">
+    {{ form_label(form.titre_video, 'Titre de la vidéo :') }}
+    <div class="controls">
+        {{ form_widget(form.titre_video) }} 
+    </div>
+    {{ form_errors(form.titre_video) }}   
+     
+</div>
+
+<div class="fichier control-group">
+    {{ form_label(form.file, 'Votre vidéo :') }}
+    <div class="controls">
+        {{ form_errors(form.file) }}
+    </div>
+    {{ form_widget(form.file) }}
+</div>
+
+<div class="textarea control-group">
+    {{ form_label(form.descrip_video, 'Déscription de la vidéo :') }}
+    <div class="controls">
+        {{ form_errors(form.descrip_video) }}
+    </div>
+    {{ form_widget(form.descrip_video) }}
+</div>
+
+{#<div class="collection">
+    {{ form_label(form.genres_video, 'Catégories') }}
+    {{ form_errors(form.genres_video) }}
+    {{ form_widget(form.genres_video) }}
+     <a href="#" id="add_category" class="btn">Ajouter une catégorie</a>   
+        
+</div> 
+         Ajout d'un lien pour ajouter un champ catégorie supplémentaire. #}
+
+
+        
+    

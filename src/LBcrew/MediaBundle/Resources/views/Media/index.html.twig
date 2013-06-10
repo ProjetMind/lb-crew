@@ -1,0 +1,28 @@
+{# empty Twig template #}
+
+<section>
+    <h1>Ajouter une vidéo</h1>
+    
+    <div class="form_add_media">
+        
+        {% include "LBcrewMediaBundle:Alertes:alerteAjoutVideoOk.html.twig" %}
+        
+        <form method="post" class="form-horizontal" {{ form_enctype(form) }} action="{{ path('ajouter_video') }}">
+        
+        {{ form_widget(form._token) }}
+        
+            {{ form_errors(form) }}
+            
+            {% include "LBcrewMediaBundle:Formulaires:formVideo.html.twig" %}
+            
+         {{ form_rest(form) }}
+        
+        <div class="submit">
+            <input type="submit" class="btn btn-primary" />
+        </div>
+    
+        </form>
+            
+    </div>
+    
+</section>

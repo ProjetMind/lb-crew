@@ -1,0 +1,5 @@
+
+lb_crew_racine:
+  pattern: /
+  defaults: { _controller: LBcrewSiteBundle:Site:index }
+  

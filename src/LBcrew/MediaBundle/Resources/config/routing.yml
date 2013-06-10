@@ -1,0 +1,9 @@
+
+# Vidéos
+ajouter_video:
+    pattern: /video/ajouter-une-video
+    defaults: { _controller: LBcrewMediaBundle:Video:ajouterVideo }
+    
+liste_video:
+  pattern: /video/liste-des-videos
+  defaults: { _controller: LBcrewMediaBundle:Video:listeVideo }

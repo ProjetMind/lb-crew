@@ -1,0 +1,22 @@
+{# empty Twig template #}
+
+<div id="HeaderNiveauTrois">
+    
+    <!-- Bouton de naviagtion rapide -->
+    <div id="btnNavRapide" class="btn-group blockNavRapide">
+        <button class="btn btn-primary">Navigation rapide</button>
+        <button class="btn dropdown-toggle" data-toggle="dropdown">
+    
+            <span class="caret"></span>
+            
+        </button>
+        
+        <ul class="dropdown-menu">
+            {% include "::navRapide.html.twig" %}
+        </ul>
+    </div>
+    
+    <!-- Barre de navigation musique -->
+    {% include "::barreNavigation.html.twig" %}
+    
+</div>

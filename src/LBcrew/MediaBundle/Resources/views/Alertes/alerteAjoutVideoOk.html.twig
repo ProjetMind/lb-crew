@@ -1,0 +1,8 @@
+{# empty Twig template #}
+
+{% for flashMessage in app.session.flashbag.get('notice') %}
+    <div class="alert fade in">
+        <button type="button" class="close" data-dismiss="alert">×</button>
+        <strong>Big Up !! </strong> {{ flashMessage }}
+    </div>
+{% endfor %}
