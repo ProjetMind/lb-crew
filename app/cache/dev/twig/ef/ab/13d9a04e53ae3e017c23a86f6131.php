@@ -19,10 +19,10 @@ class __TwigTemplate_efab13d9a04e53ae3e017c23a86f6131 extends Twig_Template
         echo "<!-- START of Symfony2 Web Debug Toolbar -->
 ";
         // line 2
-        if (("normal" != $this->getContext($context, "position"))) {
+        if (("normal" != (isset($context["position"]) ? $context["position"] : $this->getContext($context, "position")))) {
             // line 3
             echo "    ";
-            $this->env->loadTemplate("WebProfilerBundle:Profiler:toolbar_style.html.twig")->display(array_merge($context, array("position" => $this->getContext($context, "position"), "floatable" => true)));
+            $this->env->loadTemplate("WebProfilerBundle:Profiler:toolbar_style.html.twig")->display(array_merge($context, array("position" => (isset($context["position"]) ? $context["position"] : $this->getContext($context, "position")), "floatable" => true)));
             // line 4
             echo "    <div style=\"clear: both; height: 38px;\"></div>
 ";
@@ -33,23 +33,23 @@ class __TwigTemplate_efab13d9a04e53ae3e017c23a86f6131 extends Twig_Template
     ";
         // line 8
         $context['_parent'] = (array) $context;
-        $context['_seq'] = twig_ensure_traversable($this->getContext($context, "templates"));
+        $context['_seq'] = twig_ensure_traversable((isset($context["templates"]) ? $context["templates"] : $this->getContext($context, "templates")));
         foreach ($context['_seq'] as $context["name"] => $context["template"]) {
             // line 9
             echo "        ";
-            echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "template"), "renderblock", array(0 => "toolbar", 1 => array("collector" => $this->getAttribute($this->getContext($context, "profile"), "getcollector", array(0 => $this->getContext($context, "name")), "method"), "profiler_url" => $this->getContext($context, "profiler_url"), "token" => $this->getAttribute($this->getContext($context, "profile"), "token"), "name" => $this->getContext($context, "name"))), "method"), "html", null, true);
+            echo twig_escape_filter($this->env, $this->getAttribute((isset($context["template"]) ? $context["template"] : $this->getContext($context, "template")), "renderblock", array(0 => "toolbar", 1 => array("collector" => $this->getAttribute((isset($context["profile"]) ? $context["profile"] : $this->getContext($context, "profile")), "getcollector", array(0 => (isset($context["name"]) ? $context["name"] : $this->getContext($context, "name"))), "method"), "profiler_url" => (isset($context["profiler_url"]) ? $context["profiler_url"] : $this->getContext($context, "profiler_url")), "token" => $this->getAttribute((isset($context["profile"]) ? $context["profile"] : $this->getContext($context, "profile")), "token"), "name" => (isset($context["name"]) ? $context["name"] : $this->getContext($context, "name")))), "method"), "html", null, true);
             // line 15
             echo "
     ";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['name'], $context['template'], $context['_parent'], $context['loop']);
-        $context = array_merge($_parent, array_intersect_key($context, $_parent));
+        $context = array_intersect_key($context, $_parent) + $_parent;
         // line 17
         echo "
     ";
         // line 18
-        if (("normal" != $this->getContext($context, "position"))) {
+        if (("normal" != (isset($context["position"]) ? $context["position"] : $this->getContext($context, "position")))) {
             // line 19
             echo "        <a class=\"hide-button\" title=\"Close Toolbar\" onclick=\"
             var p = this.parentNode;

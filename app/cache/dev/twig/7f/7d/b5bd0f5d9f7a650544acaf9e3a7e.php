@@ -20,13 +20,13 @@ class __TwigTemplate_7f7db5bd0f5d9f7a650544acaf9e3a7e extends Twig_Template
 ";
         // line 2
         $context['_parent'] = (array) $context;
-        $context['_seq'] = twig_ensure_traversable($this->getAttribute($this->getContext($context, "exception"), "trace"));
+        $context['_seq'] = twig_ensure_traversable($this->getAttribute((isset($context["exception"]) ? $context["exception"] : $this->getContext($context, "exception")), "trace"));
         foreach ($context['_seq'] as $context["_key"] => $context["trace"]) {
             // line 3
             echo "            <trace>
 ";
             // line 4
-            $this->env->loadTemplate("TwigBundle:Exception:trace.txt.twig")->display(array("trace" => $this->getContext($context, "trace")));
+            $this->env->loadTemplate("TwigBundle:Exception:trace.txt.twig")->display(array("trace" => (isset($context["trace"]) ? $context["trace"] : $this->getContext($context, "trace"))));
             // line 5
             echo "
             </trace>
@@ -34,7 +34,7 @@ class __TwigTemplate_7f7db5bd0f5d9f7a650544acaf9e3a7e extends Twig_Template
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['trace'], $context['_parent'], $context['loop']);
-        $context = array_merge($_parent, array_intersect_key($context, $_parent));
+        $context = array_intersect_key($context, $_parent) + $_parent;
         // line 8
         echo "        </traces>
 ";

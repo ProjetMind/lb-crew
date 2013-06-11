@@ -31,7 +31,7 @@ class __TwigTemplate_35479ed99ba40b46f99871500452bdf0 extends Twig_Template
     {
         // line 4
         echo "    ";
-        if ($this->getAttribute($this->getContext($context, "collector"), "counterrors")) {
+        if ($this->getAttribute((isset($context["collector"]) ? $context["collector"] : $this->getContext($context, "collector")), "counterrors")) {
             // line 5
             echo "        ";
             ob_start();
@@ -39,7 +39,7 @@ class __TwigTemplate_35479ed99ba40b46f99871500452bdf0 extends Twig_Template
             echo "            <img width=\"15\" height=\"28\" alt=\"Logs\" src=\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAcCAYAAABoMT8aAAAA4klEQVQ4y2P4//8/AyWYYXgYwOPp6Xnc3t7+P7EYpB6k7+zZs2ADNEjRjIwDAgKWgAywIUfz8+fPVzg7O/8AGeCATQEQnAfi/SAah/wcV1dXvAYUgORANA75ehcXl+/4DHAABRIe+ZrhbgAhTHsDiEgHBA0glA6GfSDiw5mZma+A+sphBlhVVFQ88vHx+Xfu3Ll7QP5haOjjwtuAuGHv3r3NIMNABqh8+/atsaur666vr+9XUlwSHx//AGQANxCbAnEWyGQicRMQ9wBxIQM0qjiBWAFqkB00/glhayBWHwb1AgB38EJsUtxtWwAAAABJRU5ErkJggg==\"/>
             <span class=\"sf-toolbar-status sf-toolbar-status-yellow\">";
             // line 7
-            echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "collector"), "counterrors"), "html", null, true);
+            echo twig_escape_filter($this->env, $this->getAttribute((isset($context["collector"]) ? $context["collector"] : $this->getContext($context, "collector")), "counterrors"), "html", null, true);
             echo "</span>
         ";
             $context["icon"] = ('' === $tmp = ob_get_clean()) ? '' : new Twig_Markup($tmp, $this->env->getCharset());
@@ -51,14 +51,14 @@ class __TwigTemplate_35479ed99ba40b46f99871500452bdf0 extends Twig_Template
                 <b>Exception</b>
                 <span class=\"sf-toolbar-status sf-toolbar-status-yellow\">";
             // line 12
-            echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "collector"), "counterrors"), "html", null, true);
+            echo twig_escape_filter($this->env, $this->getAttribute((isset($context["collector"]) ? $context["collector"] : $this->getContext($context, "collector")), "counterrors"), "html", null, true);
             echo "</span>
             </div>
         ";
             $context["text"] = ('' === $tmp = ob_get_clean()) ? '' : new Twig_Markup($tmp, $this->env->getCharset());
             // line 15
             echo "        ";
-            $this->env->loadTemplate("WebProfilerBundle:Profiler:toolbar_item.html.twig")->display(array_merge($context, array("link" => $this->getContext($context, "profiler_url"))));
+            $this->env->loadTemplate("WebProfilerBundle:Profiler:toolbar_item.html.twig")->display(array_merge($context, array("link" => (isset($context["profiler_url"]) ? $context["profiler_url"] : $this->getContext($context, "profiler_url")))));
             // line 16
             echo "    ";
         }
@@ -76,12 +76,12 @@ class __TwigTemplate_35479ed99ba40b46f99871500452bdf0 extends Twig_Template
     <strong>Logs</strong>
     ";
         // line 23
-        if ($this->getAttribute($this->getContext($context, "collector"), "counterrors")) {
+        if ($this->getAttribute((isset($context["collector"]) ? $context["collector"] : $this->getContext($context, "collector")), "counterrors")) {
             // line 24
             echo "        <span class=\"count\">
             <span>";
             // line 25
-            echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "collector"), "counterrors"), "html", null, true);
+            echo twig_escape_filter($this->env, $this->getAttribute((isset($context["collector"]) ? $context["collector"] : $this->getContext($context, "collector")), "counterrors"), "html", null, true);
             echo "</span>
         </span>
     ";
@@ -99,7 +99,7 @@ class __TwigTemplate_35479ed99ba40b46f99871500452bdf0 extends Twig_Template
 
     ";
         // line 34
-        $context["priority"] = $this->getAttribute($this->getAttribute($this->getAttribute($this->getContext($context, "app"), "request"), "query"), "get", array(0 => "priority", 1 => 0), "method");
+        $context["priority"] = $this->getAttribute($this->getAttribute($this->getAttribute((isset($context["app"]) ? $context["app"] : $this->getContext($context, "app")), "request"), "query"), "get", array(0 => "priority", 1 => 0), "method");
         // line 35
         echo "
     <table>
@@ -117,17 +117,17 @@ class __TwigTemplate_35479ed99ba40b46f99871500452bdf0 extends Twig_Template
         foreach ($context['_seq'] as $context["value"] => $context["text"]) {
             // line 45
             echo "                        <option value=\"";
-            echo twig_escape_filter($this->env, $this->getContext($context, "value"), "html", null, true);
+            echo twig_escape_filter($this->env, (isset($context["value"]) ? $context["value"] : $this->getContext($context, "value")), "html", null, true);
             echo "\"";
-            echo ((($this->getContext($context, "value") == $this->getContext($context, "priority"))) ? (" selected") : (""));
+            echo ((((isset($context["value"]) ? $context["value"] : $this->getContext($context, "value")) == (isset($context["priority"]) ? $context["priority"] : $this->getContext($context, "priority")))) ? (" selected") : (""));
             echo ">";
-            echo twig_escape_filter($this->env, $this->getContext($context, "text"), "html", null, true);
+            echo twig_escape_filter($this->env, (isset($context["text"]) ? $context["text"] : $this->getContext($context, "text")), "html", null, true);
             echo "</option>
                         ";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['value'], $context['text'], $context['_parent'], $context['loop']);
-        $context = array_merge($_parent, array_intersect_key($context, $_parent));
+        $context = array_intersect_key($context, $_parent) + $_parent;
         // line 47
         echo "                    </select>
                     <noscript>
@@ -140,13 +140,13 @@ class __TwigTemplate_35479ed99ba40b46f99871500452bdf0 extends Twig_Template
 
     ";
         // line 56
-        if ($this->getAttribute($this->getContext($context, "collector"), "logs")) {
+        if ($this->getAttribute((isset($context["collector"]) ? $context["collector"] : $this->getContext($context, "collector")), "logs")) {
             // line 57
             echo "        <ul class=\"alt\">
             ";
             // line 58
             $context['_parent'] = (array) $context;
-            $context['_seq'] = twig_ensure_traversable($this->getAttribute($this->getContext($context, "collector"), "logs"));
+            $context['_seq'] = twig_ensure_traversable($this->getAttribute((isset($context["collector"]) ? $context["collector"] : $this->getContext($context, "collector")), "logs"));
             $context['_iterated'] = false;
             $context['loop'] = array(
               'parent' => $context['_parent'],
@@ -155,31 +155,31 @@ class __TwigTemplate_35479ed99ba40b46f99871500452bdf0 extends Twig_Template
               'first'  => true,
             );
             foreach ($context['_seq'] as $context["_key"] => $context["log"]) {
-                if (($this->getAttribute($this->getContext($context, "log"), "priority") >= $this->getContext($context, "priority"))) {
+                if (($this->getAttribute((isset($context["log"]) ? $context["log"] : $this->getContext($context, "log")), "priority") >= (isset($context["priority"]) ? $context["priority"] : $this->getContext($context, "priority")))) {
                     // line 59
                     echo "                <li class=\"";
-                    echo twig_escape_filter($this->env, twig_cycle(array(0 => "odd", 1 => "even"), $this->getAttribute($this->getContext($context, "loop"), "index")), "html", null, true);
-                    if (($this->getAttribute($this->getContext($context, "log"), "priority") >= 400)) {
+                    echo twig_escape_filter($this->env, twig_cycle(array(0 => "odd", 1 => "even"), $this->getAttribute((isset($context["loop"]) ? $context["loop"] : $this->getContext($context, "loop")), "index")), "html", null, true);
+                    if (($this->getAttribute((isset($context["log"]) ? $context["log"] : $this->getContext($context, "log")), "priority") >= 400)) {
                         echo " error";
-                    } elseif (($this->getAttribute($this->getContext($context, "log"), "priority") >= 300)) {
+                    } elseif (($this->getAttribute((isset($context["log"]) ? $context["log"] : $this->getContext($context, "log")), "priority") >= 300)) {
                         echo " warning";
                     }
                     echo "\">
                     ";
                     // line 60
-                    echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "log"), "priorityName"), "html", null, true);
+                    echo twig_escape_filter($this->env, $this->getAttribute((isset($context["log"]) ? $context["log"] : $this->getContext($context, "log")), "priorityName"), "html", null, true);
                     echo " - ";
-                    echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "log"), "message"), "html", null, true);
+                    echo twig_escape_filter($this->env, $this->getAttribute((isset($context["log"]) ? $context["log"] : $this->getContext($context, "log")), "message"), "html", null, true);
                     echo "
                     ";
                     // line 61
-                    if (($this->getAttribute($this->getContext($context, "log", true), "context", array(), "any", true, true) && (!twig_test_empty($this->getAttribute($this->getContext($context, "log"), "context"))))) {
+                    if (($this->getAttribute((isset($context["log"]) ? $context["log"] : null), "context", array(), "any", true, true) && (!twig_test_empty($this->getAttribute((isset($context["log"]) ? $context["log"] : $this->getContext($context, "log")), "context"))))) {
                         // line 62
                         echo "                        <br />
                         <small>
                             <strong>Context</strong>: ";
                         // line 64
-                        echo twig_escape_filter($this->env, $this->env->getExtension('yaml')->encode($this->getAttribute($this->getContext($context, "log"), "context")), "html", null, true);
+                        echo twig_escape_filter($this->env, $this->env->getExtension('yaml')->encode($this->getAttribute((isset($context["log"]) ? $context["log"] : $this->getContext($context, "log")), "context")), "html", null, true);
                         echo "
                         </small>
                     ";
@@ -200,7 +200,7 @@ class __TwigTemplate_35479ed99ba40b46f99871500452bdf0 extends Twig_Template
             }
             $_parent = $context['_parent'];
             unset($context['_seq'], $context['_iterated'], $context['_key'], $context['log'], $context['_parent'], $context['loop']);
-            $context = array_merge($_parent, array_intersect_key($context, $_parent));
+            $context = array_intersect_key($context, $_parent) + $_parent;
             // line 71
             echo "        </ul>
     ";

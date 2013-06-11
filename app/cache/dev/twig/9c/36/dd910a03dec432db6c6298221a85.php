@@ -24,17 +24,17 @@ class __TwigTemplate_9c36dd910a03dec432db6c6298221a85 extends Twig_Template
             ";
         // line 6
         $context['_parent'] = (array) $context;
-        $context['_seq'] = twig_ensure_traversable(twig_get_array_keys_filter($this->getAttribute($this->getContext($context, "data"), 0, array(), "array")));
+        $context['_seq'] = twig_ensure_traversable(twig_get_array_keys_filter($this->getAttribute((isset($context["data"]) ? $context["data"] : $this->getContext($context, "data")), 0, array(), "array")));
         foreach ($context['_seq'] as $context["_key"] => $context["label"]) {
             // line 7
             echo "                <th>";
-            echo twig_escape_filter($this->env, $this->getContext($context, "label"), "html", null, true);
+            echo twig_escape_filter($this->env, (isset($context["label"]) ? $context["label"] : $this->getContext($context, "label")), "html", null, true);
             echo "</th>
             ";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['label'], $context['_parent'], $context['loop']);
-        $context = array_merge($_parent, array_intersect_key($context, $_parent));
+        $context = array_intersect_key($context, $_parent) + $_parent;
         // line 9
         echo "        </tr>
     </thead>
@@ -42,31 +42,31 @@ class __TwigTemplate_9c36dd910a03dec432db6c6298221a85 extends Twig_Template
         ";
         // line 12
         $context['_parent'] = (array) $context;
-        $context['_seq'] = twig_ensure_traversable($this->getContext($context, "data"));
+        $context['_seq'] = twig_ensure_traversable((isset($context["data"]) ? $context["data"] : $this->getContext($context, "data")));
         foreach ($context['_seq'] as $context["_key"] => $context["row"]) {
             // line 13
             echo "        <tr>
             ";
             // line 14
             $context['_parent'] = (array) $context;
-            $context['_seq'] = twig_ensure_traversable($this->getContext($context, "row"));
+            $context['_seq'] = twig_ensure_traversable((isset($context["row"]) ? $context["row"] : $this->getContext($context, "row")));
             foreach ($context['_seq'] as $context["_key"] => $context["item"]) {
                 // line 15
                 echo "                <td>";
-                echo twig_escape_filter($this->env, $this->getContext($context, "item"), "html", null, true);
+                echo twig_escape_filter($this->env, (isset($context["item"]) ? $context["item"] : $this->getContext($context, "item")), "html", null, true);
                 echo "</td>
             ";
             }
             $_parent = $context['_parent'];
             unset($context['_seq'], $context['_iterated'], $context['_key'], $context['item'], $context['_parent'], $context['loop']);
-            $context = array_merge($_parent, array_intersect_key($context, $_parent));
+            $context = array_intersect_key($context, $_parent) + $_parent;
             // line 17
             echo "        </tr>
         ";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['row'], $context['_parent'], $context['loop']);
-        $context = array_merge($_parent, array_intersect_key($context, $_parent));
+        $context = array_intersect_key($context, $_parent) + $_parent;
         // line 19
         echo "    </tbody>
 </table>";

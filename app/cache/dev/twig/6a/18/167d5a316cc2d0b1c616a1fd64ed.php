@@ -16,7 +16,7 @@ class __TwigTemplate_6a18167d5a316cc2d0b1c616a1fd64ed extends Twig_Template
     protected function doDisplay(array $context, array $blocks = array())
     {
         // line 1
-        echo twig_jsonencode_filter($this->getAttribute($this->getContext($context, "exception"), "toarray"));
+        echo twig_jsonencode_filter($this->getAttribute((isset($context["exception"]) ? $context["exception"] : $this->getContext($context, "exception")), "toarray"));
         echo "
 ";
     }

@@ -25,6 +25,7 @@
       <parameter key="LBcrewMediaBundle">LBcrew\MediaBundle\LBcrewMediaBundle</parameter>
       <parameter key="LBcrewMessagesBundle">LBcrew\MessagesBundle\LBcrewMessagesBundle</parameter>
       <parameter key="LBcrewCommentairesBundle">LBcrew\CommentairesBundle\LBcrewCommentairesBundle</parameter>
+      <parameter key="BcBootstrapBundle">Bc\Bundle\BootstrapBundle\BcBootstrapBundle</parameter>
       <parameter key="WebProfilerBundle">Symfony\Bundle\WebProfilerBundle\WebProfilerBundle</parameter>
       <parameter key="SensioDistributionBundle">Sensio\Bundle\DistributionBundle\SensioDistributionBundle</parameter>
       <parameter key="SensioGeneratorBundle">Sensio\Bundle\GeneratorBundle\SensioGeneratorBundle</parameter>
@@ -377,11 +378,31 @@
     <parameter key="assetic.read_from">C:/wamp/www/lb-crew/app/../web</parameter>
     <parameter key="assetic.write_to">C:/wamp/www/lb-crew/app/../web</parameter>
     <parameter key="assetic.variables" type="collection"/>
-    <parameter key="assetic.java.bin">C:\Windows\system32\java.EXE</parameter>
+    <parameter key="assetic.java.bin">C:\Program Files\Java\jre7\bin\java.exe</parameter>
     <parameter key="assetic.node.bin">/usr/bin/node</parameter>
     <parameter key="assetic.ruby.bin">/usr/bin/ruby</parameter>
     <parameter key="assetic.sass.bin">/usr/bin/sass</parameter>
+    <parameter key="assetic.filter.lessphp.class">Assetic\Filter\LessphpFilter</parameter>
+    <parameter key="assetic.filter.lessphp.presets" type="collection"/>
+    <parameter key="assetic.filter.lessphp.paths" type="collection"/>
+    <parameter key="assetic.filter.lessphp.formatter">null</parameter>
+    <parameter key="assetic.filter.lessphp.preserve_comments">null</parameter>
     <parameter key="assetic.filter.cssrewrite.class">Assetic\Filter\CssRewriteFilter</parameter>
+    <parameter key="assetic.filter.yui_js.class">Assetic\Filter\Yui\JsCompressorFilter</parameter>
+    <parameter key="assetic.filter.yui_js.java">C:\Program Files\Java\jre7\bin\java.exe</parameter>
+    <parameter key="assetic.filter.yui_js.jar">C:/wamp/www/lb-crew/app/Resources/java/yuicompressor-2.4.7.jar</parameter>
+    <parameter key="assetic.filter.yui_js.charset">UTF-8</parameter>
+    <parameter key="assetic.filter.yui_js.stacksize">null</parameter>
+    <parameter key="assetic.filter.yui_js.timeout">null</parameter>
+    <parameter key="assetic.filter.yui_js.nomunge">null</parameter>
+    <parameter key="assetic.filter.yui_js.preserve_semi">null</parameter>
+    <parameter key="assetic.filter.yui_js.disable_optimizations">null</parameter>
+    <parameter key="assetic.filter.yui_css.class">Assetic\Filter\Yui\CssCompressorFilter</parameter>
+    <parameter key="assetic.filter.yui_css.java">C:\Program Files\Java\jre7\bin\java.exe</parameter>
+    <parameter key="assetic.filter.yui_css.jar">C:/wamp/www/lb-crew/app/Resources/java/yuicompressor-2.4.7.jar</parameter>
+    <parameter key="assetic.filter.yui_css.charset">UTF-8</parameter>
+    <parameter key="assetic.filter.yui_css.stacksize">null</parameter>
+    <parameter key="assetic.filter.yui_css.timeout">null</parameter>
     <parameter key="assetic.twig_extension.functions" type="collection"/>
     <parameter key="assetic.controller.class">Symfony\Bundle\AsseticBundle\Controller\AsseticController</parameter>
     <parameter key="assetic.routing_loader.class">Symfony\Bundle\AsseticBundle\Routing\AsseticLoader</parameter>
@@ -469,8 +490,8 @@
     <parameter key="jms_di_extra.directories" type="collection"/>
     <parameter key="jms_di_extra.cache_dir">C:/wamp/www/lb-crew/app/cache/dev/jms_diextra</parameter>
     <parameter key="jms_di_extra.doctrine_integration">true</parameter>
-    <parameter key="jms_di_extra.doctrine_integration.entity_manager.file">C:/wamp/www/lb-crew/app/cache/dev/jms_diextra/doctrine/EntityManager_5182cf111900c.php</parameter>
-    <parameter key="jms_di_extra.doctrine_integration.entity_manager.class">EntityManager5182cf111900c_546a8d27f194334ee012bfe64f629947b07e4919\__CG__\Doctrine\ORM\EntityManager</parameter>
+    <parameter key="jms_di_extra.doctrine_integration.entity_manager.file">C:/wamp/www/lb-crew/app/cache/dev/jms_diextra/doctrine/EntityManager_51b79d96ea376.php</parameter>
+    <parameter key="jms_di_extra.doctrine_integration.entity_manager.class">EntityManager51b79d96ea376_546a8d27f194334ee012bfe64f629947b07e4919\__CG__\Doctrine\ORM\EntityManager</parameter>
     <parameter key="security.secured_services" type="collection"/>
     <parameter key="security.access.method_interceptor.class">JMS\SecurityExtraBundle\Security\Authorization\Interception\MethodSecurityInterceptor</parameter>
     <parameter key="security.access.method_access_control" type="collection"/>
@@ -2005,6 +2026,15 @@
           </service>
         </argument>
       </call>
+      <call method="addExtension">
+        <argument type="service" id="bc_bootstrap.twig.icon_extension"/>
+      </call>
+      <call method="addExtension">
+        <argument type="service" id="bc_bootstrap.twig.label_extension"/>
+      </call>
+      <call method="addExtension">
+        <argument type="service" id="bc_bootstrap.twig.badge_extension"/>
+      </call>
       <call method="addGlobal">
         <argument>app</argument>
         <argument type="service" id="templating.globals"/>
@@ -2048,12 +2078,20 @@
     <service id="assetic.filter_manager" class="Symfony\Bundle\AsseticBundle\FilterManager">
       <argument type="service" id="service_container"/>
       <argument type="collection">
+        <argument key="lessphp">assetic.filter.lessphp</argument>
         <argument key="cssrewrite">assetic.filter.cssrewrite</argument>
+        <argument key="yui_js">assetic.filter.yui_js</argument>
+        <argument key="yui_css">assetic.filter.yui_css</argument>
       </argument>
     </service>
     <service id="assetic.asset_manager" class="Assetic\Factory\LazyAssetManager">
       <argument type="service" id="assetic.asset_factory"/>
       <argument type="collection">
+        <argument key="config" type="service">
+          <service class="Symfony\Bundle\AsseticBundle\Factory\Loader\ConfigurationLoader" public="false">
+            <tag name="assetic.formula_loader" alias="config"/>
+          </service>
+        </argument>
         <argument key="twig" type="service">
           <service class="Assetic\Factory\Loader\CachedFormulaLoader" public="false">
             <tag name="assetic.formula_loader" alias="twig"/>
@@ -2073,6 +2111,51 @@
           </service>
         </argument>
       </argument>
+      <call method="addResource">
+        <argument type="service">
+          <service class="Symfony\Bundle\AsseticBundle\Factory\Resource\ConfigurationResource" public="false">
+            <tag name="assetic.formula_resource" loader="config"/>
+            <argument type="collection">
+              <argument key="bootstrap_css" type="collection">
+                <argument type="collection">
+                  <argument>C:/wamp/www/lb-crew/app/../vendor/twitter/bootstrap/less/bootstrap.less</argument>
+                  <argument>C:/wamp/www/lb-crew/app/../vendor/twitter/bootstrap/less/responsive.less</argument>
+                </argument>
+                <argument type="collection">
+                  <argument>lessphp</argument>
+                  <argument>cssrewrite</argument>
+                  <argument>yui_css</argument>
+                </argument>
+                <argument type="collection">
+                  <argument key="output">css/bootstrap.css</argument>
+                </argument>
+              </argument>
+              <argument key="bootstrap_js" type="collection">
+                <argument type="collection">
+                  <argument>C:/wamp/www/lb-crew/app/../vendor/twitter/bootstrap/js/bootstrap-transition.js</argument>
+                  <argument>C:/wamp/www/lb-crew/app/../vendor/twitter/bootstrap/js/bootstrap-alert.js</argument>
+                  <argument>C:/wamp/www/lb-crew/app/../vendor/twitter/bootstrap/js/bootstrap-button.js</argument>
+                  <argument>C:/wamp/www/lb-crew/app/../vendor/twitter/bootstrap/js/bootstrap-carousel.js</argument>
+                  <argument>C:/wamp/www/lb-crew/app/../vendor/twitter/bootstrap/js/bootstrap-collapse.js</argument>
+                  <argument>C:/wamp/www/lb-crew/app/../vendor/twitter/bootstrap/js/bootstrap-dropdown.js</argument>
+                  <argument>C:/wamp/www/lb-crew/app/../vendor/twitter/bootstrap/js/bootstrap-modal.js</argument>
+                  <argument>C:/wamp/www/lb-crew/app/../vendor/twitter/bootstrap/js/bootstrap-tooltip.js</argument>
+                  <argument>C:/wamp/www/lb-crew/app/../vendor/twitter/bootstrap/js/bootstrap-popover.js</argument>
+                  <argument>C:/wamp/www/lb-crew/app/../vendor/twitter/bootstrap/js/bootstrap-scrollspy.js</argument>
+                  <argument>C:/wamp/www/lb-crew/app/../vendor/twitter/bootstrap/js/bootstrap-tab.js</argument>
+                  <argument>C:/wamp/www/lb-crew/app/../vendor/twitter/bootstrap/js/bootstrap-typeahead.js</argument>
+                  <argument>C:/wamp/www/lb-crew/app/../vendor/twitter/bootstrap/js/bootstrap-affix.js</argument>
+                </argument>
+                <argument type="collection"/>
+                <argument type="collection">
+                  <argument key="output">js/bootstrap.js</argument>
+                </argument>
+              </argument>
+            </argument>
+          </service>
+        </argument>
+        <argument>config</argument>
+      </call>
       <call method="addResource">
         <argument type="service">
           <service class="Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource" public="false">
@@ -2097,6 +2180,15 @@
       <argument>true</argument>
       <call method="addWorker">
         <argument type="service">
+          <service class="Assetic\Factory\Worker\EnsureFilterWorker" public="false">
+            <tag name="assetic.factory_worker"/>
+            <argument>/\.less$/</argument>
+            <argument type="service" id="assetic.filter.lessphp"/>
+          </service>
+        </argument>
+      </call>
+      <call method="addWorker">
+        <argument type="service">
           <service class="Symfony\Bundle\AsseticBundle\Factory\Worker\UseControllerWorker" public="false">
             <tag name="assetic.factory_worker"/>
           </service>
@@ -2106,8 +2198,61 @@
     <service id="assetic.value_supplier.default" class="Symfony\Bundle\AsseticBundle\DefaultValueSupplier" public="false">
       <argument type="service" id="service_container"/>
     </service>
+    <service id="assetic.filter.lessphp" class="Assetic\Filter\LessphpFilter">
+      <tag name="assetic.filter" alias="lessphp"/>
+      <file>C:/wamp/www/lb-crew/app/../vendor/leafo/lessphp/lessc.inc.php</file>
+      <call method="setPresets">
+        <argument type="collection"/>
+      </call>
+      <call method="setLoadPaths">
+        <argument type="collection"/>
+      </call>
+      <call method="setFormatter">
+        <argument>null</argument>
+      </call>
+      <call method="setPreserveComments">
+        <argument>null</argument>
+      </call>
+    </service>
     <service id="assetic.filter.cssrewrite" class="Assetic\Filter\CssRewriteFilter">
       <tag name="assetic.filter" alias="cssrewrite"/>
+    </service>
+    <service id="assetic.filter.yui_js" class="Assetic\Filter\Yui\JsCompressorFilter">
+      <tag name="assetic.filter" alias="yui_js"/>
+      <argument>C:/wamp/www/lb-crew/app/Resources/java/yuicompressor-2.4.7.jar</argument>
+      <argument>C:\Program Files\Java\jre7\bin\java.exe</argument>
+      <call method="setCharset">
+        <argument>UTF-8</argument>
+      </call>
+      <call method="setTimeout">
+        <argument>null</argument>
+      </call>
+      <call method="setStackSize">
+        <argument>null</argument>
+      </call>
+      <call method="setNomunge">
+        <argument>null</argument>
+      </call>
+      <call method="setPreserveSemi">
+        <argument>null</argument>
+      </call>
+      <call method="setDisableOptimizations">
+        <argument>null</argument>
+      </call>
+    </service>
+    <service id="assetic.filter.yui_css" class="Assetic\Filter\Yui\CssCompressorFilter">
+      <tag name="assetic.filter" alias="yui_css"/>
+      <argument>C:/wamp/www/lb-crew/app/Resources/java/yuicompressor-2.4.7.jar</argument>
+      <argument>C:\Program Files\Java\jre7\bin\java.exe</argument>
+      <call method="setCharset">
+        <argument>UTF-8</argument>
+      </call>
+      <call method="setTimeout">
+        <argument>null</argument>
+      </call>
+      <call method="setStackSize">
+        <argument>null</argument>
+      </call>
     </service>
     <service id="assetic.controller" class="Symfony\Bundle\AsseticBundle\Controller\AsseticController" scope="prototype">
       <argument type="service" id="request"/>
@@ -2207,8 +2352,8 @@
     <service id="doctrine.orm.default_manager_configurator" class="Doctrine\Bundle\DoctrineBundle\ManagerConfigurator">
       <argument type="collection"/>
     </service>
-    <service id="doctrine.orm.default_entity_manager" class="EntityManager5182cf111900c_546a8d27f194334ee012bfe64f629947b07e4919\__CG__\Doctrine\ORM\EntityManager">
-      <file>C:/wamp/www/lb-crew/app/cache/dev/jms_diextra/doctrine/EntityManager_5182cf111900c.php</file>
+    <service id="doctrine.orm.default_entity_manager" class="EntityManager51b79d96ea376_546a8d27f194334ee012bfe64f629947b07e4919\__CG__\Doctrine\ORM\EntityManager">
+      <file>C:/wamp/www/lb-crew/app/cache/dev/jms_diextra/doctrine/EntityManager_51b79d96ea376.php</file>
       <argument type="service">
         <service class="Doctrine\ORM\EntityManager" factory-method="create" public="false">
           <argument type="service" id="doctrine.dbal.default_connection"/>
@@ -2574,6 +2719,15 @@
     </service>
     <service id="fos_user.resetting.form.type" class="FOS\UserBundle\Form\Type\ResettingFormType">
       <tag name="form.type" alias="fos_user_resetting"/>
+    </service>
+    <service id="bc_bootstrap.twig.icon_extension" class="Bc\Bundle\BootstrapBundle\Twig\BootstrapIconExtension">
+      <tag name="twig.extension"/>
+    </service>
+    <service id="bc_bootstrap.twig.label_extension" class="Bc\Bundle\BootstrapBundle\Twig\BootstrapLabelExtension">
+      <tag name="twig.extension"/>
+    </service>
+    <service id="bc_bootstrap.twig.badge_extension" class="Bc\Bundle\BootstrapBundle\Twig\BootstrapBadgeExtension">
+      <tag name="twig.extension"/>
     </service>
     <service id="web_profiler.debug_toolbar" class="Symfony\Bundle\WebProfilerBundle\EventListener\WebDebugToolbarListener">
       <tag name="kernel.event_subscriber"/>

@@ -29,32 +29,66 @@ class __TwigTemplate_c49fcbb65be0af9a133464b787288df5 extends Twig_Template
         echo "</title>
         
         <!-- CSS -->
-        <link rel=\"stylesheet\" href=\"";
+        ";
         // line 10
-        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("/lb-crew/src/LBcrew/SiteBundle/Resources/public/css/styleBase.css"), "html", null, true);
-        echo "\" type=\"text/css\" media=\"screen\" />
-        <link rel=\"stylesheet\" href=\"";
-        // line 11
-        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("/lb-crew/src/LBcrew/MediaBundle/Resources/public/css/mediaStyle.css"), "html", null, true);
-        echo "\" type=\"text/css\" media=\"screen\" />
-        <link rel=\"stylesheet\" href=\"";
-        // line 12
-        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("/lb-crew/src/LBcrew/SiteBundle/Resources/public/css/modalbox.css"), "html", null, true);
-        echo "\" type=\"text/css\" media=\"screen\" />
-        <!-- Bootstrap -->
-        <link rel=\"stylesheet\" href=\"";
-        // line 14
-        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("/lb-crew/web/bootstrap/css/bootstrap.css"), "html", null, true);
-        echo "\" type=\"text/css\" media=\"screen\"/>
-        
+        if (isset($context['assetic']['debug']) && $context['assetic']['debug']) {
+            // asset "7ec7567_0"
+            $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('routing')->getPath("_assetic_7ec7567_0") : $this->env->getExtension('assets')->getAssetUrl("_controller/css/bootstrap_bootstrap_1.css");
+            // line 18
+            echo "            <link rel=\"stylesheet\" href=\"";
+            echo twig_escape_filter($this->env, (isset($context["asset_url"]) ? $context["asset_url"] : $this->getContext($context, "asset_url")), "html", null, true);
+            echo "\" type=\"text/css\" />
+        ";
+            // asset "7ec7567_1"
+            $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('routing')->getPath("_assetic_7ec7567_1") : $this->env->getExtension('assets')->getAssetUrl("_controller/css/bootstrap_responsive_2.css");
+            echo "            <link rel=\"stylesheet\" href=\"";
+            echo twig_escape_filter($this->env, (isset($context["asset_url"]) ? $context["asset_url"] : $this->getContext($context, "asset_url")), "html", null, true);
+            echo "\" type=\"text/css\" />
+        ";
+            // asset "7ec7567_2"
+            $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('routing')->getPath("_assetic_7ec7567_2") : $this->env->getExtension('assets')->getAssetUrl("_controller/css/bootstrap_part_3_mediaStyle_1.css");
+            echo "            <link rel=\"stylesheet\" href=\"";
+            echo twig_escape_filter($this->env, (isset($context["asset_url"]) ? $context["asset_url"] : $this->getContext($context, "asset_url")), "html", null, true);
+            echo "\" type=\"text/css\" />
+        ";
+            // asset "7ec7567_3"
+            $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('routing')->getPath("_assetic_7ec7567_3") : $this->env->getExtension('assets')->getAssetUrl("_controller/css/bootstrap_part_4_internetExplorer_1.css");
+            echo "            <link rel=\"stylesheet\" href=\"";
+            echo twig_escape_filter($this->env, (isset($context["asset_url"]) ? $context["asset_url"] : $this->getContext($context, "asset_url")), "html", null, true);
+            echo "\" type=\"text/css\" />
+        ";
+            // asset "7ec7567_4"
+            $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('routing')->getPath("_assetic_7ec7567_4") : $this->env->getExtension('assets')->getAssetUrl("_controller/css/bootstrap_part_4_modalbox_2.css");
+            echo "            <link rel=\"stylesheet\" href=\"";
+            echo twig_escape_filter($this->env, (isset($context["asset_url"]) ? $context["asset_url"] : $this->getContext($context, "asset_url")), "html", null, true);
+            echo "\" type=\"text/css\" />
+        ";
+            // asset "7ec7567_5"
+            $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('routing')->getPath("_assetic_7ec7567_5") : $this->env->getExtension('assets')->getAssetUrl("_controller/css/bootstrap_part_4_styleBase_3.css");
+            echo "            <link rel=\"stylesheet\" href=\"";
+            echo twig_escape_filter($this->env, (isset($context["asset_url"]) ? $context["asset_url"] : $this->getContext($context, "asset_url")), "html", null, true);
+            echo "\" type=\"text/css\" />
+        ";
+        } else {
+            // asset "7ec7567"
+            $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('routing')->getPath("_assetic_7ec7567") : $this->env->getExtension('assets')->getAssetUrl("_controller/css/bootstrap.css");
+            echo "            <link rel=\"stylesheet\" href=\"";
+            echo twig_escape_filter($this->env, (isset($context["asset_url"]) ? $context["asset_url"] : $this->getContext($context, "asset_url")), "html", null, true);
+            echo "\" type=\"text/css\" />
+        ";
+        }
+        unset($context["asset_url"]);
+        // line 20
+        echo "            
+
         <!-- JS -->
         ";
-        // line 22
+        // line 28
         echo "        
         <!--[if lt IE 9]>
         <script src=\"http://html5shiv.googlecode.com/svn/trunk/html5.js\"></script>
         <link rel=\"stylesheet\" href=\"";
-        // line 25
+        // line 31
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("/lb-crew/src/LBcrew/SiteBundle/Resources/public/css/internetExplorer.css"), "html", null, true);
         echo "\" type=\"text/css\" media=\"screen\" />
         <![endif]-->
@@ -71,29 +105,124 @@ class __TwigTemplate_c49fcbb65be0af9a133464b787288df5 extends Twig_Template
     </head>
 
 <body>
-    
-    <script src=\"http://code.jquery.com/jquery-latest.js\"></script>
-    <script src=\"/lb-crew/web/bootstrap/js/bootstrap.min.js\"></script>
-    <script src=\"/lb-crew/web/bootstrap/js/bootstrap-responsive.min.js\"></script>
-    
+   
     ";
-        // line 46
+        // line 48
         echo "        ";
-        // line 47
+        // line 49
         echo "        ";
         $this->env->loadTemplate("::header.html.twig")->display($context);
-        // line 48
+        // line 50
         echo "
     ";
-        // line 49
+        // line 51
         $this->displayBlock('body', $context, $blocks);
-        // line 52
-        echo "    
-        ";
-        // line 53
-        $this->env->loadTemplate("::footer.html.twig")->display($context);
         // line 54
         echo "    
+        ";
+        // line 55
+        $this->env->loadTemplate("::footer.html.twig")->display($context);
+        // line 56
+        echo "    
+    ";
+        // line 57
+        if (isset($context['assetic']['debug']) && $context['assetic']['debug']) {
+            // asset "61da234_0"
+            $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('routing')->getPath("_assetic_61da234_0") : $this->env->getExtension('assets')->getAssetUrl("_controller/js/bootstrap_jquery.min_1.js");
+            // line 63
+            echo "        <script type=\"text/javascript\" src=\"";
+            echo twig_escape_filter($this->env, (isset($context["asset_url"]) ? $context["asset_url"] : $this->getContext($context, "asset_url")), "html", null, true);
+            echo "\"></script>
+    ";
+            // asset "61da234_1"
+            $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('routing')->getPath("_assetic_61da234_1") : $this->env->getExtension('assets')->getAssetUrl("_controller/js/bootstrap_part_2_bootstrap-affix_1.js");
+            echo "        <script type=\"text/javascript\" src=\"";
+            echo twig_escape_filter($this->env, (isset($context["asset_url"]) ? $context["asset_url"] : $this->getContext($context, "asset_url")), "html", null, true);
+            echo "\"></script>
+    ";
+            // asset "61da234_2"
+            $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('routing')->getPath("_assetic_61da234_2") : $this->env->getExtension('assets')->getAssetUrl("_controller/js/bootstrap_part_2_bootstrap-alert_2.js");
+            echo "        <script type=\"text/javascript\" src=\"";
+            echo twig_escape_filter($this->env, (isset($context["asset_url"]) ? $context["asset_url"] : $this->getContext($context, "asset_url")), "html", null, true);
+            echo "\"></script>
+    ";
+            // asset "61da234_3"
+            $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('routing')->getPath("_assetic_61da234_3") : $this->env->getExtension('assets')->getAssetUrl("_controller/js/bootstrap_part_2_bootstrap-button_3.js");
+            echo "        <script type=\"text/javascript\" src=\"";
+            echo twig_escape_filter($this->env, (isset($context["asset_url"]) ? $context["asset_url"] : $this->getContext($context, "asset_url")), "html", null, true);
+            echo "\"></script>
+    ";
+            // asset "61da234_4"
+            $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('routing')->getPath("_assetic_61da234_4") : $this->env->getExtension('assets')->getAssetUrl("_controller/js/bootstrap_part_2_bootstrap-carousel_4.js");
+            echo "        <script type=\"text/javascript\" src=\"";
+            echo twig_escape_filter($this->env, (isset($context["asset_url"]) ? $context["asset_url"] : $this->getContext($context, "asset_url")), "html", null, true);
+            echo "\"></script>
+    ";
+            // asset "61da234_5"
+            $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('routing')->getPath("_assetic_61da234_5") : $this->env->getExtension('assets')->getAssetUrl("_controller/js/bootstrap_part_2_bootstrap-collapse_5.js");
+            echo "        <script type=\"text/javascript\" src=\"";
+            echo twig_escape_filter($this->env, (isset($context["asset_url"]) ? $context["asset_url"] : $this->getContext($context, "asset_url")), "html", null, true);
+            echo "\"></script>
+    ";
+            // asset "61da234_6"
+            $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('routing')->getPath("_assetic_61da234_6") : $this->env->getExtension('assets')->getAssetUrl("_controller/js/bootstrap_part_2_bootstrap-dropdown_6.js");
+            echo "        <script type=\"text/javascript\" src=\"";
+            echo twig_escape_filter($this->env, (isset($context["asset_url"]) ? $context["asset_url"] : $this->getContext($context, "asset_url")), "html", null, true);
+            echo "\"></script>
+    ";
+            // asset "61da234_7"
+            $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('routing')->getPath("_assetic_61da234_7") : $this->env->getExtension('assets')->getAssetUrl("_controller/js/bootstrap_part_2_bootstrap-modal_7.js");
+            echo "        <script type=\"text/javascript\" src=\"";
+            echo twig_escape_filter($this->env, (isset($context["asset_url"]) ? $context["asset_url"] : $this->getContext($context, "asset_url")), "html", null, true);
+            echo "\"></script>
+    ";
+            // asset "61da234_8"
+            $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('routing')->getPath("_assetic_61da234_8") : $this->env->getExtension('assets')->getAssetUrl("_controller/js/bootstrap_part_2_bootstrap-popover_8.js");
+            echo "        <script type=\"text/javascript\" src=\"";
+            echo twig_escape_filter($this->env, (isset($context["asset_url"]) ? $context["asset_url"] : $this->getContext($context, "asset_url")), "html", null, true);
+            echo "\"></script>
+    ";
+            // asset "61da234_9"
+            $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('routing')->getPath("_assetic_61da234_9") : $this->env->getExtension('assets')->getAssetUrl("_controller/js/bootstrap_part_2_bootstrap-scrollspy_9.js");
+            echo "        <script type=\"text/javascript\" src=\"";
+            echo twig_escape_filter($this->env, (isset($context["asset_url"]) ? $context["asset_url"] : $this->getContext($context, "asset_url")), "html", null, true);
+            echo "\"></script>
+    ";
+            // asset "61da234_10"
+            $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('routing')->getPath("_assetic_61da234_10") : $this->env->getExtension('assets')->getAssetUrl("_controller/js/bootstrap_part_2_bootstrap-tab_10.js");
+            echo "        <script type=\"text/javascript\" src=\"";
+            echo twig_escape_filter($this->env, (isset($context["asset_url"]) ? $context["asset_url"] : $this->getContext($context, "asset_url")), "html", null, true);
+            echo "\"></script>
+    ";
+            // asset "61da234_11"
+            $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('routing')->getPath("_assetic_61da234_11") : $this->env->getExtension('assets')->getAssetUrl("_controller/js/bootstrap_part_2_bootstrap-tooltip_11.js");
+            echo "        <script type=\"text/javascript\" src=\"";
+            echo twig_escape_filter($this->env, (isset($context["asset_url"]) ? $context["asset_url"] : $this->getContext($context, "asset_url")), "html", null, true);
+            echo "\"></script>
+    ";
+            // asset "61da234_12"
+            $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('routing')->getPath("_assetic_61da234_12") : $this->env->getExtension('assets')->getAssetUrl("_controller/js/bootstrap_part_2_bootstrap-transition_12.js");
+            echo "        <script type=\"text/javascript\" src=\"";
+            echo twig_escape_filter($this->env, (isset($context["asset_url"]) ? $context["asset_url"] : $this->getContext($context, "asset_url")), "html", null, true);
+            echo "\"></script>
+    ";
+            // asset "61da234_13"
+            $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('routing')->getPath("_assetic_61da234_13") : $this->env->getExtension('assets')->getAssetUrl("_controller/js/bootstrap_part_2_bootstrap-typeahead_13.js");
+            echo "        <script type=\"text/javascript\" src=\"";
+            echo twig_escape_filter($this->env, (isset($context["asset_url"]) ? $context["asset_url"] : $this->getContext($context, "asset_url")), "html", null, true);
+            echo "\"></script>
+    ";
+        } else {
+            // asset "61da234"
+            $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('routing')->getPath("_assetic_61da234") : $this->env->getExtension('assets')->getAssetUrl("_controller/js/bootstrap.js");
+            echo "        <script type=\"text/javascript\" src=\"";
+            echo twig_escape_filter($this->env, (isset($context["asset_url"]) ? $context["asset_url"] : $this->getContext($context, "asset_url")), "html", null, true);
+            echo "\"></script>
+    ";
+        }
+        unset($context["asset_url"]);
+        // line 65
+        echo "        
     </body>
 </html>";
     }
@@ -104,10 +233,10 @@ class __TwigTemplate_c49fcbb65be0af9a133464b787288df5 extends Twig_Template
         echo "Bienvenue sur le site de la LB crew ";
     }
 
-    // line 49
+    // line 51
     public function block_body($context, array $blocks = array())
     {
-        // line 50
+        // line 52
         echo "    
     ";
     }
@@ -124,6 +253,6 @@ class __TwigTemplate_c49fcbb65be0af9a133464b787288df5 extends Twig_Template
 
     public function getDebugInfo()
     {
-        return array (  111 => 50,  108 => 49,  102 => 7,  96 => 54,  94 => 53,  91 => 52,  89 => 49,  86 => 48,  83 => 47,  81 => 46,  58 => 25,  53 => 22,  47 => 14,  42 => 12,  38 => 11,  34 => 10,  28 => 7,  21 => 2,);
+        return array (  240 => 52,  237 => 51,  231 => 7,  225 => 65,  133 => 63,  129 => 57,  126 => 56,  124 => 55,  121 => 54,  119 => 51,  116 => 50,  113 => 49,  111 => 48,  92 => 31,  87 => 28,  82 => 20,  38 => 18,  34 => 10,  28 => 7,  21 => 2,);
     }
 }

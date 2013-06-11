@@ -17,7 +17,7 @@ class __TwigTemplate_0c9d88d55582533f0b2020b88a6ca943 extends Twig_Template
     {
         // line 1
         echo "<div id=\"sfwdt";
-        echo twig_escape_filter($this->env, $this->getContext($context, "token"), "html", null, true);
+        echo twig_escape_filter($this->env, (isset($context["token"]) ? $context["token"] : $this->getContext($context, "token")), "html", null, true);
         echo "\" class=\"sf-toolbar\" style=\"display: none\"></div>
 ";
         // line 2
@@ -27,10 +27,10 @@ class __TwigTemplate_0c9d88d55582533f0b2020b88a6ca943 extends Twig_Template
     (function () {
         ";
         // line 5
-        if (("top" == $this->getContext($context, "position"))) {
+        if (("top" == (isset($context["position"]) ? $context["position"] : $this->getContext($context, "position")))) {
             // line 6
             echo "            var sfwdt = document.getElementById('sfwdt";
-            echo twig_escape_filter($this->env, $this->getContext($context, "token"), "html", null, true);
+            echo twig_escape_filter($this->env, (isset($context["token"]) ? $context["token"] : $this->getContext($context, "token")), "html", null, true);
             echo "');
             document.body.insertBefore(
                 document.body.removeChild(sfwdt),
@@ -43,11 +43,11 @@ class __TwigTemplate_0c9d88d55582533f0b2020b88a6ca943 extends Twig_Template
         Sfjs.load(
             'sfwdt";
         // line 14
-        echo twig_escape_filter($this->env, $this->getContext($context, "token"), "html", null, true);
+        echo twig_escape_filter($this->env, (isset($context["token"]) ? $context["token"] : $this->getContext($context, "token")), "html", null, true);
         echo "',
             '";
         // line 15
-        echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("_wdt", array("token" => $this->getContext($context, "token"))), "html", null, true);
+        echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("_wdt", array("token" => (isset($context["token"]) ? $context["token"] : $this->getContext($context, "token")))), "html", null, true);
         echo "',
             function(xhr, el) {
                 el.style.display = -1 !== xhr.responseText.indexOf('sf-toolbarreset') ? 'block' : 'none';
@@ -56,7 +56,7 @@ class __TwigTemplate_0c9d88d55582533f0b2020b88a6ca943 extends Twig_Template
                 if (xhr.status !== 0) {
                     confirm('An error occurred while loading the web debug toolbar (' + xhr.status + ': ' + xhr.statusText + ').\\n\\nDo you want to open the profiler?') && (window.location = '";
         // line 21
-        echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("_profiler", array("token" => $this->getContext($context, "token"))), "html", null, true);
+        echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("_profiler", array("token" => (isset($context["token"]) ? $context["token"] : $this->getContext($context, "token")))), "html", null, true);
         echo "');
                 }
             }
@@ -78,6 +78,6 @@ class __TwigTemplate_0c9d88d55582533f0b2020b88a6ca943 extends Twig_Template
 
     public function getDebugInfo()
     {
-        return array (  59 => 21,  50 => 15,  46 => 14,  32 => 6,  30 => 5,  24 => 2,  44 => 21,  23 => 4,  36 => 16,  33 => 10,  31 => 9,  26 => 3,  19 => 1,  111 => 50,  108 => 49,  102 => 7,  96 => 54,  94 => 53,  91 => 52,  89 => 49,  86 => 48,  83 => 47,  81 => 46,  58 => 25,  53 => 22,  47 => 14,  42 => 12,  38 => 12,  34 => 15,  28 => 9,  21 => 2,);
+        return array (  42 => 12,  30 => 5,  91 => 20,  84 => 19,  74 => 16,  66 => 15,  57 => 14,  55 => 13,  51 => 12,  44 => 10,  36 => 7,  25 => 4,  105 => 24,  98 => 22,  96 => 21,  93 => 20,  89 => 19,  83 => 18,  76 => 16,  72 => 14,  68 => 12,  50 => 15,  33 => 5,  27 => 4,  24 => 2,  22 => 2,  225 => 96,  216 => 90,  212 => 88,  205 => 84,  201 => 83,  196 => 80,  194 => 79,  191 => 78,  189 => 77,  186 => 76,  180 => 72,  178 => 71,  172 => 67,  163 => 63,  159 => 61,  157 => 60,  154 => 59,  147 => 55,  143 => 54,  138 => 51,  136 => 50,  132 => 48,  130 => 47,  127 => 46,  121 => 45,  118 => 44,  114 => 43,  104 => 36,  100 => 34,  95 => 31,  78 => 28,  75 => 27,  71 => 26,  63 => 24,  60 => 23,  58 => 9,  41 => 9,  34 => 11,  19 => 1,  94 => 39,  88 => 6,  81 => 40,  79 => 17,  59 => 21,  48 => 19,  39 => 6,  35 => 4,  31 => 5,  26 => 3,  21 => 2,  46 => 14,  43 => 7,  32 => 6,  29 => 3,);
     }
 }

@@ -1,0 +1,35 @@
+/* 
+    Document   : internetExplorer
+    Created on : 6 janv. 2013, 18:31:19
+    Author     : Portable
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+section 
+{
+    overflow: visible;
+    height: 1%;
+}
+#menuGauche
+{
+    margin-right: -3px;
+}
+#menuDroit
+{
+    margin-left: -3px;
+}
+#HeaderNiveauDeux
+{
+    height: 93px;
+}
+
+#HeaderNiveauUn li
+{
+    display:inline;
+}
+#HeaderNiveauUn .li
+{
+    width: 150px;
+    margin-left: 3px;
+}

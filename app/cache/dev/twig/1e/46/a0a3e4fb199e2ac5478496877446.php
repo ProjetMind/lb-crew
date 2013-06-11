@@ -235,7 +235,7 @@ class __TwigTemplate_1e46a0a3e4fb199e2ac5478496877446 extends Twig_Template
     /***** Override the setting when the toolbar is on the top *****/
     ";
         // line 218
-        if (($this->getContext($context, "position") == "top")) {
+        if (((isset($context["position"]) ? $context["position"] : $this->getContext($context, "position")) == "top")) {
             // line 219
             echo "        .sf-toolbarreset {
             background-image: -moz-linear-gradient(-90deg, #ffffff, #e4e4e4);
@@ -257,7 +257,7 @@ class __TwigTemplate_1e46a0a3e4fb199e2ac5478496877446 extends Twig_Template
         echo "
     ";
         // line 235
-        if ((!$this->getContext($context, "floatable"))) {
+        if ((!(isset($context["floatable"]) ? $context["floatable"] : $this->getContext($context, "floatable")))) {
             // line 236
             echo "        .sf-toolbarreset {
             position: static;

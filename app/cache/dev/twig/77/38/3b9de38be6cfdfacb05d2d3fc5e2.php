@@ -53,7 +53,7 @@ class __TwigTemplate_77383b9de38be6cfdfacb05d2d3fc5e2 extends Twig_Template
     <span class=\"count\">
         ";
         // line 13
-        if ($this->getAttribute($this->getContext($context, "collector"), "hasexception")) {
+        if ($this->getAttribute((isset($context["collector"]) ? $context["collector"] : $this->getContext($context, "collector")), "hasexception")) {
             // line 14
             echo "            <span>1</span>
         ";
@@ -72,7 +72,7 @@ class __TwigTemplate_77383b9de38be6cfdfacb05d2d3fc5e2 extends Twig_Template
 
     ";
         // line 23
-        if ((!$this->getAttribute($this->getContext($context, "collector"), "hasexception"))) {
+        if ((!$this->getAttribute((isset($context["collector"]) ? $context["collector"] : $this->getContext($context, "collector")), "hasexception"))) {
             // line 24
             echo "        <p>
             <em>No exception was thrown and uncaught during the request.</em>
@@ -81,7 +81,7 @@ class __TwigTemplate_77383b9de38be6cfdfacb05d2d3fc5e2 extends Twig_Template
         } else {
             // line 28
             echo "        ";
-            echo $this->env->getExtension('actions')->renderAction("WebProfilerBundle:Exception:show", array("exception" => $this->getAttribute($this->getContext($context, "collector"), "exception"), "format" => "html"), array());
+            echo $this->env->getExtension('actions')->renderAction("WebProfilerBundle:Exception:show", array("exception" => $this->getAttribute((isset($context["collector"]) ? $context["collector"] : $this->getContext($context, "collector")), "exception"), "format" => "html"), array());
             // line 29
             echo "    ";
         }

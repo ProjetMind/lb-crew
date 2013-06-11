@@ -58,8 +58,9 @@ class appDevDebugProjectContainer extends Container
      */
     protected function getAssetic_AssetManagerService()
     {
-        $this->services['assetic.asset_manager'] = $instance = new \Assetic\Factory\LazyAssetManager($this->get('assetic.asset_factory'), array('twig' => new \Assetic\Factory\Loader\CachedFormulaLoader(new \Assetic\Extension\Twig\TwigFormulaLoader($this->get('twig')), new \Assetic\Cache\ConfigCache('C:/wamp/www/lb-crew/app/cache/dev/assetic/config'), true)));
+        $this->services['assetic.asset_manager'] = $instance = new \Assetic\Factory\LazyAssetManager($this->get('assetic.asset_factory'), array('config' => new \Symfony\Bundle\AsseticBundle\Factory\Loader\ConfigurationLoader(), 'twig' => new \Assetic\Factory\Loader\CachedFormulaLoader(new \Assetic\Extension\Twig\TwigFormulaLoader($this->get('twig')), new \Assetic\Cache\ConfigCache('C:/wamp/www/lb-crew/app/cache/dev/assetic/config'), true)));
 
+        $instance->addResource(new \Symfony\Bundle\AsseticBundle\Factory\Resource\ConfigurationResource(array('bootstrap_css' => array(0 => array(0 => 'C:/wamp/www/lb-crew/app/../vendor/twitter/bootstrap/less/bootstrap.less', 1 => 'C:/wamp/www/lb-crew/app/../vendor/twitter/bootstrap/less/responsive.less'), 1 => array(0 => 'lessphp', 1 => 'cssrewrite', 2 => 'yui_css'), 2 => array('output' => 'css/bootstrap.css')), 'bootstrap_js' => array(0 => array(0 => 'C:/wamp/www/lb-crew/app/../vendor/twitter/bootstrap/js/bootstrap-transition.js', 1 => 'C:/wamp/www/lb-crew/app/../vendor/twitter/bootstrap/js/bootstrap-alert.js', 2 => 'C:/wamp/www/lb-crew/app/../vendor/twitter/bootstrap/js/bootstrap-button.js', 3 => 'C:/wamp/www/lb-crew/app/../vendor/twitter/bootstrap/js/bootstrap-carousel.js', 4 => 'C:/wamp/www/lb-crew/app/../vendor/twitter/bootstrap/js/bootstrap-collapse.js', 5 => 'C:/wamp/www/lb-crew/app/../vendor/twitter/bootstrap/js/bootstrap-dropdown.js', 6 => 'C:/wamp/www/lb-crew/app/../vendor/twitter/bootstrap/js/bootstrap-modal.js', 7 => 'C:/wamp/www/lb-crew/app/../vendor/twitter/bootstrap/js/bootstrap-tooltip.js', 8 => 'C:/wamp/www/lb-crew/app/../vendor/twitter/bootstrap/js/bootstrap-popover.js', 9 => 'C:/wamp/www/lb-crew/app/../vendor/twitter/bootstrap/js/bootstrap-scrollspy.js', 10 => 'C:/wamp/www/lb-crew/app/../vendor/twitter/bootstrap/js/bootstrap-tab.js', 11 => 'C:/wamp/www/lb-crew/app/../vendor/twitter/bootstrap/js/bootstrap-typeahead.js', 12 => 'C:/wamp/www/lb-crew/app/../vendor/twitter/bootstrap/js/bootstrap-affix.js'), 1 => array(), 2 => array('output' => 'js/bootstrap.js')))), 'config');
         $instance->addResource(new \Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource($this->get('templating.loader'), '', 'C:/wamp/www/lb-crew/app/Resources/views', '/\\.[^.]+\\.twig$/'), 'twig');
 
         return $instance;
@@ -93,6 +94,69 @@ class appDevDebugProjectContainer extends Container
     }
 
     /**
+     * Gets the 'assetic.filter.lessphp' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return Assetic\Filter\LessphpFilter A Assetic\Filter\LessphpFilter instance.
+     */
+    protected function getAssetic_Filter_LessphpService()
+    {
+        require_once 'C:/wamp/www/lb-crew/app/../vendor/leafo/lessphp/lessc.inc.php';
+
+        $this->services['assetic.filter.lessphp'] = $instance = new \Assetic\Filter\LessphpFilter();
+
+        $instance->setPresets(array());
+        $instance->setLoadPaths(array());
+        $instance->setFormatter(NULL);
+        $instance->setPreserveComments(NULL);
+
+        return $instance;
+    }
+
+    /**
+     * Gets the 'assetic.filter.yui_css' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return Assetic\Filter\Yui\CssCompressorFilter A Assetic\Filter\Yui\CssCompressorFilter instance.
+     */
+    protected function getAssetic_Filter_YuiCssService()
+    {
+        $this->services['assetic.filter.yui_css'] = $instance = new \Assetic\Filter\Yui\CssCompressorFilter('C:/wamp/www/lb-crew/app/Resources/java/yuicompressor-2.4.7.jar', 'C:\\Program Files\\Java\\jre7\\bin\\java.exe');
+
+        $instance->setCharset('UTF-8');
+        $instance->setTimeout(NULL);
+        $instance->setStackSize(NULL);
+
+        return $instance;
+    }
+
+    /**
+     * Gets the 'assetic.filter.yui_js' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return Assetic\Filter\Yui\JsCompressorFilter A Assetic\Filter\Yui\JsCompressorFilter instance.
+     */
+    protected function getAssetic_Filter_YuiJsService()
+    {
+        $this->services['assetic.filter.yui_js'] = $instance = new \Assetic\Filter\Yui\JsCompressorFilter('C:/wamp/www/lb-crew/app/Resources/java/yuicompressor-2.4.7.jar', 'C:\\Program Files\\Java\\jre7\\bin\\java.exe');
+
+        $instance->setCharset('UTF-8');
+        $instance->setTimeout(NULL);
+        $instance->setStackSize(NULL);
+        $instance->setNomunge(NULL);
+        $instance->setPreserveSemi(NULL);
+        $instance->setDisableOptimizations(NULL);
+
+        return $instance;
+    }
+
+    /**
      * Gets the 'assetic.filter_manager' service.
      *
      * This service is shared.
@@ -102,7 +166,7 @@ class appDevDebugProjectContainer extends Container
      */
     protected function getAssetic_FilterManagerService()
     {
-        return $this->services['assetic.filter_manager'] = new \Symfony\Bundle\AsseticBundle\FilterManager($this, array('cssrewrite' => 'assetic.filter.cssrewrite'));
+        return $this->services['assetic.filter_manager'] = new \Symfony\Bundle\AsseticBundle\FilterManager($this, array('lessphp' => 'assetic.filter.lessphp', 'cssrewrite' => 'assetic.filter.cssrewrite', 'yui_js' => 'assetic.filter.yui_js', 'yui_css' => 'assetic.filter.yui_css'));
     }
 
     /**
@@ -116,6 +180,45 @@ class appDevDebugProjectContainer extends Container
     protected function getAssetic_RequestListenerService()
     {
         return $this->services['assetic.request_listener'] = new \Symfony\Bundle\AsseticBundle\EventListener\RequestListener();
+    }
+
+    /**
+     * Gets the 'bc_bootstrap.twig.badge_extension' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return Bc\Bundle\BootstrapBundle\Twig\BootstrapBadgeExtension A Bc\Bundle\BootstrapBundle\Twig\BootstrapBadgeExtension instance.
+     */
+    protected function getBcBootstrap_Twig_BadgeExtensionService()
+    {
+        return $this->services['bc_bootstrap.twig.badge_extension'] = new \Bc\Bundle\BootstrapBundle\Twig\BootstrapBadgeExtension();
+    }
+
+    /**
+     * Gets the 'bc_bootstrap.twig.icon_extension' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return Bc\Bundle\BootstrapBundle\Twig\BootstrapIconExtension A Bc\Bundle\BootstrapBundle\Twig\BootstrapIconExtension instance.
+     */
+    protected function getBcBootstrap_Twig_IconExtensionService()
+    {
+        return $this->services['bc_bootstrap.twig.icon_extension'] = new \Bc\Bundle\BootstrapBundle\Twig\BootstrapIconExtension();
+    }
+
+    /**
+     * Gets the 'bc_bootstrap.twig.label_extension' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return Bc\Bundle\BootstrapBundle\Twig\BootstrapLabelExtension A Bc\Bundle\BootstrapBundle\Twig\BootstrapLabelExtension instance.
+     */
+    protected function getBcBootstrap_Twig_LabelExtensionService()
+    {
+        return $this->services['bc_bootstrap.twig.label_extension'] = new \Bc\Bundle\BootstrapBundle\Twig\BootstrapLabelExtension();
     }
 
     /**
@@ -256,11 +359,11 @@ class appDevDebugProjectContainer extends Container
      * This service is shared.
      * This method always returns the same instance of the service.
      *
-     * @return EntityManager5182cf111900c_546a8d27f194334ee012bfe64f629947b07e4919\__CG__\Doctrine\ORM\EntityManager A EntityManager5182cf111900c_546a8d27f194334ee012bfe64f629947b07e4919\__CG__\Doctrine\ORM\EntityManager instance.
+     * @return EntityManager51b79d96ea376_546a8d27f194334ee012bfe64f629947b07e4919\__CG__\Doctrine\ORM\EntityManager A EntityManager51b79d96ea376_546a8d27f194334ee012bfe64f629947b07e4919\__CG__\Doctrine\ORM\EntityManager instance.
      */
     protected function getDoctrine_Orm_DefaultEntityManagerService()
     {
-        require_once 'C:/wamp/www/lb-crew/app/cache/dev/jms_diextra/doctrine/EntityManager_5182cf111900c.php';
+        require_once 'C:/wamp/www/lb-crew/app/cache/dev/jms_diextra/doctrine/EntityManager_51b79d96ea376.php';
 
         $a = $this->get('annotation_reader');
 
@@ -301,7 +404,7 @@ class appDevDebugProjectContainer extends Container
         $i = call_user_func(array('Doctrine\\ORM\\EntityManager', 'create'), $this->get('doctrine.dbal.default_connection'), $h);
         $this->get('doctrine.orm.default_manager_configurator')->configure($i);
 
-        return $this->services['doctrine.orm.default_entity_manager'] = new \EntityManager5182cf111900c_546a8d27f194334ee012bfe64f629947b07e4919\__CG__\Doctrine\ORM\EntityManager($i, $this);
+        return $this->services['doctrine.orm.default_entity_manager'] = new \EntityManager51b79d96ea376_546a8d27f194334ee012bfe64f629947b07e4919\__CG__\Doctrine\ORM\EntityManager($i, $this);
     }
 
     /**
@@ -2751,6 +2854,9 @@ class appDevDebugProjectContainer extends Container
         $instance->addExtension(new \Twig_Extension_Debug());
         $instance->addExtension(new \Symfony\Bundle\AsseticBundle\Twig\AsseticExtension($this->get('assetic.asset_factory'), $this->get('templating.name_parser'), true, array(), array(), $this->get('assetic.value_supplier.default')));
         $instance->addExtension(new \JMS\SecurityExtraBundle\Twig\SecurityExtension($a));
+        $instance->addExtension($this->get('bc_bootstrap.twig.icon_extension'));
+        $instance->addExtension($this->get('bc_bootstrap.twig.label_extension'));
+        $instance->addExtension($this->get('bc_bootstrap.twig.badge_extension'));
         $instance->addGlobal('app', $this->get('templating.globals'));
 
         return $instance;
@@ -2858,7 +2964,7 @@ class appDevDebugProjectContainer extends Container
     /**
      * Gets the doctrine.orm.entity_manager service alias.
      *
-     * @return EntityManager5182cf111900c_546a8d27f194334ee012bfe64f629947b07e4919\__CG__\Doctrine\ORM\EntityManager An instance of the doctrine.orm.default_entity_manager service
+     * @return EntityManager51b79d96ea376_546a8d27f194334ee012bfe64f629947b07e4919\__CG__\Doctrine\ORM\EntityManager An instance of the doctrine.orm.default_entity_manager service
      */
     protected function getDoctrine_Orm_EntityManagerService()
     {
@@ -2911,6 +3017,7 @@ class appDevDebugProjectContainer extends Container
     {
         $this->services['assetic.asset_factory'] = $instance = new \Symfony\Bundle\AsseticBundle\Factory\AssetFactory($this->get('kernel'), $this, $this->getParameterBag(), 'C:/wamp/www/lb-crew/app/../web', true);
 
+        $instance->addWorker(new \Assetic\Factory\Worker\EnsureFilterWorker('/\\.less$/', $this->get('assetic.filter.lessphp')));
         $instance->addWorker(new \Symfony\Bundle\AsseticBundle\Factory\Worker\UseControllerWorker());
 
         return $instance;
@@ -3261,6 +3368,7 @@ class appDevDebugProjectContainer extends Container
                 'LBcrewMediaBundle' => 'LBcrew\\MediaBundle\\LBcrewMediaBundle',
                 'LBcrewMessagesBundle' => 'LBcrew\\MessagesBundle\\LBcrewMessagesBundle',
                 'LBcrewCommentairesBundle' => 'LBcrew\\CommentairesBundle\\LBcrewCommentairesBundle',
+                'BcBootstrapBundle' => 'Bc\\Bundle\\BootstrapBundle\\BcBootstrapBundle',
                 'WebProfilerBundle' => 'Symfony\\Bundle\\WebProfilerBundle\\WebProfilerBundle',
                 'SensioDistributionBundle' => 'Sensio\\Bundle\\DistributionBundle\\SensioDistributionBundle',
                 'SensioGeneratorBundle' => 'Sensio\\Bundle\\GeneratorBundle\\SensioGeneratorBundle',
@@ -3629,11 +3737,35 @@ class appDevDebugProjectContainer extends Container
             'assetic.variables' => array(
 
             ),
-            'assetic.java.bin' => 'C:\\Windows\\system32\\java.EXE',
+            'assetic.java.bin' => 'C:\\Program Files\\Java\\jre7\\bin\\java.exe',
             'assetic.node.bin' => '/usr/bin/node',
             'assetic.ruby.bin' => '/usr/bin/ruby',
             'assetic.sass.bin' => '/usr/bin/sass',
+            'assetic.filter.lessphp.class' => 'Assetic\\Filter\\LessphpFilter',
+            'assetic.filter.lessphp.presets' => array(
+
+            ),
+            'assetic.filter.lessphp.paths' => array(
+
+            ),
+            'assetic.filter.lessphp.formatter' => NULL,
+            'assetic.filter.lessphp.preserve_comments' => NULL,
             'assetic.filter.cssrewrite.class' => 'Assetic\\Filter\\CssRewriteFilter',
+            'assetic.filter.yui_js.class' => 'Assetic\\Filter\\Yui\\JsCompressorFilter',
+            'assetic.filter.yui_js.java' => 'C:\\Program Files\\Java\\jre7\\bin\\java.exe',
+            'assetic.filter.yui_js.jar' => 'C:/wamp/www/lb-crew/app/Resources/java/yuicompressor-2.4.7.jar',
+            'assetic.filter.yui_js.charset' => 'UTF-8',
+            'assetic.filter.yui_js.stacksize' => NULL,
+            'assetic.filter.yui_js.timeout' => NULL,
+            'assetic.filter.yui_js.nomunge' => NULL,
+            'assetic.filter.yui_js.preserve_semi' => NULL,
+            'assetic.filter.yui_js.disable_optimizations' => NULL,
+            'assetic.filter.yui_css.class' => 'Assetic\\Filter\\Yui\\CssCompressorFilter',
+            'assetic.filter.yui_css.java' => 'C:\\Program Files\\Java\\jre7\\bin\\java.exe',
+            'assetic.filter.yui_css.jar' => 'C:/wamp/www/lb-crew/app/Resources/java/yuicompressor-2.4.7.jar',
+            'assetic.filter.yui_css.charset' => 'UTF-8',
+            'assetic.filter.yui_css.stacksize' => NULL,
+            'assetic.filter.yui_css.timeout' => NULL,
             'assetic.twig_extension.functions' => array(
 
             ),
@@ -3729,8 +3861,8 @@ class appDevDebugProjectContainer extends Container
             ),
             'jms_di_extra.cache_dir' => 'C:/wamp/www/lb-crew/app/cache/dev/jms_diextra',
             'jms_di_extra.doctrine_integration' => true,
-            'jms_di_extra.doctrine_integration.entity_manager.file' => 'C:/wamp/www/lb-crew/app/cache/dev/jms_diextra/doctrine/EntityManager_5182cf111900c.php',
-            'jms_di_extra.doctrine_integration.entity_manager.class' => 'EntityManager5182cf111900c_546a8d27f194334ee012bfe64f629947b07e4919\\__CG__\\Doctrine\\ORM\\EntityManager',
+            'jms_di_extra.doctrine_integration.entity_manager.file' => 'C:/wamp/www/lb-crew/app/cache/dev/jms_diextra/doctrine/EntityManager_51b79d96ea376.php',
+            'jms_di_extra.doctrine_integration.entity_manager.class' => 'EntityManager51b79d96ea376_546a8d27f194334ee012bfe64f629947b07e4919\\__CG__\\Doctrine\\ORM\\EntityManager',
             'security.secured_services' => array(
 
             ),

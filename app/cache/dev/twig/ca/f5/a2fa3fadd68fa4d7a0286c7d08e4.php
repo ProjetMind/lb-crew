@@ -50,7 +50,7 @@ class __TwigTemplate_caf5a2fa3fadd68fa4d7a0286c7d08e4 extends Twig_Template
     {
         // line 14
         echo "    ";
-        echo $this->env->getExtension('actions')->renderAction("WebProfilerBundle:Router:panel", array("token" => $this->getContext($context, "token")), array());
+        echo $this->env->getExtension('actions')->renderAction("WebProfilerBundle:Router:panel", array("token" => (isset($context["token"]) ? $context["token"] : $this->getContext($context, "token"))), array());
     }
 
     public function getTemplateName()

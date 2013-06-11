@@ -7,12 +7,18 @@
         <title>{% block title %}Bienvenue sur le site de la LB crew {% endblock %}</title>
         
         <!-- CSS -->
-        <link rel="stylesheet" href="{{ asset('/lb-crew/src/LBcrew/SiteBundle/Resources/public/css/styleBase.css') }}" type="text/css" media="screen" />
-        <link rel="stylesheet" href="{{ asset('/lb-crew/src/LBcrew/MediaBundle/Resources/public/css/mediaStyle.css') }}" type="text/css" media="screen" />
-        <link rel="stylesheet" href="{{ asset('/lb-crew/src/LBcrew/SiteBundle/Resources/public/css/modalbox.css') }}" type="text/css" media="screen" />
-        <!-- Bootstrap -->
-        <link rel="stylesheet" href="{{ asset('/lb-crew/web/bootstrap/css/bootstrap.css') }}" type="text/css" media="screen"/>
-        
+        {% stylesheets 
+            filter='?lessphp, ?yui_css'
+            output='css/bootstrap.css'
+            'vendor/twitter/bootstrap/less/bootstrap.less'
+            'vendor/twitter/bootstrap/less/responsive.less'
+            '@LBcrewMediaBundle/Resources/public/css/*' 
+            '@LBcrewSiteBundle/Resources/public/css/*'
+        %}
+            <link rel="stylesheet" href="{{ asset_url }}" type="text/css" />
+        {% endstylesheets %}
+            
+
         <!-- JS -->
         {#<script src="//ajax.googleapis.com/ajax/libs/prototype/1.7.1.0/prototype.js"></script>
         <script src="//ajax.googleapis.com/ajax/libs/scriptaculous/1.9.0/scriptaculous.js?¬
@@ -37,11 +43,7 @@
     </head>
 
 <body>
-    
-    <script src="http://code.jquery.com/jquery-latest.js"></script>
-    <script src="/lb-crew/web/bootstrap/js/bootstrap.min.js"></script>
-    <script src="/lb-crew/web/bootstrap/js/bootstrap-responsive.min.js"></script>
-    
+   
     {#HEADER#}
         {#Include de la barre#}
         {% include "::header.html.twig" %}
@@ -52,5 +54,14 @@
     
         {% include "::footer.html.twig" %}
     
+    {% javascripts 
+        filter='?yui_js'
+        'http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js'
+        '../vendor/twitter/bootstrap/js/*'
+        output='js/bootstrap.js' 
+    %}
+        <script type="text/javascript" src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+        
     </body>
 </html>

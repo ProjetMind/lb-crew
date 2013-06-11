@@ -25,6 +25,204 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
         $allow = array();
         $pathinfo = rawurldecode($pathinfo);
 
+        if (0 === strpos($pathinfo, '/')) {
+            // _assetic_bootstrap_css
+            if ($pathinfo === '/css/bootstrap.css') {
+                return array (  '_controller' => 'assetic.controller:render',  'name' => 'bootstrap_css',  'pos' => NULL,  '_format' => 'css',  '_route' => '_assetic_bootstrap_css',);
+            }
+
+            // _assetic_bootstrap_css_0
+            if ($pathinfo === '/css/bootstrap_bootstrap_1.css') {
+                return array (  '_controller' => 'assetic.controller:render',  'name' => 'bootstrap_css',  'pos' => '0',  '_format' => 'css',  '_route' => '_assetic_bootstrap_css_0',);
+            }
+
+            // _assetic_bootstrap_css_1
+            if ($pathinfo === '/css/bootstrap_responsive_2.css') {
+                return array (  '_controller' => 'assetic.controller:render',  'name' => 'bootstrap_css',  'pos' => '1',  '_format' => 'css',  '_route' => '_assetic_bootstrap_css_1',);
+            }
+
+            // _assetic_bootstrap_js
+            if ($pathinfo === '/js/bootstrap.js') {
+                return array (  '_controller' => 'assetic.controller:render',  'name' => 'bootstrap_js',  'pos' => NULL,  '_format' => 'js',  '_route' => '_assetic_bootstrap_js',);
+            }
+
+            // _assetic_bootstrap_js_0
+            if ($pathinfo === '/js/bootstrap_bootstrap-transition_1.js') {
+                return array (  '_controller' => 'assetic.controller:render',  'name' => 'bootstrap_js',  'pos' => '0',  '_format' => 'js',  '_route' => '_assetic_bootstrap_js_0',);
+            }
+
+            // _assetic_bootstrap_js_1
+            if ($pathinfo === '/js/bootstrap_bootstrap-alert_2.js') {
+                return array (  '_controller' => 'assetic.controller:render',  'name' => 'bootstrap_js',  'pos' => '1',  '_format' => 'js',  '_route' => '_assetic_bootstrap_js_1',);
+            }
+
+            // _assetic_bootstrap_js_2
+            if ($pathinfo === '/js/bootstrap_bootstrap-button_3.js') {
+                return array (  '_controller' => 'assetic.controller:render',  'name' => 'bootstrap_js',  'pos' => '2',  '_format' => 'js',  '_route' => '_assetic_bootstrap_js_2',);
+            }
+
+            // _assetic_bootstrap_js_3
+            if ($pathinfo === '/js/bootstrap_bootstrap-carousel_4.js') {
+                return array (  '_controller' => 'assetic.controller:render',  'name' => 'bootstrap_js',  'pos' => '3',  '_format' => 'js',  '_route' => '_assetic_bootstrap_js_3',);
+            }
+
+            // _assetic_bootstrap_js_4
+            if ($pathinfo === '/js/bootstrap_bootstrap-collapse_5.js') {
+                return array (  '_controller' => 'assetic.controller:render',  'name' => 'bootstrap_js',  'pos' => '4',  '_format' => 'js',  '_route' => '_assetic_bootstrap_js_4',);
+            }
+
+            // _assetic_bootstrap_js_5
+            if ($pathinfo === '/js/bootstrap_bootstrap-dropdown_6.js') {
+                return array (  '_controller' => 'assetic.controller:render',  'name' => 'bootstrap_js',  'pos' => '5',  '_format' => 'js',  '_route' => '_assetic_bootstrap_js_5',);
+            }
+
+            // _assetic_bootstrap_js_6
+            if ($pathinfo === '/js/bootstrap_bootstrap-modal_7.js') {
+                return array (  '_controller' => 'assetic.controller:render',  'name' => 'bootstrap_js',  'pos' => '6',  '_format' => 'js',  '_route' => '_assetic_bootstrap_js_6',);
+            }
+
+            // _assetic_bootstrap_js_7
+            if ($pathinfo === '/js/bootstrap_bootstrap-tooltip_8.js') {
+                return array (  '_controller' => 'assetic.controller:render',  'name' => 'bootstrap_js',  'pos' => '7',  '_format' => 'js',  '_route' => '_assetic_bootstrap_js_7',);
+            }
+
+            // _assetic_bootstrap_js_8
+            if ($pathinfo === '/js/bootstrap_bootstrap-popover_9.js') {
+                return array (  '_controller' => 'assetic.controller:render',  'name' => 'bootstrap_js',  'pos' => '8',  '_format' => 'js',  '_route' => '_assetic_bootstrap_js_8',);
+            }
+
+            // _assetic_bootstrap_js_9
+            if ($pathinfo === '/js/bootstrap_bootstrap-scrollspy_10.js') {
+                return array (  '_controller' => 'assetic.controller:render',  'name' => 'bootstrap_js',  'pos' => '9',  '_format' => 'js',  '_route' => '_assetic_bootstrap_js_9',);
+            }
+
+            // _assetic_bootstrap_js_10
+            if ($pathinfo === '/js/bootstrap_bootstrap-tab_11.js') {
+                return array (  '_controller' => 'assetic.controller:render',  'name' => 'bootstrap_js',  'pos' => '10',  '_format' => 'js',  '_route' => '_assetic_bootstrap_js_10',);
+            }
+
+            // _assetic_bootstrap_js_11
+            if ($pathinfo === '/js/bootstrap_bootstrap-typeahead_12.js') {
+                return array (  '_controller' => 'assetic.controller:render',  'name' => 'bootstrap_js',  'pos' => '11',  '_format' => 'js',  '_route' => '_assetic_bootstrap_js_11',);
+            }
+
+            // _assetic_bootstrap_js_12
+            if ($pathinfo === '/js/bootstrap_bootstrap-affix_13.js') {
+                return array (  '_controller' => 'assetic.controller:render',  'name' => 'bootstrap_js',  'pos' => '12',  '_format' => 'js',  '_route' => '_assetic_bootstrap_js_12',);
+            }
+
+            // _assetic_7ec7567
+            if ($pathinfo === '/css/bootstrap.css') {
+                return array (  '_controller' => 'assetic.controller:render',  'name' => '7ec7567',  'pos' => NULL,  '_format' => 'css',  '_route' => '_assetic_7ec7567',);
+            }
+
+            // _assetic_7ec7567_0
+            if ($pathinfo === '/css/bootstrap_bootstrap_1.css') {
+                return array (  '_controller' => 'assetic.controller:render',  'name' => '7ec7567',  'pos' => '0',  '_format' => 'css',  '_route' => '_assetic_7ec7567_0',);
+            }
+
+            // _assetic_7ec7567_1
+            if ($pathinfo === '/css/bootstrap_responsive_2.css') {
+                return array (  '_controller' => 'assetic.controller:render',  'name' => '7ec7567',  'pos' => '1',  '_format' => 'css',  '_route' => '_assetic_7ec7567_1',);
+            }
+
+            // _assetic_7ec7567_2
+            if ($pathinfo === '/css/bootstrap_part_3_mediaStyle_1.css') {
+                return array (  '_controller' => 'assetic.controller:render',  'name' => '7ec7567',  'pos' => '2',  '_format' => 'css',  '_route' => '_assetic_7ec7567_2',);
+            }
+
+            // _assetic_7ec7567_3
+            if ($pathinfo === '/css/bootstrap_part_4_internetExplorer_1.css') {
+                return array (  '_controller' => 'assetic.controller:render',  'name' => '7ec7567',  'pos' => '3',  '_format' => 'css',  '_route' => '_assetic_7ec7567_3',);
+            }
+
+            // _assetic_7ec7567_4
+            if ($pathinfo === '/css/bootstrap_part_4_modalbox_2.css') {
+                return array (  '_controller' => 'assetic.controller:render',  'name' => '7ec7567',  'pos' => '4',  '_format' => 'css',  '_route' => '_assetic_7ec7567_4',);
+            }
+
+            // _assetic_7ec7567_5
+            if ($pathinfo === '/css/bootstrap_part_4_styleBase_3.css') {
+                return array (  '_controller' => 'assetic.controller:render',  'name' => '7ec7567',  'pos' => '5',  '_format' => 'css',  '_route' => '_assetic_7ec7567_5',);
+            }
+
+            // _assetic_61da234
+            if ($pathinfo === '/js/bootstrap.js') {
+                return array (  '_controller' => 'assetic.controller:render',  'name' => '61da234',  'pos' => NULL,  '_format' => 'js',  '_route' => '_assetic_61da234',);
+            }
+
+            // _assetic_61da234_0
+            if ($pathinfo === '/js/bootstrap_jquery.min_1.js') {
+                return array (  '_controller' => 'assetic.controller:render',  'name' => '61da234',  'pos' => '0',  '_format' => 'js',  '_route' => '_assetic_61da234_0',);
+            }
+
+            // _assetic_61da234_1
+            if ($pathinfo === '/js/bootstrap_part_2_bootstrap-affix_1.js') {
+                return array (  '_controller' => 'assetic.controller:render',  'name' => '61da234',  'pos' => '1',  '_format' => 'js',  '_route' => '_assetic_61da234_1',);
+            }
+
+            // _assetic_61da234_2
+            if ($pathinfo === '/js/bootstrap_part_2_bootstrap-alert_2.js') {
+                return array (  '_controller' => 'assetic.controller:render',  'name' => '61da234',  'pos' => '2',  '_format' => 'js',  '_route' => '_assetic_61da234_2',);
+            }
+
+            // _assetic_61da234_3
+            if ($pathinfo === '/js/bootstrap_part_2_bootstrap-button_3.js') {
+                return array (  '_controller' => 'assetic.controller:render',  'name' => '61da234',  'pos' => '3',  '_format' => 'js',  '_route' => '_assetic_61da234_3',);
+            }
+
+            // _assetic_61da234_4
+            if ($pathinfo === '/js/bootstrap_part_2_bootstrap-carousel_4.js') {
+                return array (  '_controller' => 'assetic.controller:render',  'name' => '61da234',  'pos' => '4',  '_format' => 'js',  '_route' => '_assetic_61da234_4',);
+            }
+
+            // _assetic_61da234_5
+            if ($pathinfo === '/js/bootstrap_part_2_bootstrap-collapse_5.js') {
+                return array (  '_controller' => 'assetic.controller:render',  'name' => '61da234',  'pos' => '5',  '_format' => 'js',  '_route' => '_assetic_61da234_5',);
+            }
+
+            // _assetic_61da234_6
+            if ($pathinfo === '/js/bootstrap_part_2_bootstrap-dropdown_6.js') {
+                return array (  '_controller' => 'assetic.controller:render',  'name' => '61da234',  'pos' => '6',  '_format' => 'js',  '_route' => '_assetic_61da234_6',);
+            }
+
+            // _assetic_61da234_7
+            if ($pathinfo === '/js/bootstrap_part_2_bootstrap-modal_7.js') {
+                return array (  '_controller' => 'assetic.controller:render',  'name' => '61da234',  'pos' => '7',  '_format' => 'js',  '_route' => '_assetic_61da234_7',);
+            }
+
+            // _assetic_61da234_8
+            if ($pathinfo === '/js/bootstrap_part_2_bootstrap-popover_8.js') {
+                return array (  '_controller' => 'assetic.controller:render',  'name' => '61da234',  'pos' => '8',  '_format' => 'js',  '_route' => '_assetic_61da234_8',);
+            }
+
+            // _assetic_61da234_9
+            if ($pathinfo === '/js/bootstrap_part_2_bootstrap-scrollspy_9.js') {
+                return array (  '_controller' => 'assetic.controller:render',  'name' => '61da234',  'pos' => '9',  '_format' => 'js',  '_route' => '_assetic_61da234_9',);
+            }
+
+            // _assetic_61da234_10
+            if ($pathinfo === '/js/bootstrap_part_2_bootstrap-tab_10.js') {
+                return array (  '_controller' => 'assetic.controller:render',  'name' => '61da234',  'pos' => '10',  '_format' => 'js',  '_route' => '_assetic_61da234_10',);
+            }
+
+            // _assetic_61da234_11
+            if ($pathinfo === '/js/bootstrap_part_2_bootstrap-tooltip_11.js') {
+                return array (  '_controller' => 'assetic.controller:render',  'name' => '61da234',  'pos' => '11',  '_format' => 'js',  '_route' => '_assetic_61da234_11',);
+            }
+
+            // _assetic_61da234_12
+            if ($pathinfo === '/js/bootstrap_part_2_bootstrap-transition_12.js') {
+                return array (  '_controller' => 'assetic.controller:render',  'name' => '61da234',  'pos' => '12',  '_format' => 'js',  '_route' => '_assetic_61da234_12',);
+            }
+
+            // _assetic_61da234_13
+            if ($pathinfo === '/js/bootstrap_part_2_bootstrap-typeahead_13.js') {
+                return array (  '_controller' => 'assetic.controller:render',  'name' => '61da234',  'pos' => '13',  '_format' => 'js',  '_route' => '_assetic_61da234_13',);
+            }
+
+        }
+
         // _wdt
         if (0 === strpos($pathinfo, '/_wdt') && preg_match('#^/_wdt/(?P<token>[^/]+)$#s', $pathinfo, $matches)) {
             return array_merge($this->mergeDefaults($matches, array (  '_controller' => 'Symfony\\Bundle\\WebProfilerBundle\\Controller\\ProfilerController::toolbarAction',)), array('_route' => '_wdt'));
