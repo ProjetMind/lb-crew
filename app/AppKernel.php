@@ -25,7 +25,8 @@ class AppKernel extends Kernel
             new LBcrew\MediaBundle\LBcrewMediaBundle(),
             new LBcrew\MessagesBundle\LBcrewMessagesBundle(),
             new LBcrew\CommentairesBundle\LBcrewCommentairesBundle(),
-            new Bc\Bundle\BootstrapBundle\BcBootstrapBundle()
+            new Bc\Bundle\BootstrapBundle\BcBootstrapBundle(),
+            new LBcrew\BootstrapExtensionBundle\LBcrewBootstrapExtensionBundle()
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

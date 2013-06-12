@@ -359,11 +359,11 @@ class appDevDebugProjectContainer extends Container
      * This service is shared.
      * This method always returns the same instance of the service.
      *
-     * @return EntityManager51b79d96ea376_546a8d27f194334ee012bfe64f629947b07e4919\__CG__\Doctrine\ORM\EntityManager A EntityManager51b79d96ea376_546a8d27f194334ee012bfe64f629947b07e4919\__CG__\Doctrine\ORM\EntityManager instance.
+     * @return EntityManager51b7d4e1f2533_546a8d27f194334ee012bfe64f629947b07e4919\__CG__\Doctrine\ORM\EntityManager A EntityManager51b7d4e1f2533_546a8d27f194334ee012bfe64f629947b07e4919\__CG__\Doctrine\ORM\EntityManager instance.
      */
     protected function getDoctrine_Orm_DefaultEntityManagerService()
     {
-        require_once 'C:/wamp/www/lb-crew/app/cache/dev/jms_diextra/doctrine/EntityManager_51b79d96ea376.php';
+        require_once 'C:/wamp/www/lb-crew/app/cache/dev/jms_diextra/doctrine/EntityManager_51b7d4e1f2533.php';
 
         $a = $this->get('annotation_reader');
 
@@ -404,7 +404,7 @@ class appDevDebugProjectContainer extends Container
         $i = call_user_func(array('Doctrine\\ORM\\EntityManager', 'create'), $this->get('doctrine.dbal.default_connection'), $h);
         $this->get('doctrine.orm.default_manager_configurator')->configure($i);
 
-        return $this->services['doctrine.orm.default_entity_manager'] = new \EntityManager51b79d96ea376_546a8d27f194334ee012bfe64f629947b07e4919\__CG__\Doctrine\ORM\EntityManager($i, $this);
+        return $this->services['doctrine.orm.default_entity_manager'] = new \EntityManager51b7d4e1f2533_546a8d27f194334ee012bfe64f629947b07e4919\__CG__\Doctrine\ORM\EntityManager($i, $this);
     }
 
     /**
@@ -2964,7 +2964,7 @@ class appDevDebugProjectContainer extends Container
     /**
      * Gets the doctrine.orm.entity_manager service alias.
      *
-     * @return EntityManager51b79d96ea376_546a8d27f194334ee012bfe64f629947b07e4919\__CG__\Doctrine\ORM\EntityManager An instance of the doctrine.orm.default_entity_manager service
+     * @return EntityManager51b7d4e1f2533_546a8d27f194334ee012bfe64f629947b07e4919\__CG__\Doctrine\ORM\EntityManager An instance of the doctrine.orm.default_entity_manager service
      */
     protected function getDoctrine_Orm_EntityManagerService()
     {
@@ -3369,6 +3369,7 @@ class appDevDebugProjectContainer extends Container
                 'LBcrewMessagesBundle' => 'LBcrew\\MessagesBundle\\LBcrewMessagesBundle',
                 'LBcrewCommentairesBundle' => 'LBcrew\\CommentairesBundle\\LBcrewCommentairesBundle',
                 'BcBootstrapBundle' => 'Bc\\Bundle\\BootstrapBundle\\BcBootstrapBundle',
+                'LBcrewBootstrapExtensionBundle' => 'LBcrew\\BootstrapExtensionBundle\\LBcrewBootstrapExtensionBundle',
                 'WebProfilerBundle' => 'Symfony\\Bundle\\WebProfilerBundle\\WebProfilerBundle',
                 'SensioDistributionBundle' => 'Sensio\\Bundle\\DistributionBundle\\SensioDistributionBundle',
                 'SensioGeneratorBundle' => 'Sensio\\Bundle\\GeneratorBundle\\SensioGeneratorBundle',
@@ -3861,8 +3862,8 @@ class appDevDebugProjectContainer extends Container
             ),
             'jms_di_extra.cache_dir' => 'C:/wamp/www/lb-crew/app/cache/dev/jms_diextra',
             'jms_di_extra.doctrine_integration' => true,
-            'jms_di_extra.doctrine_integration.entity_manager.file' => 'C:/wamp/www/lb-crew/app/cache/dev/jms_diextra/doctrine/EntityManager_51b79d96ea376.php',
-            'jms_di_extra.doctrine_integration.entity_manager.class' => 'EntityManager51b79d96ea376_546a8d27f194334ee012bfe64f629947b07e4919\\__CG__\\Doctrine\\ORM\\EntityManager',
+            'jms_di_extra.doctrine_integration.entity_manager.file' => 'C:/wamp/www/lb-crew/app/cache/dev/jms_diextra/doctrine/EntityManager_51b7d4e1f2533.php',
+            'jms_di_extra.doctrine_integration.entity_manager.class' => 'EntityManager51b7d4e1f2533_546a8d27f194334ee012bfe64f629947b07e4919\\__CG__\\Doctrine\\ORM\\EntityManager',
             'security.secured_services' => array(
 
             ),

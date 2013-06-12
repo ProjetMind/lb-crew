@@ -118,6 +118,7 @@
   'BcBootstrapBundle:Menu:menu.html.twig' => 'C:\\wamp\\www\\lb-crew\\vendor\\braincrafted\\bootstrap-bundle\\Bc\\Bundle\\BootstrapBundle/Resources/views/Menu/menu.html.twig',
   'BcBootstrapBundle:Pagination:pagination.html.twig' => 'C:\\wamp\\www\\lb-crew\\vendor\\braincrafted\\bootstrap-bundle\\Bc\\Bundle\\BootstrapBundle/Resources/views/Pagination/pagination.html.twig',
   'BcBootstrapBundle::_html5shiv.html.twig' => 'C:\\wamp\\www\\lb-crew\\vendor\\braincrafted\\bootstrap-bundle\\Bc\\Bundle\\BootstrapBundle/Resources/views/_html5shiv.html.twig',
+  'LBcrewBootstrapExtensionBundle:Default:index.html.twig' => 'C:\\wamp\\www\\lb-crew\\src\\LBcrew\\BootstrapExtensionBundle/Resources/views/Default/index.html.twig',
   'WebProfilerBundle:Collector:config.html.twig' => 'C:\\wamp\\www\\lb-crew\\vendor\\symfony\\symfony\\src\\Symfony\\Bundle\\WebProfilerBundle/Resources/views/Collector/config.html.twig',
   'WebProfilerBundle:Collector:events.html.twig' => 'C:\\wamp\\www\\lb-crew\\vendor\\symfony\\symfony\\src\\Symfony\\Bundle\\WebProfilerBundle/Resources/views/Collector/events.html.twig',
   'WebProfilerBundle:Collector:exception.html.twig' => 'C:\\wamp\\www\\lb-crew\\vendor\\symfony\\symfony\\src\\Symfony\\Bundle\\WebProfilerBundle/Resources/views/Collector/exception.html.twig',

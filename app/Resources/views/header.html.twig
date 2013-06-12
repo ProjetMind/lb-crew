@@ -2,14 +2,18 @@
 
 
     
-<header>
+<header class="row-fluid">
     
-    {% include "::headerNiveauUn.html.twig" %}
-        
-    {% include "::headerNiveauDeux.html.twig" %}
-        
-    {% include "::headerNiveauTrois.html.twig" %}
-        
+    <span class="span1"></span>
+    
+    <span class="span10">
+        {% include "::headerNiveauUn.html.twig" %}
+
+        {# include "::headerNiveauDeux.html.twig" #}
+
+        {# include "::headerNiveauTrois.html.twig" #}
+     </span>
+    
+    <span class="span1"></span>
 </header>
 
-<div id="conteneur">

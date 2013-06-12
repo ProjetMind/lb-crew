@@ -1,0 +1,7 @@
+parameters:
+#    l_bcrew_bootstrap_extension.example.class: LBcrew\BootstrapExtensionBundle\Example
+
+services:
+#    l_bcrew_bootstrap_extension.example:
+#        class: %l_bcrew_bootstrap_extension.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

@@ -1,3 +1,7 @@
+l_bcrew_bootstrap_extension:
+    resource: "@LBcrewBootstrapExtensionBundle/Resources/config/routing.yml"
+    prefix:   /
+
 l_bcrew_commentaires:
     resource: "@LBcrewCommentairesBundle/Controller/"
     type:     annotation

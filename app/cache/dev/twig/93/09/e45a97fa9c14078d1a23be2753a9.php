@@ -19,26 +19,27 @@ class __TwigTemplate_9309e45a97fa9c14078d1a23be2753a9 extends Twig_Template
         echo "
 
     
-<header>
+<header class=\"row-fluid\">
     
-    ";
-        // line 7
-        $this->env->loadTemplate("::headerNiveauUn.html.twig")->display($context);
-        // line 8
-        echo "        
-    ";
-        // line 9
-        $this->env->loadTemplate("::headerNiveauDeux.html.twig")->display($context);
+    <span class=\"span1\"></span>
+    
+    <span class=\"span10\">
+        ";
         // line 10
-        echo "        
-    ";
+        $this->env->loadTemplate("::headerNiveauUn.html.twig")->display($context);
         // line 11
-        $this->env->loadTemplate("::headerNiveauTrois.html.twig")->display($context);
-        // line 12
-        echo "        
+        echo "
+        ";
+        // line 13
+        echo "
+        ";
+        // line 15
+        echo "     </span>
+    
+    <span class=\"span1\"></span>
 </header>
 
-<div id=\"conteneur\">";
+";
     }
 
     public function getTemplateName()
@@ -53,6 +54,6 @@ class __TwigTemplate_9309e45a97fa9c14078d1a23be2753a9 extends Twig_Template
 
     public function getDebugInfo()
     {
-        return array (  36 => 11,  33 => 10,  31 => 9,  26 => 7,  19 => 2,  240 => 52,  237 => 51,  231 => 7,  225 => 65,  133 => 63,  129 => 57,  126 => 56,  124 => 55,  121 => 54,  119 => 51,  116 => 50,  113 => 49,  111 => 48,  92 => 31,  87 => 28,  82 => 20,  38 => 12,  34 => 10,  28 => 8,  21 => 2,);
+        return array (  37 => 15,  31 => 11,  29 => 10,  19 => 2,  221 => 35,  218 => 34,  212 => 7,  206 => 53,  114 => 51,  110 => 45,  102 => 39,  100 => 38,  97 => 37,  95 => 34,  92 => 33,  90 => 32,  76 => 20,  38 => 18,  34 => 13,  28 => 7,  21 => 2,);
     }
 }

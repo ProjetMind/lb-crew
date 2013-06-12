@@ -132,18 +132,13 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
             }
 
             // _assetic_7ec7567_3
-            if ($pathinfo === '/css/bootstrap_part_4_internetExplorer_1.css') {
+            if ($pathinfo === '/css/bootstrap_part_4_modalbox_1.css') {
                 return array (  '_controller' => 'assetic.controller:render',  'name' => '7ec7567',  'pos' => '3',  '_format' => 'css',  '_route' => '_assetic_7ec7567_3',);
             }
 
             // _assetic_7ec7567_4
-            if ($pathinfo === '/css/bootstrap_part_4_modalbox_2.css') {
+            if ($pathinfo === '/css/bootstrap_part_4_styleBase_2.css') {
                 return array (  '_controller' => 'assetic.controller:render',  'name' => '7ec7567',  'pos' => '4',  '_format' => 'css',  '_route' => '_assetic_7ec7567_4',);
-            }
-
-            // _assetic_7ec7567_5
-            if ($pathinfo === '/css/bootstrap_part_4_styleBase_3.css') {
-                return array (  '_controller' => 'assetic.controller:render',  'name' => '7ec7567',  'pos' => '5',  '_format' => 'css',  '_route' => '_assetic_7ec7567_5',);
             }
 
             // _assetic_61da234
@@ -300,6 +295,11 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
                 return array (  '_controller' => 'Sensio\\Bundle\\DistributionBundle\\Controller\\ConfiguratorController::finalAction',  '_route' => '_configurator_final',);
             }
 
+        }
+
+        // l_bcrew_bootstrap_extension_homepage
+        if (0 === strpos($pathinfo, '/hello') && preg_match('#^/hello/(?P<name>[^/]+)$#s', $pathinfo, $matches)) {
+            return array_merge($this->mergeDefaults($matches, array (  '_controller' => 'LBcrew\\BootstrapExtensionBundle\\Controller\\DefaultController::indexAction',)), array('_route' => 'l_bcrew_bootstrap_extension_homepage'));
         }
 
         // lbcrew_commentaires_default_index

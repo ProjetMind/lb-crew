@@ -17,7 +17,7 @@ class __TwigTemplate_ba72120acd0471ed7f9e72368a58758b extends Twig_Template
     {
         // line 2
         echo "
-<div id=\"HeaderNiveauTrois\">
+<section id=\"HeaderNiveauTrois\" class=\"row-fluid\">
     
     <!-- Bouton de naviagtion rapide -->
     <div id=\"btnNavRapide\" class=\"btn-group blockNavRapide\">
@@ -42,7 +42,7 @@ class __TwigTemplate_ba72120acd0471ed7f9e72368a58758b extends Twig_Template
         $this->env->loadTemplate("::barreNavigation.html.twig")->display($context);
         // line 21
         echo "    
-</div>
+</section>
 ";
     }
 
@@ -58,6 +58,6 @@ class __TwigTemplate_ba72120acd0471ed7f9e72368a58758b extends Twig_Template
 
     public function getDebugInfo()
     {
-        return array (  44 => 21,  42 => 20,  23 => 4,  36 => 16,  33 => 10,  31 => 9,  26 => 7,  19 => 2,  240 => 52,  237 => 51,  231 => 7,  225 => 65,  133 => 63,  129 => 57,  126 => 56,  124 => 55,  121 => 54,  119 => 51,  116 => 50,  113 => 49,  111 => 48,  92 => 31,  87 => 28,  82 => 20,  38 => 12,  34 => 15,  28 => 8,  21 => 2,);
+        return array (  44 => 21,  42 => 20,  36 => 16,  23 => 4,  24 => 13,  40 => 14,  35 => 12,  33 => 11,  30 => 10,  19 => 2,  215 => 31,  212 => 30,  206 => 7,  200 => 47,  108 => 45,  104 => 39,  98 => 35,  96 => 34,  93 => 33,  91 => 30,  88 => 29,  86 => 28,  76 => 20,  38 => 13,  34 => 15,  28 => 9,  21 => 2,);
     }
 }

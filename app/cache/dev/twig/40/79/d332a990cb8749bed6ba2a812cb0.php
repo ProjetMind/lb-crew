@@ -17,12 +17,12 @@ class __TwigTemplate_4079d332a990cb8749bed6ba2a812cb0 extends Twig_Template
     {
         // line 2
         echo "
-<div id=\"HeaderNiveauDeux\">
+<section id=\"HeaderNiveauDeux\" class=\"row-fluid\">
     ";
         // line 4
         echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("lb_crew_racine"), "html", null, true);
         echo "
-</div>";
+</section>";
     }
 
     public function getTemplateName()
@@ -37,6 +37,6 @@ class __TwigTemplate_4079d332a990cb8749bed6ba2a812cb0 extends Twig_Template
 
     public function getDebugInfo()
     {
-        return array (  23 => 4,  36 => 11,  33 => 10,  31 => 9,  26 => 7,  19 => 2,  240 => 52,  237 => 51,  231 => 7,  225 => 65,  133 => 63,  129 => 57,  126 => 56,  124 => 55,  121 => 54,  119 => 51,  116 => 50,  113 => 49,  111 => 48,  92 => 31,  87 => 28,  82 => 20,  38 => 12,  34 => 10,  28 => 8,  21 => 2,);
+        return array (  23 => 4,  24 => 13,  40 => 14,  35 => 12,  33 => 11,  30 => 10,  19 => 2,  215 => 31,  212 => 30,  206 => 7,  200 => 47,  108 => 45,  104 => 39,  98 => 35,  96 => 34,  93 => 33,  91 => 30,  88 => 29,  86 => 28,  76 => 20,  38 => 13,  34 => 10,  28 => 9,  21 => 2,);
     }
 }
