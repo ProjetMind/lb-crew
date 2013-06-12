@@ -1,0 +1,78 @@
+/* 
+    Document   : styleBase
+    Created on : 4 janv. 2013, 03:31:29
+    Author     : Portable
+    Description:
+        Purpose of the stylesheet follows.
+*/
+/* Bleu ciel : #77B5FE
+/* Vertclair : #90EE90
+/* jaune clair : #FFFFE0
+
+html, boy
+{
+    margin: 0px;
+    padding: 0px;
+}
+
+body
+{
+    background-color: #fafafa;
+}
+
+/*
+--------------------------------------------------------------------------------
+commun
+--------------------------------------------------------------------------------
+*/
+a
+{
+    text-decoration: none;
+}
+
+ul
+{
+    list-style: none;
+}
+
+/***************************header*******************************/
+header
+{
+    background-color: #77B5FE;
+    color: #FFFFFF;
+}
+
+#HeaderNiveauUn, #HeaderNiveauTrois
+{
+}
+
+/***************************Niveau un***************************/
+#HeaderNiveauUn
+{
+}
+
+#headerMenuCompte{
+    text-align: left;
+}
+
+#HeaderNiveauUn #pageOfficielles .li
+{   
+/*    width: 140px;
+    padding-top: 3px;
+    padding-right: 3px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    font-weight: bold;
+    -webkit-border-top-left-radius: 10px;
+    -webkit-border-top-right-radius: 10px;
+    -moz-border-radius-topleft: 10px;
+    -moz-border-radius-topright: 10px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;*/
+}
+
+#HeaderNiveauUn a
+{
+/*    color: #FFFFFF;*/
+}
+

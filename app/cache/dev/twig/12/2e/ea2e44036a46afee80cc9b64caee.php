@@ -21,7 +21,7 @@ class __TwigTemplate_122eea2e44036a46afee80cc9b64caee extends Twig_Template
     
     ";
         // line 13
-        echo "    <span class=\"span3\" style=\"background-color: yellowgreen\">
+        echo "    <span class=\"span3\">
         LB-Crew
     </span>
     
@@ -29,18 +29,13 @@ class __TwigTemplate_122eea2e44036a46afee80cc9b64caee extends Twig_Template
     rechercher fjerkg rtmkrt mbrktr
     </span>
     
-    <span class=\"span3\" style=\"background-color: yellowgreen\">
-    <div id=\"headerMenuCompte\" class=\"btn-group\" > 
-        <a class=\"btn btn btn-info dropdown-toggle\" data-toggle=\"dropdown\" href=\"#\"> Action <span class=\"caret\"></span> </a>
-        <ul class=\"dropdown-menu\">
-            <li><a href=\"#\"><i class=\"icon-user\"></i> Dompteurs</a></li>
-            <li><a href=\"#\"><i class=\"icon-picture\"></i> Zoos</a></li>
-            <li><a href=\"#\"><i class=\"icon-screenshot\"></i> Chasseurs</a></li>
-            <li class=\"divider\"></li>
-            <li><a href=\"#\"><i class=\"icon-list-alt\"></i> Autres témoignages</a></li>
-        </ul>
-    </div>
+    <span class=\"span3\">
     
+        ";
+        // line 23
+        $this->env->loadTemplate("::headerMenuNiveauUn.html.twig")->display($context);
+        // line 24
+        echo "    
     </span>
 
         
@@ -53,8 +48,13 @@ class __TwigTemplate_122eea2e44036a46afee80cc9b64caee extends Twig_Template
         return "::headerNiveauUn.html.twig";
     }
 
+    public function isTraitable()
+    {
+        return false;
+    }
+
     public function getDebugInfo()
     {
-        return array (  24 => 13,  19 => 2,);
+        return array (  36 => 23,  24 => 13,  19 => 2,  233 => 35,  230 => 34,  224 => 7,  218 => 54,  120 => 52,  116 => 45,  108 => 39,  106 => 38,  103 => 37,  101 => 34,  98 => 33,  96 => 32,  82 => 20,  38 => 24,  34 => 10,  28 => 7,  21 => 2,);
     }
 }

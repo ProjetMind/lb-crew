@@ -27,12 +27,13 @@ return array (
       ),
     ),
   ),
-  '61da234' => 
+  'b186120' => 
   array (
     0 => 
     array (
       0 => 'http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js',
       1 => '../vendor/twitter/bootstrap/js/*',
+      2 => '@LBcrewSiteBundle/Resources/public/js/*',
     ),
     1 => 
     array (
@@ -41,7 +42,7 @@ return array (
     2 => 
     array (
       'output' => '_controller/js/bootstrap.js',
-      'name' => '61da234',
+      'name' => 'b186120',
       'debug' => NULL,
       'combine' => NULL,
       'vars' => 
