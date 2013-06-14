@@ -10,15 +10,23 @@
             <li class="li" style="background-color: #e21a00"><a href="#" title="Da Hip-Hop Show">Da Hip-Hop Show</a></li>
         </ul>
     </nav> #}
-    <span class="span3">
+    <span class="span3" id="headerNomSite">
         LB-Crew
     </span>
     
-    <span class="span6">
-    rechercher fjerkg rtmkrt mbrktr
+    <span class="span6" id="headerInputSearch">
+        {# Header FORM SEARCH #} 
+        <div id="headerSearch">
+            <form id="formHeaderSearch" class="form-inline" method="POST" action="{{ path('lb_crew_racine') }}">
+                <div class="input-append">
+                    <input id="appendedInput" class="span12" type="search" name="headerSearch" placeholder="Rechercher" />
+                    <button class="btn" type="submit" >{{ 'search'|icon }}</button>
+                </div>
+            </form>
+        </div>
     </span>
     
-    <span class="span3">
+    <span class="span3" id="headerMenu">
     
         {% include '::headerMenuNiveauUn.html.twig' %}
     
