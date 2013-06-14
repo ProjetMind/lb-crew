@@ -23,18 +23,22 @@ class __TwigTemplate_9309e45a97fa9c14078d1a23be2753a9 extends Twig_Template
     
     <span class=\"span1\"></span>
     
-    <span class=\"span10\">
+    <span class=\"span10\" style=\"padding: 0px;\">
+        
         ";
-        // line 10
-        $this->env->loadTemplate("::headerNiveauUn.html.twig")->display($context);
         // line 11
+        $this->env->loadTemplate("::headerNiveauUn.html.twig")->display($context);
+        // line 12
         echo "
         ";
         // line 13
+        $this->env->loadTemplate("::headerNiveauDeux.html.twig")->display($context);
+        // line 14
         echo "
         ";
-        // line 15
-        echo "     </span>
+        // line 16
+        echo "        
+     </span>
     
     <span class=\"span1\"></span>
 </header>
@@ -54,6 +58,6 @@ class __TwigTemplate_9309e45a97fa9c14078d1a23be2753a9 extends Twig_Template
 
     public function getDebugInfo()
     {
-        return array (  37 => 15,  31 => 11,  29 => 10,  19 => 2,  221 => 35,  218 => 34,  212 => 7,  206 => 54,  114 => 52,  110 => 45,  102 => 39,  100 => 38,  97 => 37,  95 => 34,  92 => 33,  90 => 32,  76 => 20,  38 => 18,  34 => 13,  28 => 7,  21 => 2,);
+        return array (  40 => 16,  37 => 14,  35 => 13,  32 => 12,  30 => 11,  19 => 2,  268 => 50,  266 => 49,  261 => 46,  259 => 45,  254 => 42,  252 => 41,  249 => 40,  246 => 39,  240 => 7,  234 => 74,  142 => 72,  138 => 65,  130 => 59,  128 => 58,  120 => 52,  118 => 39,  110 => 33,  108 => 32,  94 => 20,  38 => 18,  34 => 10,  28 => 7,  21 => 2,);
     }
 }

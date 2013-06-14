@@ -1,5 +1,28 @@
 {# empty Twig template #}
 
 <section id="HeaderNiveauDeux" class="row-fluid">
-    {{ path('lb_crew_racine') }}
+   
+    <ul class="breadcrumb">
+        <li><a href="#">Accueil</a> <span class="divider">|</span></li>
+        <li><a href="#">Vidéo</a> <span class="divider">|</span></li>
+        <li><a href="#">Musique</a> <span class="divider">|</span></li>
+        <li><a href="#">Evénements</a> <span class="divider">|</span></li>
+        <li>
+            <div class="dropdown">
+                <a class="dropdown-toggle" id="dLabel" role="button" data-toggle="dropdown">
+                    Autres
+                    <b class="caret"></b>
+                </a>
+                <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                    <li><a href="#">Photos</a></li>
+                    <li><a href="#">professeur</a></li>
+                    <li><a href="#">DJ</a></li>
+                    <li><a href="#">Ecoles</a></li>
+                </ul>
+            </div>
+        </li>
+    </ul>
+    
 </section>
+
+    

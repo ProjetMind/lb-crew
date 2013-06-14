@@ -52,13 +52,31 @@ class __TwigTemplate_c49fcbb65be0af9a133464b787288df5 extends Twig_Template
             echo "\" type=\"text/css\" />
         ";
             // asset "7ec7567_3"
-            $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('routing')->getPath("_assetic_7ec7567_3") : $this->env->getExtension('assets')->getAssetUrl("_controller/css/bootstrap_part_4_modalbox_1.css");
+            $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('routing')->getPath("_assetic_7ec7567_3") : $this->env->getExtension('assets')->getAssetUrl("_controller/css/bootstrap_part_4_corpsStyle_1.css");
             echo "            <link rel=\"stylesheet\" href=\"";
             echo twig_escape_filter($this->env, (isset($context["asset_url"]) ? $context["asset_url"] : $this->getContext($context, "asset_url")), "html", null, true);
             echo "\" type=\"text/css\" />
         ";
             // asset "7ec7567_4"
-            $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('routing')->getPath("_assetic_7ec7567_4") : $this->env->getExtension('assets')->getAssetUrl("_controller/css/bootstrap_part_4_styleBase_2.css");
+            $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('routing')->getPath("_assetic_7ec7567_4") : $this->env->getExtension('assets')->getAssetUrl("_controller/css/bootstrap_part_4_headerStyle_2.css");
+            echo "            <link rel=\"stylesheet\" href=\"";
+            echo twig_escape_filter($this->env, (isset($context["asset_url"]) ? $context["asset_url"] : $this->getContext($context, "asset_url")), "html", null, true);
+            echo "\" type=\"text/css\" />
+        ";
+            // asset "7ec7567_5"
+            $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('routing')->getPath("_assetic_7ec7567_5") : $this->env->getExtension('assets')->getAssetUrl("_controller/css/bootstrap_part_4_menuDGStyle_3.css");
+            echo "            <link rel=\"stylesheet\" href=\"";
+            echo twig_escape_filter($this->env, (isset($context["asset_url"]) ? $context["asset_url"] : $this->getContext($context, "asset_url")), "html", null, true);
+            echo "\" type=\"text/css\" />
+        ";
+            // asset "7ec7567_6"
+            $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('routing')->getPath("_assetic_7ec7567_6") : $this->env->getExtension('assets')->getAssetUrl("_controller/css/bootstrap_part_4_modalbox_4.css");
+            echo "            <link rel=\"stylesheet\" href=\"";
+            echo twig_escape_filter($this->env, (isset($context["asset_url"]) ? $context["asset_url"] : $this->getContext($context, "asset_url")), "html", null, true);
+            echo "\" type=\"text/css\" />
+        ";
+            // asset "7ec7567_7"
+            $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('routing')->getPath("_assetic_7ec7567_7") : $this->env->getExtension('assets')->getAssetUrl("_controller/css/bootstrap_part_4_styleBase_5.css");
             echo "            <link rel=\"stylesheet\" href=\"";
             echo twig_escape_filter($this->env, (isset($context["asset_url"]) ? $context["asset_url"] : $this->getContext($context, "asset_url")), "html", null, true);
             echo "\" type=\"text/css\" />
@@ -89,16 +107,26 @@ class __TwigTemplate_c49fcbb65be0af9a133464b787288df5 extends Twig_Template
         // line 32
         $this->env->loadTemplate("::header.html.twig")->display($context);
         // line 33
-        echo "
-            ";
-        // line 34
-        $this->displayBlock('body', $context, $blocks);
-        // line 37
-        echo "        
-            ";
-        // line 38
-        $this->env->loadTemplate("::footer.html.twig")->display($context);
+        echo "            
+            <section id=\"containerCorps\" class=\"row-fluid\">    
+                <span class=\"span1\"></span>
+                <span class=\"span10\">
+                    
+                   <section id=\"corps\" class=\"row-fluid\">
+                        ";
         // line 39
+        $this->displayBlock('body', $context, $blocks);
+        // line 52
+        echo "                    </section>
+                        
+                 </span>
+                 <span class=\"span1\"></span>
+            </section>
+                
+            ";
+        // line 58
+        $this->env->loadTemplate("::footer.html.twig")->display($context);
+        // line 59
         echo "                
             </span>
             
@@ -106,11 +134,11 @@ class __TwigTemplate_c49fcbb65be0af9a133464b787288df5 extends Twig_Template
     </div>
    
     ";
-        // line 45
+        // line 65
         if (isset($context['assetic']['debug']) && $context['assetic']['debug']) {
             // asset "b186120_0"
             $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('routing')->getPath("_assetic_b186120_0") : $this->env->getExtension('assets')->getAssetUrl("_controller/js/bootstrap_jquery.min_1.js");
-            // line 52
+            // line 72
             echo "        <script type=\"text/javascript\" src=\"";
             echo twig_escape_filter($this->env, (isset($context["asset_url"]) ? $context["asset_url"] : $this->getContext($context, "asset_url")), "html", null, true);
             echo "\"></script>
@@ -202,7 +230,7 @@ class __TwigTemplate_c49fcbb65be0af9a133464b787288df5 extends Twig_Template
     ";
         }
         unset($context["asset_url"]);
-        // line 54
+        // line 74
         echo "        
     </body>
 </html>";
@@ -214,12 +242,31 @@ class __TwigTemplate_c49fcbb65be0af9a133464b787288df5 extends Twig_Template
         echo "Bienvenue sur le site de la LB crew ";
     }
 
-    // line 34
+    // line 39
     public function block_body($context, array $blocks = array())
     {
-        // line 35
-        echo "  
-            ";
+        // line 40
+        echo "                           <span class=\"span3\" id=\"menuGauche\">
+                               ";
+        // line 41
+        $this->env->loadTemplate("::menuGauche.html.twig")->display($context);
+        // line 42
+        echo "                           </span>
+                           
+                           <span class=\"span6\">
+                           ";
+        // line 45
+        $this->env->loadTemplate("::navigation.html.twig")->display($context);
+        // line 46
+        echo "                           </span>
+                        
+                           <span class=\"span3\" id=\"menuDroit\">
+                               ";
+        // line 49
+        $this->env->loadTemplate("::menuDroit.html.twig")->display($context);
+        // line 50
+        echo "                           </span>
+                        ";
     }
 
     public function getTemplateName()
@@ -234,6 +281,6 @@ class __TwigTemplate_c49fcbb65be0af9a133464b787288df5 extends Twig_Template
 
     public function getDebugInfo()
     {
-        return array (  221 => 35,  218 => 34,  212 => 7,  206 => 54,  114 => 52,  110 => 45,  102 => 39,  100 => 38,  97 => 37,  95 => 34,  92 => 33,  90 => 32,  76 => 20,  38 => 18,  34 => 10,  28 => 7,  21 => 2,);
+        return array (  268 => 50,  266 => 49,  261 => 46,  259 => 45,  254 => 42,  252 => 41,  249 => 40,  246 => 39,  240 => 7,  234 => 74,  142 => 72,  138 => 65,  130 => 59,  128 => 58,  120 => 52,  118 => 39,  110 => 33,  108 => 32,  94 => 20,  38 => 18,  34 => 10,  28 => 7,  21 => 2,);
     }
 }

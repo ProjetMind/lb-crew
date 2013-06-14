@@ -30,11 +30,31 @@
             <span class="span12">
                 
             {% include '::header.html.twig' %}
-
-            {% block body %}
-  
-            {% endblock body %}
-        
+            
+            <section id="containerCorps" class="row-fluid">    
+                <span class="span1"></span>
+                <span class="span10">
+                    
+                   <section id="corps" class="row-fluid">
+                        {% block body %}
+                           <span class="span3" id="menuGauche">
+                               {% include '::menuGauche.html.twig' %}
+                           </span>
+                           
+                           <span class="span6">
+                           {% include '::navigation.html.twig' %}
+                           </span>
+                        
+                           <span class="span3" id="menuDroit">
+                               {% include '::menuDroit.html.twig' %}
+                           </span>
+                        {% endblock body %}
+                    </section>
+                        
+                 </span>
+                 <span class="span1"></span>
+            </section>
+                
             {% include "::footer.html.twig" %}
                 
             </span>

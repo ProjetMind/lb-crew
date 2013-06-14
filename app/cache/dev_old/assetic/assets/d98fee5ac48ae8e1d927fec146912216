@@ -1,0 +1,41 @@
+/* 
+    Document   : header
+    Created on : 14 juin 2013, 13:00:17
+    Author     : FBI
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/*
+--------------------------------------------------------------------------------
+header
+--------------------------------------------------------------------------------
+*/
+#HeaderNiveauUn, header .span1{
+    background-color: #77B5FE;
+}
+
+
+header div, header form{
+    padding: 0px;
+    margin: 0px;
+}
+
+#headerNomSite, #headerSearch
+{
+    color: #FFF;
+}
+
+/*
+--------------------------------------------------------------------------------
+Header niveau 2
+--------------------------------------------------------------------------------
+*/
+
+#HeaderNiveauDeux a{
+    cursor: pointer;
+}
+
+
+
+

@@ -1,0 +1,26 @@
+/* 
+    Document   : corpsStyle
+    Created on : 14 juin 2013, 16:51:57
+    Author     : FBI
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/*
+--------------------------------------------------------------------------------
+Navigations
+--------------------------------------------------------------------------------
+*/
+
+#navigationRapide h1, #navigationRapide p, #navigationRapide div{
+    display: inline-block;
+}
+
+#navigationRapide img{
+    vertical-align: middle;
+}
+
+#navigationRapide h1{
+    font-size: large;
+    vertical-align: top;
+}
