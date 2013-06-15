@@ -3,14 +3,19 @@
  
 namespace LBcrew\UserBundle\Entity;
  
-use LBcrew\UserBundle\Model\User as BaseModelUser;
+use PUGX\MultiUserBundle\Validator\Constraints\UniqueEntity;
+use LBcrew\UserBundle\Entity\BaseUser as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
  
 /**
  * @ORM\Entity
  * @ORM\Table(name="user")
+ * 
+ * @UniqueEntity(fields = "username", targetClass = "LBcrew\UserBundle\Entity\BaseUser", message="fos_user.username.already_used")
+ * @UniqueEntity(fields = "email", targetClass = "LBcrew\UserBundle\Entity\BaseUser", message="fos_user.email.already_used")
+ * 
  */
-class User extends BaseModelUser
+class User extends BaseUser
 {
     /**
      * @ORM\Id
@@ -21,23 +26,17 @@ class User extends BaseModelUser
     
     /**
      *
+     * @ORM\Column(name="user_nom", type="text", length=50)
      * @ORM\Column(type="string", length=50)
      */
     protected $userNom;
     
     /**
      *
+     * @ORM\Column(name="user_prenom", type="text", length=50)
      * @ORM\Column(type="string", length=50)
      */
-    protected $userprenom;
-    
-    /**
-     *
-     * @ORM\Column(name="categorie", type="array")
-     * @ORM\OneToMany(targetEntity="LBcrew\UserBundle\Entity\categorie")
-     * @ORM\JoinColumn(name="categorie", referencedColumnName="id")
-     */
-    protected $categorie;
+    protected $userPrenom;
     
     /**
      * @ORM\Column(name="tab_ecole", type="array")
@@ -46,24 +45,6 @@ class User extends BaseModelUser
      */
     private $tabEcole;
 
-    /**
-     * @var integer
-     */
-    protected $tel;
-
-    /**
-     * @var integer
-     */
-    protected $fax;
-
-    /**
-     * @var string
-     */
-    protected $siteWeb;
-
-    /**
-     * @var \LBcrew\UserBundle\Entity\avatar
-     */
-    protected $avatar;
+    
     
 }

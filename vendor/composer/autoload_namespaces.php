@@ -16,6 +16,7 @@ return array(
     'Sensio\\Bundle\\GeneratorBundle' => array($vendorDir . '/sensio/generator-bundle'),
     'Sensio\\Bundle\\FrameworkExtraBundle' => array($vendorDir . '/sensio/framework-extra-bundle'),
     'Sensio\\Bundle\\DistributionBundle' => array($vendorDir . '/sensio/distribution-bundle'),
+    'PUGX\\MultiUserBundle' => array($vendorDir . '/pugx/multi-user-bundle'),
     'Monolog' => array($vendorDir . '/monolog/monolog/src'),
     'Metadata\\' => array($vendorDir . '/jms/metadata/src'),
     'JMS\\SecurityExtraBundle' => array($vendorDir . '/jms/security-extra-bundle'),

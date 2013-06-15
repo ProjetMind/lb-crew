@@ -19,11 +19,12 @@
         "jms/security-extra-bundle": "1.2.*",
         "jms/di-extra-bundle": "1.1.*",
         "kriswallsmith/assetic": "1.1.*@dev", 
-        "friendsofsymfony/user-bundle": "*",
+        "friendsofsymfony/user-bundle": "~2.0@dev",
         "braincrafted/bootstrap-bundle": "dev-master",
         "twitter/bootstrap": "2.3.*",
         "leafo/lessphp": "0.3.9",
-        "winzou/console-bundle": "dev-master"
+        "winzou/console-bundle": "dev-master",
+        "pugx/multi-user-bundle": "3.0.*@dev"
     },
     "scripts": {
         "post-install-cmd": [

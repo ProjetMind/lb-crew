@@ -3,15 +3,18 @@
 namespace LBcrew\UserBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use LBcrew\UserBundle\Model\User as BaseModelUser;
+use PUGX\MultiUserBundle\Validator\Constraints\UniqueEntity;
 
 /**
  * Groupe
  *
- * @ORM\Table()
+ * @ORM\Table(name="groupe")
  * @ORM\Entity(repositoryClass="LBcrew\UserBundle\Entity\GroupeRepository")
+ * 
+ * @UniqueEntity(fields = "username", targetClass = "LBcrew\UserBundle\Entity\BaseUser", message="fos_user.username.already_used")
+ * @UniqueEntity(fields = "email", targetClass = "LBcrew\UserBundle\Entity\BaseUser", message="fos_user.email.already_used")
  */
-class Groupe extends BaseModelUser
+class Groupe extends User
 {
     /**
      * @var integer
@@ -42,7 +45,11 @@ class Groupe extends BaseModelUser
      * @ORM\JoinColumn(name="tab_trophe", referencedColumnName="id")
      */
 
-    
+    /**
+     *
+     * @var type text
+     */
+    protected $adresse;
 
     /**
      * @var integer

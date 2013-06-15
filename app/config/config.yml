@@ -103,4 +103,35 @@ swiftmailer:
 fos_user:
     db_driver:     orm                        # Le type de BDD à utiliser, nous utilisons l'ORM Doctrine depuis le début
     firewall_name: main                       # Le nom du firewall duquel on utilisera ces utilisateurs
-    user_class:    LBcrew\UserBundle\Entity\User # La classe de l'entité User que nous venons de définir
+    user_class:    LBcrew\UserBundle\Entity\BaseUser # La classe de l'entité User que nous venons de définir
+    service:
+        user_manager: pugx_user_manager
+
+# pugx_multi_user
+pugx_multi_user:
+ users:
+    user:
+        entity: 
+          class: LBcrew\UserBundle\Entity\User
+#          factory: 
+        registration:
+          form: 
+            type: Acme\UserBundle\Form\Type\RegistrationUserOneFormType
+            name: fos_user_registration_form
+            validation_groups:  [Registration, Default]
+          template: AcmeUserBundle:Registration:user_one.form.html.twig
+        profile:
+          form:
+            type: Acme\UserBundle\Form\Type\ProfileUserOneFormType
+            name: fos_user_profile_form
+            validation_groups:  [Profile, Default] 
+    user_two:
+        entity: 
+          class: Acme\UserBundle\Entity\UserTwo
+        registration:
+          form: 
+            type: Acme\UserBundle\Form\Type\RegistrationUserTwoFormType
+          template: AcmeUserBundle:Registration:user_two.form.html.twig
+        profile:
+          form: 
+            type: Acme\UserBundle\Form\Type\ProfileUserTwoFormType

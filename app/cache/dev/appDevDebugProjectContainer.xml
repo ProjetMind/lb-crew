@@ -27,6 +27,7 @@
       <parameter key="LBcrewCommentairesBundle">LBcrew\CommentairesBundle\LBcrewCommentairesBundle</parameter>
       <parameter key="BcBootstrapBundle">Bc\Bundle\BootstrapBundle\BcBootstrapBundle</parameter>
       <parameter key="LBcrewBootstrapExtensionBundle">LBcrew\BootstrapExtensionBundle\LBcrewBootstrapExtensionBundle</parameter>
+      <parameter key="PUGXMultiUserBundle">PUGX\MultiUserBundle\PUGXMultiUserBundle</parameter>
       <parameter key="WebProfilerBundle">Symfony\Bundle\WebProfilerBundle\WebProfilerBundle</parameter>
       <parameter key="SensioDistributionBundle">Sensio\Bundle\DistributionBundle\SensioDistributionBundle</parameter>
       <parameter key="SensioGeneratorBundle">Sensio\Bundle\GeneratorBundle\SensioGeneratorBundle</parameter>
@@ -491,8 +492,8 @@
     <parameter key="jms_di_extra.directories" type="collection"/>
     <parameter key="jms_di_extra.cache_dir">C:/wamp/www/lb-crew/app/cache/dev/jms_diextra</parameter>
     <parameter key="jms_di_extra.doctrine_integration">true</parameter>
-    <parameter key="jms_di_extra.doctrine_integration.entity_manager.file">C:/wamp/www/lb-crew/app/cache/dev/jms_diextra/doctrine/EntityManager_51bb40b819d1a.php</parameter>
-    <parameter key="jms_di_extra.doctrine_integration.entity_manager.class">EntityManager51bb40b819d1a_546a8d27f194334ee012bfe64f629947b07e4919\__CG__\Doctrine\ORM\EntityManager</parameter>
+    <parameter key="jms_di_extra.doctrine_integration.entity_manager.file">C:/wamp/www/lb-crew/app/cache/dev/jms_diextra/doctrine/EntityManager_51bb8c5ed2587.php</parameter>
+    <parameter key="jms_di_extra.doctrine_integration.entity_manager.class">EntityManager51bb8c5ed2587_546a8d27f194334ee012bfe64f629947b07e4919\__CG__\Doctrine\ORM\EntityManager</parameter>
     <parameter key="security.secured_services" type="collection"/>
     <parameter key="security.access.method_interceptor.class">JMS\SecurityExtraBundle\Security\Authorization\Interception\MethodSecurityInterceptor</parameter>
     <parameter key="security.access.method_access_control" type="collection"/>
@@ -523,9 +524,10 @@
     <parameter key="security.authenticated_voter.disabled">false</parameter>
     <parameter key="security.role_voter.disabled">false</parameter>
     <parameter key="security.acl_voter.disabled">false</parameter>
+    <parameter key="fos_user.backend_type_orm">true</parameter>
     <parameter key="fos_user.validator.password.class">FOS\UserBundle\Validator\PasswordValidator</parameter>
     <parameter key="fos_user.validator.unique.class">FOS\UserBundle\Validator\UniqueValidator</parameter>
-    <parameter key="fos_user.security.interactive_login_listener.class">FOS\UserBundle\Security\InteractiveLoginListener</parameter>
+    <parameter key="fos_user.security.interactive_login_listener.class">FOS\UserBundle\EventListener\LastLoginListener</parameter>
     <parameter key="fos_user.security.login_manager.class">FOS\UserBundle\Security\LoginManager</parameter>
     <parameter key="fos_user.resetting.email.template">FOSUserBundle:Resetting:email.txt.twig</parameter>
     <parameter key="fos_user.registration.confirmation.template">FOSUserBundle:Registration:email.txt.twig</parameter>
@@ -566,6 +568,7 @@
       <parameter>ResetPassword</parameter>
       <parameter>Default</parameter>
     </parameter>
+    <parameter key="pugx_user_discriminator_users" type="collection"/>
     <parameter key="web_profiler.debug_toolbar.class">Symfony\Bundle\WebProfilerBundle\EventListener\WebDebugToolbarListener</parameter>
     <parameter key="web_profiler.debug_toolbar.intercept_redirects">false</parameter>
     <parameter key="web_profiler.debug_toolbar.mode">2</parameter>
@@ -720,14 +723,6 @@
         </argument>
         <argument>0</argument>
       </call>
-      <call method="addListenerService">
-        <argument>security.interactive_login</argument>
-        <argument type="collection">
-          <argument>fos_user.security.interactive_login_listener</argument>
-          <argument>onSecurityInteractiveLogin</argument>
-        </argument>
-        <argument>0</argument>
-      </call>
       <call method="addSubscriberService">
         <argument>response_listener</argument>
         <argument>Symfony\Component\HttpKernel\EventListener\ResponseListener</argument>
@@ -763,6 +758,26 @@
       <call method="addSubscriberService">
         <argument>swiftmailer.email_sender.listener</argument>
         <argument>Symfony\Bundle\SwiftmailerBundle\EventListener\EmailSenderListener</argument>
+      </call>
+      <call method="addSubscriberService">
+        <argument>fos_user.security.interactive_login_listener</argument>
+        <argument>FOS\UserBundle\EventListener\LastLoginListener</argument>
+      </call>
+      <call method="addSubscriberService">
+        <argument>fos_user.listener.authentication</argument>
+        <argument>FOS\UserBundle\EventListener\AuthenticationListener</argument>
+      </call>
+      <call method="addSubscriberService">
+        <argument>fos_user.listener.flash</argument>
+        <argument>FOS\UserBundle\EventListener\FlashListener</argument>
+      </call>
+      <call method="addSubscriberService">
+        <argument>fos_user.listener.resetting</argument>
+        <argument>FOS\UserBundle\EventListener\ResettingListener</argument>
+      </call>
+      <call method="addSubscriberService">
+        <argument>pugx_multi_user.listener.authentication</argument>
+        <argument>PUGX\MultiUserBundle\Listener\AuthenticationListener</argument>
       </call>
       <call method="addSubscriberService">
         <argument>web_profiler.debug_toolbar</argument>
@@ -1325,6 +1340,12 @@
       </call>
       <call method="addResource">
         <argument>yml</argument>
+        <argument>C:\wamp\www\lb-crew\vendor\friendsofsymfony\user-bundle\FOS\UserBundle/Resources/translations\FOSUserBundle.ar.yml</argument>
+        <argument>ar</argument>
+        <argument>FOSUserBundle</argument>
+      </call>
+      <call method="addResource">
+        <argument>yml</argument>
         <argument>C:\wamp\www\lb-crew\vendor\friendsofsymfony\user-bundle\FOS\UserBundle/Resources/translations\FOSUserBundle.bg.yml</argument>
         <argument>bg</argument>
         <argument>FOSUserBundle</argument>
@@ -1403,6 +1424,12 @@
       </call>
       <call method="addResource">
         <argument>yml</argument>
+        <argument>C:\wamp\www\lb-crew\vendor\friendsofsymfony\user-bundle\FOS\UserBundle/Resources/translations\FOSUserBundle.id.yml</argument>
+        <argument>id</argument>
+        <argument>FOSUserBundle</argument>
+      </call>
+      <call method="addResource">
+        <argument>yml</argument>
         <argument>C:\wamp\www\lb-crew\vendor\friendsofsymfony\user-bundle\FOS\UserBundle/Resources/translations\FOSUserBundle.it.yml</argument>
         <argument>it</argument>
         <argument>FOSUserBundle</argument>
@@ -1429,6 +1456,12 @@
         <argument>yml</argument>
         <argument>C:\wamp\www\lb-crew\vendor\friendsofsymfony\user-bundle\FOS\UserBundle/Resources/translations\FOSUserBundle.lv.yml</argument>
         <argument>lv</argument>
+        <argument>FOSUserBundle</argument>
+      </call>
+      <call method="addResource">
+        <argument>yml</argument>
+        <argument>C:\wamp\www\lb-crew\vendor\friendsofsymfony\user-bundle\FOS\UserBundle/Resources/translations\FOSUserBundle.nb.yml</argument>
+        <argument>nb</argument>
         <argument>FOSUserBundle</argument>
       </call>
       <call method="addResource">
@@ -1511,6 +1544,12 @@
       </call>
       <call method="addResource">
         <argument>yml</argument>
+        <argument>C:\wamp\www\lb-crew\vendor\friendsofsymfony\user-bundle\FOS\UserBundle/Resources/translations\validators.ar.yml</argument>
+        <argument>ar</argument>
+        <argument>validators</argument>
+      </call>
+      <call method="addResource">
+        <argument>yml</argument>
         <argument>C:\wamp\www\lb-crew\vendor\friendsofsymfony\user-bundle\FOS\UserBundle/Resources/translations\validators.bg.yml</argument>
         <argument>bg</argument>
         <argument>validators</argument>
@@ -1577,6 +1616,12 @@
       </call>
       <call method="addResource">
         <argument>yml</argument>
+        <argument>C:\wamp\www\lb-crew\vendor\friendsofsymfony\user-bundle\FOS\UserBundle/Resources/translations\validators.id.yml</argument>
+        <argument>id</argument>
+        <argument>validators</argument>
+      </call>
+      <call method="addResource">
+        <argument>yml</argument>
         <argument>C:\wamp\www\lb-crew\vendor\friendsofsymfony\user-bundle\FOS\UserBundle/Resources/translations\validators.it.yml</argument>
         <argument>it</argument>
         <argument>validators</argument>
@@ -1597,6 +1642,12 @@
         <argument>yml</argument>
         <argument>C:\wamp\www\lb-crew\vendor\friendsofsymfony\user-bundle\FOS\UserBundle/Resources/translations\validators.lv.yml</argument>
         <argument>lv</argument>
+        <argument>validators</argument>
+      </call>
+      <call method="addResource">
+        <argument>yml</argument>
+        <argument>C:\wamp\www\lb-crew\vendor\friendsofsymfony\user-bundle\FOS\UserBundle/Resources/translations\validators.nb.yml</argument>
+        <argument>nb</argument>
         <argument>validators</argument>
       </call>
       <call method="addResource">
@@ -2045,6 +2096,7 @@
           <argument type="collection">
             <argument key="security.validator.user_password">security.validator.user_password</argument>
             <argument key="doctrine.orm.validator.unique">doctrine.orm.validator.unique</argument>
+            <argument key="pugx.orm.validator.unique">pugx_multi_user.orm.validator.unique</argument>
           </argument>
         </service>
       </argument>
@@ -2415,7 +2467,7 @@
         </argument>
         <argument type="service">
           <service class="Symfony\Component\Security\Core\Authentication\Provider\AnonymousAuthenticationProvider" public="false">
-            <argument>51bb40b78b2fc</argument>
+            <argument>51bb8c5e69d1f</argument>
           </service>
         </argument>
       </argument>
@@ -2727,7 +2779,7 @@
         <argument type="service">
           <service class="Symfony\Component\Security\Http\Firewall\AnonymousAuthenticationListener" public="false">
             <argument type="service" id="security.context"/>
-            <argument>51bb40b78b2fc</argument>
+            <argument>51bb8c5e69d1f</argument>
             <argument type="service" id="monolog.logger.security"/>
           </service>
         </argument>
@@ -3193,7 +3245,7 @@
           <argument type="service" id="service_container"/>
           <call method="addEventSubscriber">
             <argument type="service">
-              <service class="FOS\UserBundle\Entity\UserListener" public="false">
+              <service class="FOS\UserBundle\Doctrine\Orm\UserListener" public="false">
                 <tag name="doctrine.event_subscriber"/>
                 <argument type="service" id="service_container"/>
               </service>
@@ -3222,8 +3274,8 @@
     <service id="doctrine.orm.default_manager_configurator" class="Doctrine\Bundle\DoctrineBundle\ManagerConfigurator">
       <argument type="collection"/>
     </service>
-    <service id="doctrine.orm.default_entity_manager" class="EntityManager51bb40b819d1a_546a8d27f194334ee012bfe64f629947b07e4919\__CG__\Doctrine\ORM\EntityManager">
-      <file>C:/wamp/www/lb-crew/app/cache/dev/jms_diextra/doctrine/EntityManager_51bb40b819d1a.php</file>
+    <service id="doctrine.orm.default_entity_manager" class="EntityManager51bb8c5ed2587_546a8d27f194334ee012bfe64f629947b07e4919\__CG__\Doctrine\ORM\EntityManager">
+      <file>C:/wamp/www/lb-crew/app/cache/dev/jms_diextra/doctrine/EntityManager_51bb8c5ed2587.php</file>
       <argument type="service">
         <service class="Doctrine\ORM\EntityManager" factory-method="create" public="false">
           <argument type="service" id="doctrine.dbal.default_connection"/>
@@ -3231,6 +3283,7 @@
             <service class="Doctrine\ORM\Configuration" public="false">
               <call method="setEntityNamespaces">
                 <argument type="collection">
+                  <argument key="LBcrewSiteBundle">LBcrew\SiteBundle\Entity</argument>
                   <argument key="LBcrewUserBundle">LBcrew\UserBundle\Entity</argument>
                   <argument key="FOSUserBundle">FOS\UserBundle\Entity</argument>
                   <argument key="LBcrewMediaBundle">LBcrew\MediaBundle\Entity</argument>
@@ -3273,6 +3326,22 @@
                         <service class="Doctrine\ORM\Mapping\Driver\AnnotationDriver" public="false">
                           <argument type="service" id="annotation_reader"/>
                           <argument type="collection">
+                            <argument>C:\wamp\www\lb-crew\src\LBcrew\SiteBundle\Entity</argument>
+                            <argument>C:\wamp\www\lb-crew\src\LBcrew\UserBundle\Entity</argument>
+                            <argument>C:\wamp\www\lb-crew\src\LBcrew\MediaBundle\Entity</argument>
+                            <argument>C:\wamp\www\lb-crew\src\LBcrew\MessagesBundle\Entity</argument>
+                            <argument>C:\wamp\www\lb-crew\src\LBcrew\CommentairesBundle\Entity</argument>
+                          </argument>
+                        </service>
+                      </argument>
+                      <argument>LBcrew\SiteBundle\Entity</argument>
+                    </call>
+                    <call method="addDriver">
+                      <argument type="service">
+                        <service class="Doctrine\ORM\Mapping\Driver\AnnotationDriver" public="false">
+                          <argument type="service" id="annotation_reader"/>
+                          <argument type="collection">
+                            <argument>C:\wamp\www\lb-crew\src\LBcrew\SiteBundle\Entity</argument>
                             <argument>C:\wamp\www\lb-crew\src\LBcrew\UserBundle\Entity</argument>
                             <argument>C:\wamp\www\lb-crew\src\LBcrew\MediaBundle\Entity</argument>
                             <argument>C:\wamp\www\lb-crew\src\LBcrew\MessagesBundle\Entity</argument>
@@ -3287,6 +3356,7 @@
                         <service class="Doctrine\ORM\Mapping\Driver\AnnotationDriver" public="false">
                           <argument type="service" id="annotation_reader"/>
                           <argument type="collection">
+                            <argument>C:\wamp\www\lb-crew\src\LBcrew\SiteBundle\Entity</argument>
                             <argument>C:\wamp\www\lb-crew\src\LBcrew\UserBundle\Entity</argument>
                             <argument>C:\wamp\www\lb-crew\src\LBcrew\MediaBundle\Entity</argument>
                             <argument>C:\wamp\www\lb-crew\src\LBcrew\MessagesBundle\Entity</argument>
@@ -3301,6 +3371,7 @@
                         <service class="Doctrine\ORM\Mapping\Driver\AnnotationDriver" public="false">
                           <argument type="service" id="annotation_reader"/>
                           <argument type="collection">
+                            <argument>C:\wamp\www\lb-crew\src\LBcrew\SiteBundle\Entity</argument>
                             <argument>C:\wamp\www\lb-crew\src\LBcrew\UserBundle\Entity</argument>
                             <argument>C:\wamp\www\lb-crew\src\LBcrew\MediaBundle\Entity</argument>
                             <argument>C:\wamp\www\lb-crew\src\LBcrew\MessagesBundle\Entity</argument>
@@ -3315,6 +3386,7 @@
                         <service class="Doctrine\ORM\Mapping\Driver\AnnotationDriver" public="false">
                           <argument type="service" id="annotation_reader"/>
                           <argument type="collection">
+                            <argument>C:\wamp\www\lb-crew\src\LBcrew\SiteBundle\Entity</argument>
                             <argument>C:\wamp\www\lb-crew\src\LBcrew\UserBundle\Entity</argument>
                             <argument>C:\wamp\www\lb-crew\src\LBcrew\MediaBundle\Entity</argument>
                             <argument>C:\wamp\www\lb-crew\src\LBcrew\MessagesBundle\Entity</argument>
@@ -3336,6 +3408,21 @@
                         </service>
                       </argument>
                       <argument>FOS\UserBundle\Entity</argument>
+                    </call>
+                    <call method="addDriver">
+                      <argument type="service">
+                        <service class="Doctrine\ORM\Mapping\Driver\XmlDriver">
+                          <argument type="service">
+                            <service class="Doctrine\Common\Persistence\Mapping\Driver\SymfonyFileLocator">
+                              <argument type="collection">
+                                <argument key="C:\wamp\www\lb-crew\vendor\friendsofsymfony\user-bundle\FOS\UserBundle\Resources\config\doctrine\model">FOS\UserBundle\Model</argument>
+                              </argument>
+                              <argument>.orm.xml</argument>
+                            </service>
+                          </argument>
+                        </service>
+                      </argument>
+                      <argument>FOS\UserBundle\Model</argument>
                     </call>
                   </service>
                 </argument>
@@ -3506,8 +3593,11 @@
         </argument>
       </call>
     </service>
-    <service id="fos_user.security.interactive_login_listener" class="FOS\UserBundle\Security\InteractiveLoginListener">
-      <tag name="kernel.event_listener" event="security.interactive_login" method="onSecurityInteractiveLogin"/>
+    <service id="fos_user.entity_manager" class="Doctrine\ORM\EntityManager" factory-method="getManager" factory-service="doctrine" public="false">
+      <argument>null</argument>
+    </service>
+    <service id="fos_user.security.interactive_login_listener" class="FOS\UserBundle\EventListener\LastLoginListener">
+      <tag name="kernel.event_subscriber"/>
       <argument type="service" id="fos_user.user_manager"/>
     </service>
     <service id="fos_user.security.login_manager" class="FOS\UserBundle\Security\LoginManager">
@@ -3522,6 +3612,16 @@
     <service id="fos_user.util.user_manipulator" class="FOS\UserBundle\Util\UserManipulator">
       <argument type="service" id="fos_user.user_manager"/>
     </service>
+    <service id="fos_user.listener.authentication" class="FOS\UserBundle\EventListener\AuthenticationListener">
+      <tag name="kernel.event_subscriber"/>
+      <argument type="service" id="fos_user.security.login_manager"/>
+      <argument>main</argument>
+    </service>
+    <service id="fos_user.listener.flash" class="FOS\UserBundle\EventListener\FlashListener">
+      <tag name="kernel.event_subscriber"/>
+      <argument type="service" id="session"/>
+      <argument type="service" id="translator.default"/>
+    </service>
     <service id="fos_user.username_form_type" class="FOS\UserBundle\Form\Type\UsernameFormType">
       <tag name="form.type" alias="fos_user_username"/>
       <argument type="service">
@@ -3530,68 +3630,44 @@
         </service>
       </argument>
     </service>
-    <service id="fos_user.profile.form" class="Symfony\Component\Form\Form" factory-method="createNamed" factory-service="form.factory">
-      <argument>fos_user_profile_form</argument>
-      <argument>fos_user_profile</argument>
-      <argument>null</argument>
-      <argument type="collection">
-        <argument key="validation_groups" type="collection">
-          <argument>Profile</argument>
-          <argument>Default</argument>
-        </argument>
-      </argument>
-    </service>
     <service id="fos_user.profile.form.type" class="FOS\UserBundle\Form\Type\ProfileFormType">
       <tag name="form.type" alias="fos_user_profile"/>
       <argument>LBcrew\UserBundle\Entity\User</argument>
-    </service>
-    <service id="fos_user.registration.form" class="Symfony\Component\Form\Form" factory-method="createNamed" factory-service="form.factory">
-      <argument>fos_user_registration_form</argument>
-      <argument>fos_user_registration</argument>
-      <argument>null</argument>
-      <argument type="collection">
-        <argument key="validation_groups" type="collection">
-          <argument>Registration</argument>
-          <argument>Default</argument>
-        </argument>
-      </argument>
     </service>
     <service id="fos_user.registration.form.type" class="FOS\UserBundle\Form\Type\RegistrationFormType">
       <tag name="form.type" alias="fos_user_registration"/>
       <argument>LBcrew\UserBundle\Entity\User</argument>
     </service>
-    <service id="fos_user.change_password.form" class="Symfony\Component\Form\Form" factory-method="createNamed" factory-service="form.factory">
+    <service id="fos_user.change_password.form.factory" class="FOS\UserBundle\Form\Factory\FormFactory">
+      <argument type="service" id="form.factory"/>
       <argument>fos_user_change_password_form</argument>
       <argument>fos_user_change_password</argument>
-      <argument>null</argument>
       <argument type="collection">
-        <argument key="validation_groups" type="collection">
-          <argument>ChangePassword</argument>
-          <argument>Default</argument>
-        </argument>
+        <argument>ChangePassword</argument>
+        <argument>Default</argument>
       </argument>
     </service>
     <service id="fos_user.change_password.form.type" class="FOS\UserBundle\Form\Type\ChangePasswordFormType">
       <tag name="form.type" alias="fos_user_change_password"/>
+      <argument>LBcrew\UserBundle\Entity\User</argument>
     </service>
-    <service id="fos_user.change_password.form.handler.default" class="FOS\UserBundle\Form\Handler\ChangePasswordFormHandler" scope="request">
-      <argument type="service" id="fos_user.change_password.form"/>
-      <argument type="service" id="request"/>
-      <argument type="service" id="fos_user.user_manager"/>
-    </service>
-    <service id="fos_user.resetting.form" class="Symfony\Component\Form\Form" factory-method="createNamed" factory-service="form.factory">
+    <service id="fos_user.resetting.form.factory" class="FOS\UserBundle\Form\Factory\FormFactory">
+      <argument type="service" id="form.factory"/>
       <argument>fos_user_resetting_form</argument>
       <argument>fos_user_resetting</argument>
-      <argument>null</argument>
       <argument type="collection">
-        <argument key="validation_groups" type="collection">
-          <argument>ResetPassword</argument>
-          <argument>Default</argument>
-        </argument>
+        <argument>ResetPassword</argument>
+        <argument>Default</argument>
       </argument>
     </service>
     <service id="fos_user.resetting.form.type" class="FOS\UserBundle\Form\Type\ResettingFormType">
       <tag name="form.type" alias="fos_user_resetting"/>
+      <argument>LBcrew\UserBundle\Entity\User</argument>
+    </service>
+    <service id="fos_user.listener.resetting" class="FOS\UserBundle\EventListener\ResettingListener">
+      <tag name="kernel.event_subscriber"/>
+      <argument type="service" id="router"/>
+      <argument>86400</argument>
     </service>
     <service id="bc_bootstrap.twig.icon_extension" class="Bc\Bundle\BootstrapBundle\Twig\BootstrapIconExtension">
       <tag name="twig.extension"/>
@@ -3601,6 +3677,43 @@
     </service>
     <service id="bc_bootstrap.twig.badge_extension" class="Bc\Bundle\BootstrapBundle\Twig\BootstrapBadgeExtension">
       <tag name="twig.extension"/>
+    </service>
+    <service id="pugx_user.manager.user_discriminator" class="PUGX\MultiUserBundle\Model\UserDiscriminator">
+      <argument type="service" id="session"/>
+      <argument type="collection"/>
+    </service>
+    <service id="pugx_multi_user.registration_manager" class="PUGX\MultiUserBundle\Controller\RegistrationManager">
+      <argument type="service" id="pugx_user.manager.user_discriminator"/>
+      <argument type="service" id="service_container"/>
+      <argument type="service" id="pugx_multi_user.registration_controller"/>
+      <argument type="service" id="fos_user.registration.form.factory"/>
+    </service>
+    <service id="pugx_multi_user.registration_controller" class="FOS\UserBundle\Controller\RegistrationController"/>
+    <service id="pugx_multi_user.registration_form_factory" class="PUGX\MultiUserBundle\Form\FormFactory">
+      <argument type="service" id="pugx_user.manager.user_discriminator"/>
+      <argument type="service" id="form.factory"/>
+      <argument>registration</argument>
+    </service>
+    <service id="pugx_multi_user.profile_form_factory" class="PUGX\MultiUserBundle\Form\FormFactory">
+      <argument type="service" id="pugx_user.manager.user_discriminator"/>
+      <argument type="service" id="form.factory"/>
+      <argument>profile</argument>
+    </service>
+    <service id="pugx_multi_user.listener.authentication" class="PUGX\MultiUserBundle\Listener\AuthenticationListener">
+      <tag name="kernel.event_subscriber"/>
+      <argument type="service" id="pugx_user.manager.user_discriminator"/>
+    </service>
+    <service id="pugx_multi_user.orm.validator.unique" class="PUGX\MultiUserBundle\Validator\Constraints\UniqueEntityValidator">
+      <tag name="validator.constraint_validator" alias="pugx.orm.validator.unique"/>
+      <argument type="service" id="doctrine"/>
+    </service>
+    <service id="pugx_user.manager.orm_user_manager" class="PUGX\MultiUserBundle\Doctrine\UserManager">
+      <argument type="service" id="security.encoder_factory"/>
+      <argument type="service" id="fos_user.util.email_canonicalizer"/>
+      <argument type="service" id="fos_user.util.email_canonicalizer"/>
+      <argument type="service" id="fos_user.entity_manager"/>
+      <argument>LBcrew\UserBundle\Entity\User</argument>
+      <argument type="service" id="pugx_user.manager.user_discriminator"/>
     </service>
     <service id="web_profiler.debug_toolbar" class="Symfony\Bundle\WebProfilerBundle\EventListener\WebDebugToolbarListener">
       <tag name="kernel.event_subscriber"/>
@@ -3699,6 +3812,16 @@
     <service id="monolog.handler.debug" class="Symfony\Bridge\Monolog\Handler\DebugHandler">
       <argument>100</argument>
       <argument>true</argument>
+    </service>
+    <service id="fos_user.registration.form.factory" class="PUGX\MultiUserBundle\Form\FormFactory">
+      <argument type="service" id="pugx_user.manager.user_discriminator"/>
+      <argument type="service" id="form.factory"/>
+      <argument>registration</argument>
+    </service>
+    <service id="fos_user.profile.form.factory" class="PUGX\MultiUserBundle\Form\FormFactory">
+      <argument type="service" id="pugx_user.manager.user_discriminator"/>
+      <argument type="service" id="form.factory"/>
+      <argument>profile</argument>
     </service>
     <service id="debug.controller_resolver" class="JMS\DiExtraBundle\HttpKernel\ControllerResolver">
       <tag name="monolog.logger" channel="request"/>
@@ -3878,29 +4001,8 @@
       <argument type="service" id="security.encoder_factory"/>
       <argument type="service" id="fos_user.util.email_canonicalizer"/>
       <argument type="service" id="fos_user.util.email_canonicalizer"/>
-      <argument type="service">
-        <service class="Doctrine\ORM\EntityManager" factory-method="getManager" factory-service="doctrine" public="false">
-          <argument>null</argument>
-        </service>
-      </argument>
+      <argument type="service" id="fos_user.entity_manager"/>
       <argument>LBcrew\UserBundle\Entity\User</argument>
-    </service>
-    <service id="fos_user.profile.form.handler" class="FOS\UserBundle\Form\Handler\ProfileFormHandler" scope="request">
-      <argument type="service" id="fos_user.profile.form"/>
-      <argument type="service" id="request"/>
-      <argument type="service" id="fos_user.user_manager"/>
-    </service>
-    <service id="fos_user.registration.form.handler" class="FOS\UserBundle\Form\Handler\RegistrationFormHandler" scope="request">
-      <argument type="service" id="fos_user.registration.form"/>
-      <argument type="service" id="request"/>
-      <argument type="service" id="fos_user.user_manager"/>
-      <argument type="service" id="fos_user.mailer"/>
-      <argument type="service" id="fos_user.util.token_generator"/>
-    </service>
-    <service id="fos_user.resetting.form.handler" class="FOS\UserBundle\Form\Handler\ResettingFormHandler" scope="request">
-      <argument type="service" id="fos_user.resetting.form"/>
-      <argument type="service" id="request"/>
-      <argument type="service" id="fos_user.user_manager"/>
     </service>
     <service id="debug.event_dispatcher" alias="event_dispatcher"/>
     <service id="session.storage" alias="session.storage.native"/>
@@ -3909,6 +4011,7 @@
     <service id="database_connection" alias="doctrine.dbal.default_connection"/>
     <service id="doctrine.orm.entity_manager" alias="doctrine.orm.default_entity_manager"/>
     <service id="fos_user.util.username_canonicalizer" alias="fos_user.util.email_canonicalizer"/>
-    <service id="fos_user.change_password.form.handler" alias="fos_user.change_password.form.handler.default"/>
+    <service id="pugx_user_discriminator" alias="pugx_user.manager.user_discriminator"/>
+    <service id="pugx_user_manager" alias="pugx_user.manager.orm_user_manager"/>
   </services>
 </container>

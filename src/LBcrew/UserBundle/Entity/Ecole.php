@@ -3,15 +3,19 @@
 namespace LBcrew\UserBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use LBcrew\UserBundle\Model\User as BaseModelUser;
+use LBcrew\UserBundle\Entity\User as BaseModelUser;
+use PUGX\MultiUserBundle\Validator\Constraints\UniqueEntity;
 
 /**
  * Ecole
  *
- * @ORM\Table()
+ * @ORM\Table(name="ecole")
  * @ORM\Entity(repositoryClass="LBcrew\UserBundle\Entity\EcoleRepository")
+ * 
+ * @UniqueEntity(fields = "username", targetClass = "LBcrew\UserBundle\Entity\BaseUser", message="fos_user.username.already_used")
+ * @UniqueEntity(fields = "email", targetClass = "LBcrew\UserBundle\Entity\BaseUser", message="fos_user.email.already_used")
  */
-class Ecole extends BaseModelUser
+class Ecole extends User
 {
     /**
      * @var integer
@@ -45,15 +49,25 @@ class Ecole extends BaseModelUser
      */
     private $tabProfs;
     
-    
-
     /**
-     * @var integer
+     * @ORM\Column(name="adresse", type="integer")
+     * @ORM\OneToOne(targetEntity="LBcrew\UserBundle\Entity\Adresse")
+     * @ORM\JoinColumn(name="id_adresse", referencedColumnName="id", nullable=true)
+     * @var type integer
+     */
+    private $adresse;
+    
+    /**
+     * @ORM\Column(name="tel", type="integer")
+     *
+     * @var type integer
      */
     protected $tel;
-
+    
     /**
-     * @var integer
+     * @ORM\Column(name="fax", type="integer")
+     *
+     * @var type integer
      */
     protected $fax;
 

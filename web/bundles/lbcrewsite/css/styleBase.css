@@ -5,23 +5,16 @@
     Description:
         Purpose of the stylesheet follows.
 */
+/* Bleu ciel : #77B5FE
+/* Vertclair : #90EE90
+/* jaune clair : #FFFFE0
 
-root { 
-    display: block;
-}
+/*
+--------------------------------------------------------------------------------
+commun
+--------------------------------------------------------------------------------
+*/
 
-*
-{
-    margin: 0px;
-    padding: 0px;
-}
-
-body
-{
-    background-color: #fafafa;
-}
-
-/***************************commun*******************************/
 a
 {
     text-decoration: none;
@@ -32,195 +25,18 @@ ul
     list-style: none;
 }
 
-/***************************header*******************************/
-header
-{
-    background-color: #e2e2e1;
-    color: #FFFFFF;
-    margin-bottom: 30px;
+/*
+--------------------------------------------------------------------------------
+Corps and other
+--------------------------------------------------------------------------------
+*/
+
+#corps{
+    height: 500px;
 }
 
-#HeaderNiveauUn, #HeaderNiveauTrois
-{
-    background-color: #333333;
-    min-height: 30px;
-    text-align: center;
-}
-
-/***niveau un***/
-#HeaderNiveauUn
-{
-    margin-bottom: 15px;
-    padding-top: 5px;
-}
-
-#HeaderNiveauUn li
-{
-    display: inline-block;
-    text-align: center;
-}
-
-#HeaderNiveauUn .li
-{
-    width: 140px;
-    padding-top: 3px;
-    padding-right: 3px;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    font-weight: bold;
-    -webkit-border-top-left-radius: 10px;
-    -webkit-border-top-right-radius: 10px;
-    -moz-border-radius-topleft: 10px;
-    -moz-border-radius-topright: 10px;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-}
-
-#HeaderNiveauUn a
-{
-    color: #FFFFFF;
-}
-
-/***niveau deux***/
-#HeaderNiveauDeux
-{
-    background-image: url("../images/logo2.png");
-    background-repeat: no-repeat;
-    min-height: 93px;
-    padding-right: 20px;
-}
-
-/***niveau trois***/
-#HeaderNiveauTrois
-{
-    background-color: #f9f8f7;
-    text-align: center;
-    padding-left: 15px;
-    padding-right: 20px;
-    padding-top: 5px;
-    padding-bottom: 5px;
-}
-
-/***nav rapide***/
-#HeaderNiveauTrois #idNavRapide li
-{
-   text-align: center;
-   display: inline-block;
-}
-
-#HeaderNiveauTrois #idNavRapide a, #HeaderNiveauTrois #idNavRapide img
-{
-    display: block;
-    text-align: center;
-}
-
-#HeaderNiveauTrois #btnNavRapide
-{
-    padding-left: 3px;
-    padding-right: 3px;
-    padding-top: 3px;
-    padding-bottom: 3px;
-    font-weight: bold;
-    float: left;
-    cursor: pointer;
-    color: #FFFFFF;
-}
-
-/***barre navigation***/
-#HeaderNiveauTrois #barreNavigation
-{
-    display: inline-block;
-    text-align: center;
-/*    background-color: #6891e7;*/
-    padding-top: 2px;
-    padding-bottom: 2px;
-} 
-
-#HeaderNiveauTrois #barreNavigation li
-{
-    display: inline-block;
-    padding-top: 3px;
-    padding-bottom: 3px;
-    padding-left: 5px;
-    padding-right: 5px;
-    margin: 0px;
-    background-color: #f9f8f7;
-}
-
-#HeaderNiveauTrois a
-{
-    color: #494949;
-    font-weight: bold;
-    cursor: pointer;
-    text-align: center;
-    margin: 0px;
-}
-
-#HeaderNiveauTrois .btnAddMedia
-{
-}
-
-/***************************modal box*******************************/
-#modalBoxNavRapide
-{
-    width: 200px;
-}
-
-/***************************conteneur*******************************/
-#conteneur
-{
-}
-
-/***************************menu*******************************/
-.titreMenuItem
-{
-    color: #494949;
-    font-weight: bold;
-    border-bottom: solid 2px #e2e2e2; 
-    margin-top: 15px;
-    margin-bottom: 5px;
-    padding-bottom: 3px;
-}
-
-/***************************menu gauche*******************************/
-#menuGauche
-{
-    width: 20%;
-    float: left;
-    padding-left: 25px;
-    padding-right: 25px;
-    /*border: solid 1px #e2e2e2;*/
-}
-
-#menuGauche a
-{
-    padding-left: 20px;
-}
-
-/***************************menu droit*******************************/
-#menuDroit
-{
-    width: 20%;
-    float: right;
-}
-
-#menuDroit a
-{
-    padding-left: 20px;
-}
-
-/***************************section*******************************/
-section
-{
-    border: solid 1px #e2e2e2;
-    overflow: hidden;
-}
-
-/***************************footer*******************************/
-footer
-{
-    border: solid 1px #565656;
-    position: fixed;
-    bottom: 0px;
-    width: 100%;
+#corps .span6{
+    border-left: 1px solid #BBBBBB;
+    border-right: 1px solid #BBBBBB;
+    height: 500px;
 }

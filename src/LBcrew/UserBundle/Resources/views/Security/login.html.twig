@@ -1,0 +1,32 @@
+
+
+
+{% block fos_user_content %}
+
+{% if error %}
+    <div>{{ error|trans({}, 'FOSUserBundle') }}</div>
+{% endif %}
+
+<form id="formHeaderConnexion" class="form-inline" action="{{ path("fos_user_security_check") }}" method="post">
+    
+    <div>
+        <input name="_username" required="required" placeholder="Email" class="input-small" type="email" value="{{ last_username }}" /> </br>
+        <a href="#">Mot de passe oublié</a>
+    </div>
+    
+    <div>
+        <input name="_password" required="required" placeholder="Password" class="input-small" type="password">
+        <input type="submit" class="btn btn-primary" value="sign on">
+        <a href="#" class="btn">Inscription</a>
+        </br>
+        <label for="_remember_me" class="checkbox required">
+            <input id="remember_me" name="_remember_me" value="on" required="required" type="checkbox" /> Remember me
+        </label>
+    </div>
+    
+    
+    
+</form>
+    
+{% endblock fos_user_content %}
+
