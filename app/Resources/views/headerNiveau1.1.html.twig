@@ -1,0 +1,44 @@
+{# empty Twig template #}
+
+<div id="headerMenuCompte">
+    
+    <div class="dropdown">
+
+        <span class="dropdown-toggle" id="dLabel" role="button" data-toggle="dropdown">
+            {{ 'user'|icon('white') }}
+            <b class="caret"></b>
+        </span>
+
+        <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel" style="position: absolute; right: 0px; text-align: left;">
+            <li>
+                <a href="{{ path('lb_crew_racine') }}">
+                    {{ 'user'|icon }} Informations personelles
+                </a>
+            </li>
+            
+            <li>
+                <a href="{{ path('lb_crew_racine') }}">
+                    {{ 'cog'|icon }} Paramètre du compte
+                </a>
+             </li>
+            
+            <li>
+                <a href="{{ path('lb_crew_racine') }}">
+                    {{ 'envelope'|icon }} Messagerie
+                </a>
+            </li>
+            
+            <li class="divider"></li>
+            
+            <li>
+                <a href="{{ path('lb_crew_racine') }}">
+                    {{ 'envelope'|icon }} Déconnexion
+                </a>
+            </li>
+        </ul>
+
+    </div>
+    
+</div>
+
+{# render controller('FOSUserBundle:Security:login') #}

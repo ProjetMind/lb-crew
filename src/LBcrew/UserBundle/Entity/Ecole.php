@@ -3,7 +3,7 @@
 namespace LBcrew\UserBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use LBcrew\UserBundle\Entity\User as BaseModelUser;
+use LBcrew\UserBundle\Entity\BaseUser as BaseUser;
 use PUGX\MultiUserBundle\Validator\Constraints\UniqueEntity;
 
 /**
@@ -13,9 +13,10 @@ use PUGX\MultiUserBundle\Validator\Constraints\UniqueEntity;
  * @ORM\Entity(repositoryClass="LBcrew\UserBundle\Entity\EcoleRepository")
  * 
  * @UniqueEntity(fields = "username", targetClass = "LBcrew\UserBundle\Entity\BaseUser", message="fos_user.username.already_used")
- * @UniqueEntity(fields = "email", targetClass = "LBcrew\UserBundle\Entity\BaseUser", message="fos_user.email.already_used")
+ * @UniqueEntity(fields = "email", targetClass = "LNcrew\UserBundle\Entity\BaseUser", message="fos_user.email.already_used")
+ * 
  */
-class Ecole extends User
+class Ecole extends BaseUser
 {
     /**
      * @var integer

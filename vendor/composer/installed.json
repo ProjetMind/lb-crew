@@ -1500,18 +1500,18 @@
         "source": {
             "type": "git",
             "url": "https://github.com/PUGX/PUGXMultiUserBundle.git",
-            "reference": "d5a2f31ffe67424f82796f4fa590059901a21e40"
+            "reference": "47cbe8663a9cf1f2614737a7daeaf6c48f81cbe8"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/PUGX/PUGXMultiUserBundle/zipball/d5a2f31ffe67424f82796f4fa590059901a21e40",
-            "reference": "d5a2f31ffe67424f82796f4fa590059901a21e40",
+            "url": "https://api.github.com/repos/PUGX/PUGXMultiUserBundle/zipball/47cbe8663a9cf1f2614737a7daeaf6c48f81cbe8",
+            "reference": "47cbe8663a9cf1f2614737a7daeaf6c48f81cbe8",
             "shasum": ""
         },
         "require": {
             "friendsofsymfony/user-bundle": "2.0.x-dev"
         },
-        "time": "2013-06-06 22:17:40",
+        "time": "2013-06-21 01:04:11",
         "type": "symfony-bundle",
         "extra": {
             "branch-alias": {

@@ -8,8 +8,9 @@ security:
         LBcrew\UserBundle\Entity\User: sha512
 
     role_hierarchy:
-        ROLE_ADMIN:       ROLE_USER
-        ROLE_SUPER_ADMIN: [ROLE_USER, ROLE_ADMIN, ROLE_ALLOWED_TO_SWITCH]
+        ROLE_MEMBRE: [ROLE_USER, ROLE_ECOLE, ROLE_GROUPE]
+        ROLE_ADMIN: ROLE_MEMBRE
+        ROLE_SUPER_ADMIN: [ROLE_ADMIN, ROLE_ALLOWED_TO_SWITCH]
 
     providers:
         main:

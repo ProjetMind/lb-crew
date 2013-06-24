@@ -106,8 +106,8 @@ fos_user:
     user_class:    LBcrew\UserBundle\Entity\BaseUser # La classe de l'entité User que nous venons de définir
     service:
         user_manager: pugx_user_manager
-
-# pugx_multi_user
+        
+# PUG multi User Bundle        
 pugx_multi_user:
  users:
     user:
@@ -116,22 +116,40 @@ pugx_multi_user:
 #          factory: 
         registration:
           form: 
-            type: Acme\UserBundle\Form\Type\RegistrationUserOneFormType
+            type: LBcrew\UserBundle\Form\Type\RegistrationUserOneFormType
             name: fos_user_registration_form
             validation_groups:  [Registration, Default]
-          template: AcmeUserBundle:Registration:user_one.form.html.twig
+          template: LBcrewUserBundle:Registration:user_one.form.html.twig
         profile:
           form:
-            type: Acme\UserBundle\Form\Type\ProfileUserOneFormType
+            type: LBcrew\UserBundle\Form\Type\ProfileUserOneFormType
             name: fos_user_profile_form
-            validation_groups:  [Profile, Default] 
-    user_two:
+    ecole:
         entity: 
-          class: Acme\UserBundle\Entity\UserTwo
+          class: LBcrew\UserBundle\Entity\Ecole
+#          factory: 
         registration:
           form: 
-            type: Acme\UserBundle\Form\Type\RegistrationUserTwoFormType
-          template: AcmeUserBundle:Registration:user_two.form.html.twig
+            type: LBcrew\UserBundle\Form\Type\RegistrationUserOneFormType
+            name: fos_user_registration_form
+            validation_groups:  [Registration, Default]
+          template: LBcrewUserBundle:Registration:user_one.form.html.twig
         profile:
+          form:
+            type: LBcrew\UserBundle\Form\Type\ProfileUserOneFormType
+            name: fos_user_profile_form            
+    groupe:
+        entity: 
+          class: LBcrew\UserBundle\Entity\Groupe
+#          factory: 
+        registration:
           form: 
-            type: Acme\UserBundle\Form\Type\ProfileUserTwoFormType
+            type: LBcrew\UserBundle\Form\Type\RegistrationUserOneFormType
+            name: fos_user_registration_form
+            validation_groups:  [Registration, Default]
+          template: LBcrewUserBundle:Registration:user_one.form.html.twig
+        profile:
+          form:
+            type: LBcrew\UserBundle\Form\Type\ProfileUserOneFormType
+            name: fos_user_profile_form
+

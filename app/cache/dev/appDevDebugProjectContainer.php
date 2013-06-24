@@ -359,11 +359,11 @@ class appDevDebugProjectContainer extends Container
      * This service is shared.
      * This method always returns the same instance of the service.
      *
-     * @return EntityManager51bb8c5ed2587_546a8d27f194334ee012bfe64f629947b07e4919\__CG__\Doctrine\ORM\EntityManager A EntityManager51bb8c5ed2587_546a8d27f194334ee012bfe64f629947b07e4919\__CG__\Doctrine\ORM\EntityManager instance.
+     * @return EntityManager51c78c239bb31_546a8d27f194334ee012bfe64f629947b07e4919\__CG__\Doctrine\ORM\EntityManager A EntityManager51c78c239bb31_546a8d27f194334ee012bfe64f629947b07e4919\__CG__\Doctrine\ORM\EntityManager instance.
      */
     protected function getDoctrine_Orm_DefaultEntityManagerService()
     {
-        require_once 'C:/wamp/www/lb-crew/app/cache/dev/jms_diextra/doctrine/EntityManager_51bb8c5ed2587.php';
+        require_once 'C:/wamp/www/lb-crew/app/cache/dev/jms_diextra/doctrine/EntityManager_51c78c239bb31.php';
 
         $a = $this->get('annotation_reader');
 
@@ -406,7 +406,7 @@ class appDevDebugProjectContainer extends Container
         $i = call_user_func(array('Doctrine\\ORM\\EntityManager', 'create'), $this->get('doctrine.dbal.default_connection'), $h);
         $this->get('doctrine.orm.default_manager_configurator')->configure($i);
 
-        return $this->services['doctrine.orm.default_entity_manager'] = new \EntityManager51bb8c5ed2587_546a8d27f194334ee012bfe64f629947b07e4919\__CG__\Doctrine\ORM\EntityManager($i, $this);
+        return $this->services['doctrine.orm.default_entity_manager'] = new \EntityManager51c78c239bb31_546a8d27f194334ee012bfe64f629947b07e4919\__CG__\Doctrine\ORM\EntityManager($i, $this);
     }
 
     /**
@@ -1032,7 +1032,7 @@ class appDevDebugProjectContainer extends Container
      */
     protected function getFosUser_ChangePassword_Form_TypeService()
     {
-        return $this->services['fos_user.change_password.form.type'] = new \FOS\UserBundle\Form\Type\ChangePasswordFormType('LBcrew\\UserBundle\\Entity\\User');
+        return $this->services['fos_user.change_password.form.type'] = new \FOS\UserBundle\Form\Type\ChangePasswordFormType('LBcrew\\UserBundle\\Entity\\BaseUser');
     }
 
     /**
@@ -1110,7 +1110,7 @@ class appDevDebugProjectContainer extends Container
      */
     protected function getFosUser_Profile_Form_TypeService()
     {
-        return $this->services['fos_user.profile.form.type'] = new \FOS\UserBundle\Form\Type\ProfileFormType('LBcrew\\UserBundle\\Entity\\User');
+        return $this->services['fos_user.profile.form.type'] = new \FOS\UserBundle\Form\Type\ProfileFormType('LBcrew\\UserBundle\\Entity\\BaseUser');
     }
 
     /**
@@ -1136,7 +1136,7 @@ class appDevDebugProjectContainer extends Container
      */
     protected function getFosUser_Registration_Form_TypeService()
     {
-        return $this->services['fos_user.registration.form.type'] = new \FOS\UserBundle\Form\Type\RegistrationFormType('LBcrew\\UserBundle\\Entity\\User');
+        return $this->services['fos_user.registration.form.type'] = new \FOS\UserBundle\Form\Type\RegistrationFormType('LBcrew\\UserBundle\\Entity\\BaseUser');
     }
 
     /**
@@ -1162,7 +1162,7 @@ class appDevDebugProjectContainer extends Container
      */
     protected function getFosUser_Resetting_Form_TypeService()
     {
-        return $this->services['fos_user.resetting.form.type'] = new \FOS\UserBundle\Form\Type\ResettingFormType('LBcrew\\UserBundle\\Entity\\User');
+        return $this->services['fos_user.resetting.form.type'] = new \FOS\UserBundle\Form\Type\ResettingFormType('LBcrew\\UserBundle\\Entity\\BaseUser');
     }
 
     /**
@@ -1175,7 +1175,7 @@ class appDevDebugProjectContainer extends Container
      */
     protected function getFosUser_Security_InteractiveLoginListenerService()
     {
-        return $this->services['fos_user.security.interactive_login_listener'] = new \FOS\UserBundle\EventListener\LastLoginListener($this->get('fos_user.user_manager'));
+        return $this->services['fos_user.security.interactive_login_listener'] = new \FOS\UserBundle\EventListener\LastLoginListener($this->get('pugx_user.manager.orm_user_manager'));
     }
 
     /**
@@ -1192,21 +1192,6 @@ class appDevDebugProjectContainer extends Container
     }
 
     /**
-     * Gets the 'fos_user.user_manager' service.
-     *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return FOS\UserBundle\Doctrine\UserManager A FOS\UserBundle\Doctrine\UserManager instance.
-     */
-    protected function getFosUser_UserManagerService()
-    {
-        $a = $this->get('fos_user.util.email_canonicalizer');
-
-        return $this->services['fos_user.user_manager'] = new \FOS\UserBundle\Doctrine\UserManager($this->get('security.encoder_factory'), $a, $a, $this->get('fos_user.entity_manager'), 'LBcrew\\UserBundle\\Entity\\User');
-    }
-
-    /**
      * Gets the 'fos_user.username_form_type' service.
      *
      * This service is shared.
@@ -1216,7 +1201,7 @@ class appDevDebugProjectContainer extends Container
      */
     protected function getFosUser_UsernameFormTypeService()
     {
-        return $this->services['fos_user.username_form_type'] = new \FOS\UserBundle\Form\Type\UsernameFormType(new \FOS\UserBundle\Form\DataTransformer\UserToUsernameTransformer($this->get('fos_user.user_manager')));
+        return $this->services['fos_user.username_form_type'] = new \FOS\UserBundle\Form\Type\UsernameFormType(new \FOS\UserBundle\Form\DataTransformer\UserToUsernameTransformer($this->get('pugx_user.manager.orm_user_manager')));
     }
 
     /**
@@ -1255,7 +1240,7 @@ class appDevDebugProjectContainer extends Container
      */
     protected function getFosUser_Util_UserManipulatorService()
     {
-        return $this->services['fos_user.util.user_manipulator'] = new \FOS\UserBundle\Util\UserManipulator($this->get('fos_user.user_manager'));
+        return $this->services['fos_user.util.user_manipulator'] = new \FOS\UserBundle\Util\UserManipulator($this->get('pugx_user.manager.orm_user_manager'));
     }
 
     /**
@@ -1712,7 +1697,7 @@ class appDevDebugProjectContainer extends Container
     {
         $a = $this->get('fos_user.util.email_canonicalizer');
 
-        return $this->services['pugx_user.manager.orm_user_manager'] = new \PUGX\MultiUserBundle\Doctrine\UserManager($this->get('security.encoder_factory'), $a, $a, $this->get('fos_user.entity_manager'), 'LBcrew\\UserBundle\\Entity\\User', $this->get('pugx_user.manager.user_discriminator'));
+        return $this->services['pugx_user.manager.orm_user_manager'] = new \PUGX\MultiUserBundle\Doctrine\UserManager($this->get('security.encoder_factory'), $a, $a, $this->get('doctrine')->getManager(NULL), 'LBcrew\\UserBundle\\Entity\\BaseUser', $this->get('pugx_user.manager.user_discriminator'));
     }
 
     /**
@@ -1725,7 +1710,7 @@ class appDevDebugProjectContainer extends Container
      */
     protected function getPugxUser_Manager_UserDiscriminatorService()
     {
-        return $this->services['pugx_user.manager.user_discriminator'] = new \PUGX\MultiUserBundle\Model\UserDiscriminator($this->get('session'), array());
+        return $this->services['pugx_user.manager.user_discriminator'] = new \PUGX\MultiUserBundle\Model\UserDiscriminator($this->get('session'), array('user' => array('entity' => array('class' => 'LBcrew\\UserBundle\\Entity\\User', 'factory' => 'PUGX\\MultiUserBundle\\Model\\UserFactory'), 'registration' => array('form' => array('type' => 'LBcrew\\UserBundle\\Form\\Type\\RegistrationUserOneFormType', 'name' => 'fos_user_registration_form', 'validation_groups' => array(0 => 'Registration', 1 => 'Default')), 'template' => 'LBcrewUserBundle:Registration:user_one.form.html.twig'), 'profile' => array('form' => array('type' => 'LBcrew\\UserBundle\\Form\\Type\\ProfileUserOneFormType', 'name' => 'fos_user_profile_form', 'validation_groups' => array(0 => 'Profile', 1 => 'Default')))), 'ecole' => array('entity' => array('class' => 'LBcrew\\UserBundle\\Entity\\Ecole', 'factory' => 'PUGX\\MultiUserBundle\\Model\\UserFactory'), 'registration' => array('form' => array('type' => 'LBcrew\\UserBundle\\Form\\Type\\RegistrationUserOneFormType', 'name' => 'fos_user_registration_form', 'validation_groups' => array(0 => 'Registration', 1 => 'Default')), 'template' => 'LBcrewUserBundle:Registration:user_one.form.html.twig'), 'profile' => array('form' => array('type' => 'LBcrew\\UserBundle\\Form\\Type\\ProfileUserOneFormType', 'name' => 'fos_user_profile_form', 'validation_groups' => array(0 => 'Profile', 1 => 'Default')))), 'groupe' => array('entity' => array('class' => 'LBcrew\\UserBundle\\Entity\\Groupe', 'factory' => 'PUGX\\MultiUserBundle\\Model\\UserFactory'), 'registration' => array('form' => array('type' => 'LBcrew\\UserBundle\\Form\\Type\\RegistrationUserOneFormType', 'name' => 'fos_user_registration_form', 'validation_groups' => array(0 => 'Registration', 1 => 'Default')), 'template' => 'LBcrewUserBundle:Registration:user_one.form.html.twig'), 'profile' => array('form' => array('type' => 'LBcrew\\UserBundle\\Form\\Type\\ProfileUserOneFormType', 'name' => 'fos_user_profile_form', 'validation_groups' => array(0 => 'Profile', 1 => 'Default'))))));
     }
 
     /**
@@ -1975,7 +1960,7 @@ class appDevDebugProjectContainer extends Container
         $m = new \Symfony\Component\Security\Http\Firewall\UsernamePasswordFormAuthenticationListener($b, $g, $this->get('security.authentication.session_strategy'), $i, 'main', $l, new \Symfony\Component\Security\Http\Authentication\DefaultAuthenticationFailureHandler($f, $i, array('login_path' => 'fos_user_security_login', 'failure_path' => NULL, 'failure_forward' => false), $a), array('check_path' => 'fos_user_security_check', 'use_forward' => false, 'username_parameter' => '_username', 'password_parameter' => '_password', 'csrf_parameter' => '_csrf_token', 'intention' => 'authenticate', 'post_only' => true), $a, $d);
         $m->setRememberMeServices($j);
 
-        return $this->services['security.firewall.map.context.main'] = new \Symfony\Bundle\SecurityBundle\Security\FirewallContext(array(0 => new \Symfony\Component\Security\Http\Firewall\ChannelListener($h, new \Symfony\Component\Security\Http\EntryPoint\RetryAuthenticationEntryPoint(80, 443), $a), 1 => new \Symfony\Component\Security\Http\Firewall\ContextListener($b, array(0 => $c), 'main', $a, $d), 2 => $k, 3 => $m, 4 => new \Symfony\Component\Security\Http\Firewall\RememberMeListener($b, $j, $g, $a, $d), 5 => new \Symfony\Component\Security\Http\Firewall\AnonymousAuthenticationListener($b, '51bb8c5e69d1f', $a), 6 => new \Symfony\Component\Security\Http\Firewall\AccessListener($b, $this->get('security.access.decision_manager'), $h, $g, $a)), new \Symfony\Component\Security\Http\Firewall\ExceptionListener($b, $this->get('security.authentication.trust_resolver'), $i, 'main', new \Symfony\Component\Security\Http\EntryPoint\FormAuthenticationEntryPoint($f, $i, 'fos_user_security_login', false), NULL, NULL, $a));
+        return $this->services['security.firewall.map.context.main'] = new \Symfony\Bundle\SecurityBundle\Security\FirewallContext(array(0 => new \Symfony\Component\Security\Http\Firewall\ChannelListener($h, new \Symfony\Component\Security\Http\EntryPoint\RetryAuthenticationEntryPoint(80, 443), $a), 1 => new \Symfony\Component\Security\Http\Firewall\ContextListener($b, array(0 => $c), 'main', $a, $d), 2 => $k, 3 => $m, 4 => new \Symfony\Component\Security\Http\Firewall\RememberMeListener($b, $j, $g, $a, $d), 5 => new \Symfony\Component\Security\Http\Firewall\AnonymousAuthenticationListener($b, '51c78c2351218', $a), 6 => new \Symfony\Component\Security\Http\Firewall\AccessListener($b, $this->get('security.access.decision_manager'), $h, $g, $a)), new \Symfony\Component\Security\Http\Firewall\ExceptionListener($b, $this->get('security.authentication.trust_resolver'), $i, 'main', new \Symfony\Component\Security\Http\EntryPoint\FormAuthenticationEntryPoint($f, $i, 'fos_user_security_login', false), NULL, NULL, $a));
     }
 
     /**
@@ -2001,7 +1986,7 @@ class appDevDebugProjectContainer extends Container
      */
     protected function getSecurity_RoleHierarchyService()
     {
-        return $this->services['security.role_hierarchy'] = new \Symfony\Component\Security\Core\Role\RoleHierarchy(array('ROLE_ADMIN' => array(0 => 'ROLE_USER'), 'ROLE_SUPER_ADMIN' => array(0 => 'ROLE_USER', 1 => 'ROLE_ADMIN', 2 => 'ROLE_ALLOWED_TO_SWITCH')));
+        return $this->services['security.role_hierarchy'] = new \Symfony\Component\Security\Core\Role\RoleHierarchy(array('ROLE_MEMBRE' => array(0 => 'ROLE_USER', 1 => 'ROLE_ECOLE', 2 => 'ROLE_GROUPE'), 'ROLE_ADMIN' => array(0 => 'ROLE_MEMBRE'), 'ROLE_SUPER_ADMIN' => array(0 => 'ROLE_ADMIN', 1 => 'ROLE_ALLOWED_TO_SWITCH')));
     }
 
     /**
@@ -3124,7 +3109,7 @@ class appDevDebugProjectContainer extends Container
      */
     protected function getValidatorService()
     {
-        return $this->services['validator'] = new \Symfony\Component\Validator\Validator($this->get('validator.mapping.class_metadata_factory'), new \Symfony\Bundle\FrameworkBundle\Validator\ConstraintValidatorFactory($this, array('security.validator.user_password' => 'security.validator.user_password', 'doctrine.orm.validator.unique' => 'doctrine.orm.validator.unique', 'pugx.orm.validator.unique' => 'pugx_multi_user.orm.validator.unique')), array(0 => $this->get('doctrine.orm.validator_initializer'), 1 => new \FOS\UserBundle\Validator\Initializer($this->get('fos_user.user_manager'))));
+        return $this->services['validator'] = new \Symfony\Component\Validator\Validator($this->get('validator.mapping.class_metadata_factory'), new \Symfony\Bundle\FrameworkBundle\Validator\ConstraintValidatorFactory($this, array('security.validator.user_password' => 'security.validator.user_password', 'doctrine.orm.validator.unique' => 'doctrine.orm.validator.unique', 'pugx.orm.validator.unique' => 'pugx_multi_user.orm.validator.unique')), array(0 => $this->get('doctrine.orm.validator_initializer'), 1 => new \FOS\UserBundle\Validator\Initializer($this->get('pugx_user.manager.orm_user_manager'))));
     }
 
     /**
@@ -3173,11 +3158,21 @@ class appDevDebugProjectContainer extends Container
     /**
      * Gets the doctrine.orm.entity_manager service alias.
      *
-     * @return EntityManager51bb8c5ed2587_546a8d27f194334ee012bfe64f629947b07e4919\__CG__\Doctrine\ORM\EntityManager An instance of the doctrine.orm.default_entity_manager service
+     * @return EntityManager51c78c239bb31_546a8d27f194334ee012bfe64f629947b07e4919\__CG__\Doctrine\ORM\EntityManager An instance of the doctrine.orm.default_entity_manager service
      */
     protected function getDoctrine_Orm_EntityManagerService()
     {
         return $this->get('doctrine.orm.default_entity_manager');
+    }
+
+    /**
+     * Gets the fos_user.user_manager service alias.
+     *
+     * @return PUGX\MultiUserBundle\Doctrine\UserManager An instance of the pugx_user.manager.orm_user_manager service
+     */
+    protected function getFosUser_UserManagerService()
+    {
+        return $this->get('pugx_user.manager.orm_user_manager');
     }
 
     /**
@@ -3321,23 +3316,6 @@ class appDevDebugProjectContainer extends Container
     }
 
     /**
-     * Gets the 'fos_user.entity_manager' service.
-     *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * This service is private.
-     * If you want to be able to request this service from the container directly,
-     * make it public, otherwise you might end up with broken code.
-     *
-     * @return Doctrine\ORM\EntityManager A Doctrine\ORM\EntityManager instance.
-     */
-    protected function getFosUser_EntityManagerService()
-    {
-        return $this->services['fos_user.entity_manager'] = $this->get('doctrine')->getManager(NULL);
-    }
-
-    /**
      * Gets the 'fos_user.user_provider.username_email' service.
      *
      * This service is shared.
@@ -3351,7 +3329,7 @@ class appDevDebugProjectContainer extends Container
      */
     protected function getFosUser_UserProvider_UsernameEmailService()
     {
-        return $this->services['fos_user.user_provider.username_email'] = new \FOS\UserBundle\Security\EmailUserProvider($this->get('fos_user.user_manager'));
+        return $this->services['fos_user.user_provider.username_email'] = new \FOS\UserBundle\Security\EmailUserProvider($this->get('pugx_user.manager.orm_user_manager'));
     }
 
     /**
@@ -3408,7 +3386,7 @@ class appDevDebugProjectContainer extends Container
     {
         $a = $this->get('security.user_checker');
 
-        $this->services['security.authentication.manager'] = $instance = new \Symfony\Component\Security\Core\Authentication\AuthenticationProviderManager(array(0 => new \Symfony\Component\Security\Core\Authentication\Provider\DaoAuthenticationProvider($this->get('fos_user.user_provider.username_email'), $a, 'main', $this->get('security.encoder_factory'), true), 1 => new \Symfony\Component\Security\Core\Authentication\Provider\RememberMeAuthenticationProvider($a, 'ThisTokenIsNotSoSecretChangeIt', 'main'), 2 => new \Symfony\Component\Security\Core\Authentication\Provider\AnonymousAuthenticationProvider('51bb8c5e69d1f')), true);
+        $this->services['security.authentication.manager'] = $instance = new \Symfony\Component\Security\Core\Authentication\AuthenticationProviderManager(array(0 => new \Symfony\Component\Security\Core\Authentication\Provider\DaoAuthenticationProvider($this->get('fos_user.user_provider.username_email'), $a, 'main', $this->get('security.encoder_factory'), true), 1 => new \Symfony\Component\Security\Core\Authentication\Provider\RememberMeAuthenticationProvider($a, 'ThisTokenIsNotSoSecretChangeIt', 'main'), 2 => new \Symfony\Component\Security\Core\Authentication\Provider\AnonymousAuthenticationProvider('51c78c2351218')), true);
 
         $instance->setEventDispatcher($this->get('event_dispatcher'));
 
@@ -3573,7 +3551,7 @@ class appDevDebugProjectContainer extends Container
             'kernel.root_dir' => 'C:/wamp/www/lb-crew/app',
             'kernel.environment' => 'dev',
             'kernel.debug' => true,
-            'kernel.name' => 'app',
+            'kernel.name' => 'ap_',
             'kernel.cache_dir' => 'C:/wamp/www/lb-crew/app/cache/dev',
             'kernel.logs_dir' => 'C:/wamp/www/lb-crew/app/logs',
             'kernel.bundles' => array(
@@ -3841,13 +3819,17 @@ class appDevDebugProjectContainer extends Container
             'security.access.always_authenticate_before_granting' => false,
             'security.authentication.hide_user_not_found' => true,
             'security.role_hierarchy.roles' => array(
-                'ROLE_ADMIN' => array(
+                'ROLE_MEMBRE' => array(
                     0 => 'ROLE_USER',
+                    1 => 'ROLE_ECOLE',
+                    2 => 'ROLE_GROUPE',
+                ),
+                'ROLE_ADMIN' => array(
+                    0 => 'ROLE_MEMBRE',
                 ),
                 'ROLE_SUPER_ADMIN' => array(
-                    0 => 'ROLE_USER',
-                    1 => 'ROLE_ADMIN',
-                    2 => 'ROLE_ALLOWED_TO_SWITCH',
+                    0 => 'ROLE_ADMIN',
+                    1 => 'ROLE_ALLOWED_TO_SWITCH',
                 ),
             ),
             'twig.class' => 'Twig_Environment',
@@ -4089,8 +4071,8 @@ class appDevDebugProjectContainer extends Container
             ),
             'jms_di_extra.cache_dir' => 'C:/wamp/www/lb-crew/app/cache/dev/jms_diextra',
             'jms_di_extra.doctrine_integration' => true,
-            'jms_di_extra.doctrine_integration.entity_manager.file' => 'C:/wamp/www/lb-crew/app/cache/dev/jms_diextra/doctrine/EntityManager_51bb8c5ed2587.php',
-            'jms_di_extra.doctrine_integration.entity_manager.class' => 'EntityManager51bb8c5ed2587_546a8d27f194334ee012bfe64f629947b07e4919\\__CG__\\Doctrine\\ORM\\EntityManager',
+            'jms_di_extra.doctrine_integration.entity_manager.file' => 'C:/wamp/www/lb-crew/app/cache/dev/jms_diextra/doctrine/EntityManager_51c78c239bb31.php',
+            'jms_di_extra.doctrine_integration.entity_manager.class' => 'EntityManager51c78c239bb31_546a8d27f194334ee012bfe64f629947b07e4919\\__CG__\\Doctrine\\ORM\\EntityManager',
             'security.secured_services' => array(
 
             ),
@@ -4135,7 +4117,7 @@ class appDevDebugProjectContainer extends Container
             'fos_user.storage' => 'orm',
             'fos_user.firewall_name' => 'main',
             'fos_user.model_manager_name' => NULL,
-            'fos_user.model.user.class' => 'LBcrew\\UserBundle\\Entity\\User',
+            'fos_user.model.user.class' => 'LBcrew\\UserBundle\\Entity\\BaseUser',
             'fos_user.template.engine' => 'twig',
             'fos_user.profile.form.type' => 'fos_user_profile',
             'fos_user.profile.form.name' => 'fos_user_profile_form',
@@ -4170,7 +4152,87 @@ class appDevDebugProjectContainer extends Container
                 1 => 'Default',
             ),
             'pugx_user_discriminator_users' => array(
-
+                'user' => array(
+                    'entity' => array(
+                        'class' => 'LBcrew\\UserBundle\\Entity\\User',
+                        'factory' => 'PUGX\\MultiUserBundle\\Model\\UserFactory',
+                    ),
+                    'registration' => array(
+                        'form' => array(
+                            'type' => 'LBcrew\\UserBundle\\Form\\Type\\RegistrationUserOneFormType',
+                            'name' => 'fos_user_registration_form',
+                            'validation_groups' => array(
+                                0 => 'Registration',
+                                1 => 'Default',
+                            ),
+                        ),
+                        'template' => 'LBcrewUserBundle:Registration:user_one.form.html.twig',
+                    ),
+                    'profile' => array(
+                        'form' => array(
+                            'type' => 'LBcrew\\UserBundle\\Form\\Type\\ProfileUserOneFormType',
+                            'name' => 'fos_user_profile_form',
+                            'validation_groups' => array(
+                                0 => 'Profile',
+                                1 => 'Default',
+                            ),
+                        ),
+                    ),
+                ),
+                'ecole' => array(
+                    'entity' => array(
+                        'class' => 'LBcrew\\UserBundle\\Entity\\Ecole',
+                        'factory' => 'PUGX\\MultiUserBundle\\Model\\UserFactory',
+                    ),
+                    'registration' => array(
+                        'form' => array(
+                            'type' => 'LBcrew\\UserBundle\\Form\\Type\\RegistrationUserOneFormType',
+                            'name' => 'fos_user_registration_form',
+                            'validation_groups' => array(
+                                0 => 'Registration',
+                                1 => 'Default',
+                            ),
+                        ),
+                        'template' => 'LBcrewUserBundle:Registration:user_one.form.html.twig',
+                    ),
+                    'profile' => array(
+                        'form' => array(
+                            'type' => 'LBcrew\\UserBundle\\Form\\Type\\ProfileUserOneFormType',
+                            'name' => 'fos_user_profile_form',
+                            'validation_groups' => array(
+                                0 => 'Profile',
+                                1 => 'Default',
+                            ),
+                        ),
+                    ),
+                ),
+                'groupe' => array(
+                    'entity' => array(
+                        'class' => 'LBcrew\\UserBundle\\Entity\\Groupe',
+                        'factory' => 'PUGX\\MultiUserBundle\\Model\\UserFactory',
+                    ),
+                    'registration' => array(
+                        'form' => array(
+                            'type' => 'LBcrew\\UserBundle\\Form\\Type\\RegistrationUserOneFormType',
+                            'name' => 'fos_user_registration_form',
+                            'validation_groups' => array(
+                                0 => 'Registration',
+                                1 => 'Default',
+                            ),
+                        ),
+                        'template' => 'LBcrewUserBundle:Registration:user_one.form.html.twig',
+                    ),
+                    'profile' => array(
+                        'form' => array(
+                            'type' => 'LBcrew\\UserBundle\\Form\\Type\\ProfileUserOneFormType',
+                            'name' => 'fos_user_profile_form',
+                            'validation_groups' => array(
+                                0 => 'Profile',
+                                1 => 'Default',
+                            ),
+                        ),
+                    ),
+                ),
             ),
             'web_profiler.debug_toolbar.class' => 'Symfony\\Bundle\\WebProfilerBundle\\EventListener\\WebDebugToolbarListener',
             'web_profiler.debug_toolbar.intercept_redirects' => false,

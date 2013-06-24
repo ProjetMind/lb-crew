@@ -94,7 +94,7 @@ class __TwigTemplate_c49fcbb65be0af9a133464b787288df5 extends Twig_Template
         echo "        
     </head>
 
-<body>
+<body style=\"background-color: #F5F5F5;\">
     
     <div class=\"container-fluid\">
         
@@ -246,14 +246,14 @@ class __TwigTemplate_c49fcbb65be0af9a133464b787288df5 extends Twig_Template
     public function block_body($context, array $blocks = array())
     {
         // line 40
-        echo "                           <span class=\"span3\" id=\"menuGauche\">
+        echo "                           <span class=\"span2\" id=\"menuGauche\">
                                ";
         // line 41
         $this->env->loadTemplate("::menuGauche.html.twig")->display($context);
         // line 42
         echo "                           </span>
                            
-                           <span class=\"span6\">
+                           <span class=\"span7\">
                            ";
         // line 45
         $this->env->loadTemplate("::navigation.html.twig")->display($context);
