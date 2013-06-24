@@ -3,3 +3,15 @@ lb_crew_racine:
   pattern: /
   defaults: { _controller: LBcrewSiteBundle:Site:index }
   
+lb_crew_test:
+  pattern: /test
+  defaults: { _controller: LBcrewSiteBundle:Site:test }
+  
+lb_crew_test2:
+  pattern: /test/test2
+  defaults: { _controller: LBcrewSiteBundle:Site:test }
+  
+lb_crew_test3:
+  pattern: /test/test2/test3
+  defaults: { _controller: LBcrewSiteBundle:Site:test }
+  

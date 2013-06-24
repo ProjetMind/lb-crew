@@ -231,6 +231,11 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
                 return array (  '_controller' => 'assetic.controller:render',  'name' => 'b186120',  'pos' => '13',  '_format' => 'js',  '_route' => '_assetic_b186120_13',);
             }
 
+            // _assetic_b186120_14
+            if ($pathinfo === '/js/bootstrap_part_3_holder_1.js') {
+                return array (  '_controller' => 'assetic.controller:render',  'name' => 'b186120',  'pos' => '14',  '_format' => 'js',  '_route' => '_assetic_b186120_14',);
+            }
+
         }
 
         // _wdt
@@ -340,13 +345,31 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
         }
 
-        // lb_crew_racine
-        if (rtrim($pathinfo, '/') === '') {
-            if (substr($pathinfo, -1) !== '/') {
-                return $this->redirect($pathinfo.'/', 'lb_crew_racine');
+        if (0 === strpos($pathinfo, '/')) {
+            // lb_crew_racine
+            if (rtrim($pathinfo, '/') === '') {
+                if (substr($pathinfo, -1) !== '/') {
+                    return $this->redirect($pathinfo.'/', 'lb_crew_racine');
+                }
+
+                return array (  '_controller' => 'LBcrew\\SiteBundle\\Controller\\SiteController::indexAction',  '_route' => 'lb_crew_racine',);
             }
 
-            return array (  '_controller' => 'LBcrew\\SiteBundle\\Controller\\SiteController::indexAction',  '_route' => 'lb_crew_racine',);
+            // lb_crew_test
+            if ($pathinfo === '/test') {
+                return array (  '_controller' => 'LBcrew\\SiteBundle\\Controller\\SiteController::testAction',  '_route' => 'lb_crew_test',);
+            }
+
+            // lb_crew_test2
+            if ($pathinfo === '/test/test2') {
+                return array (  '_controller' => 'LBcrew\\SiteBundle\\Controller\\SiteController::testAction',  '_route' => 'lb_crew_test2',);
+            }
+
+            // lb_crew_test3
+            if ($pathinfo === '/test/test2/test3') {
+                return array (  '_controller' => 'LBcrew\\SiteBundle\\Controller\\SiteController::testAction',  '_route' => 'lb_crew_test3',);
+            }
+
         }
 
         if (0 === strpos($pathinfo, '/')) {
