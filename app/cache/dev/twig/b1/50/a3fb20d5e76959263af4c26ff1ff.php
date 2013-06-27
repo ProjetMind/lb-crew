@@ -21,7 +21,7 @@ class __TwigTemplate_b150a3fb20d5e76959263af4c26ff1ff extends Twig_Template
 
     <div class=\"media\">
         <a class=\"pull-left\" href=\"#\">
-            <img class=\"media-object\" data-src=\"holder.js/88x88/text:Pages\" src=\"/lb-crew/web/bundles/lbcrewsite/images/iconeavatar.png
+            <img class=\"media-object\" data-src=\"holder.js/88x88/text:Pages\" src=\"/lb-crew/web/bundles/lbcrewsite/images/iconeavatar.png\"/>
         </a>
         <div class=\"media-body\">
         <h1 class=\"media-heading\"><a href=\"#\" title=\"\">Pages</a></h1>
