@@ -37,7 +37,7 @@ class SiteController extends Controller
       $pages[] = $route['_route'];
     }
     
-   return $this->render("::layout.html.twig", $s = array('pages' => $pages));   
+   return $this->render("::layout.html.twig", $s = array('pages' => $this->get('router')->match('/test')));   
   }
   
   public function generateNavigationAction(){
